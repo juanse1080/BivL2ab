@@ -11,6 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+/* RUTAS DEL LOGIN*/
+Route::get('/', 'Login\LoginController')->name('home');
+Route::post('/login', 'Login\LoginController@authenticate')->name('login');
+Route::get('/logout', 'Login\LoginController@logout')->name('logout');

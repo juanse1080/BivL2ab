@@ -7,6 +7,7 @@
     <meta name="keywords" content="Bootstrap, Parallax, Template, Registration, Landing">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="author" content="Grayrids">
+    <meta id="csrf_token" name="csrf-token" content="{{ csrf_token() }}">
     <title>Biv2Lab</title>
 
     <!-- Bootstrap CSS -->
@@ -33,13 +34,13 @@
               <h2 class="section-title" style="font-size: 32px;">Login</h2>
               <hr class="lines">
             </div>
-            <form action="">
+            <form id="login" method="POST">
               <div class="container">
                 <div class="row">
                   <div class="col-12 mb-3">
                     <div class="form-group mb-2">
-                      <label for="user_name">Username:</label>
-                      <input type="text" class="form-control"  id="user_name" name="user_name">
+                      <label for="email">Email:</label>
+                      <input type="email" class="form-control"  id="email" name="email">
                     </div>
                   </div>
                   <div class="col-12 mb-3">
@@ -50,7 +51,7 @@
                   </div>
                 </div>
                 <div class="text-center mb-3">
-                  <a href="#" class="btn btn-common">Submit</a>
+                  <button type="submit" class="btn btn-common">Submit</a>
                 </div>
               </div>
             </form>
@@ -856,6 +857,31 @@
     <script src="js/form-validator.min.js"></script>
     <script src="js/contact-form-script.js"></script>   
     <script src="js/main.js"></script>
+    <script>
+      $('form').submit(function(e){
+        e.preventDefault()
+        const email = $('#email').val();
+        const password = $('#password').val();
+        $.ajax({
+          type: 'POST',
+          url: "{{route('login')}}",
+          data: {
+            _token:$('#csrf_token').attr('content'), 
+            email,
+            password
+          },
+          success: function(data) {
+            if(data.state){
+              location.pathname = '/home';
+            }
+          },
+          error: function(){
+            alert('Error');
+          }
+        }); 
+      });
+      
+    </script>
 
   </body>
 </html>
