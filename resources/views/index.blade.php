@@ -41,6 +41,7 @@
                     <div class="form-group mb-2">
                       <label for="email">Email:</label>
                       <input type="email" class="form-control"  id="email" name="email">
+                      <div id="email_error" class="invalid-feedback"></div>
                     </div>
                   </div>
                   <div class="col-12 mb-3">
@@ -873,6 +874,8 @@
           success: function(data) {
             if(data.state){
               location.pathname = '/home';
+            }else{
+              console.log(data);
             }
           },
           error: function(){

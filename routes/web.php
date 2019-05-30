@@ -15,4 +15,6 @@
 Route::get('/', 'Login\LoginController')->name('home');
 Route::post('/login', 'Login\LoginController@authenticate')->name('login');
 Route::get('/logout', 'Login\LoginController@logout')->name('logout');
+
+Route::resource('/account', 'UsrController');
 Route::resource('/courses', 'CourseController');
