@@ -15,6 +15,11 @@ class CreateProductionsTable extends Migration
     {
         Schema::create('productions', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('type', 10);
+            $table->string('title', 30);
+            $table->string('photo');
+            $table->text('abstract');
+            $table->string('pdf');
             $table->timestamps();
         });
     }

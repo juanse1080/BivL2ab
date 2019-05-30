@@ -15,7 +15,15 @@ class CreateResourcesTable extends Migration
     {
         Schema::create('resources', function (Blueprint $table) {
             $table->increments('id');
+            $table->text('code');
+            $table->text('introduction');
+            $table->unsignedInteger('fk_production');
             $table->timestamps();
+        });
+
+        Schema::create('dataset_resources', function (Blueprint $table) {
+            $table->unsignedInteger('fk_dataset');
+            $table->unsignedInteger('fk_production');
         });
     }
 
@@ -27,5 +35,6 @@ class CreateResourcesTable extends Migration
     public function down()
     {
         Schema::dropIfExists('resources');
+        Schema::dropIfExists('dataset_resources');
     }
 }
