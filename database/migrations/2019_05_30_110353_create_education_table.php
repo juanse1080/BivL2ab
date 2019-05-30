@@ -20,10 +20,10 @@ class CreateEducationTable extends Migration
             $table->date('start');
             $table->date('end');
             $table->unsignedInteger('fk_usr');
-            $table->foreign('fk_usr')
+            /* $table->foreign('fk_usr')
                 ->references('pk_usr')->on('usrs')
                 ->onDelete('cascade')
-                ->onUpdate('cascade');
+                ->onUpdate('cascade'); */
             $table->timestamps();
         });
     }

@@ -18,24 +18,20 @@ class CreateProductionsTable extends Migration
             $table->text('code');
             $table->text('introduction');
             $table->unsignedInteger('fk_production');
-            $table->foreign('fk_production')
-                ->references('pk_production')->on('productions')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
             $table->timestamps();
         });
 
         Schema::create('dataset_resources', function (Blueprint $table) {
             $table->unsignedInteger('pk_dataset');
             $table->unsignedInteger('pk_resource');
-            $table->foreign('pk_dataset')
+            /* $table->foreign('pk_dataset')
                 ->references('pk_dataset')->on('datasets')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
             $table->foreign('pk_resource')
                 ->references('pk_resource')->on('resources')
                 ->onDelete('cascade')
-                ->onUpdate('cascade');
+                ->onUpdate('cascade'); */
         });
 
     }
