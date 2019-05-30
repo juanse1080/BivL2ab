@@ -24,14 +24,14 @@ class CreateProductionsTable extends Migration
         Schema::create('dataset_resources', function (Blueprint $table) {
             $table->unsignedInteger('pk_dataset');
             $table->unsignedInteger('pk_resource');
-            /* $table->foreign('pk_dataset')
+            $table->foreign('pk_dataset')
                 ->references('pk_dataset')->on('datasets')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
             $table->foreign('pk_resource')
                 ->references('pk_resource')->on('resources')
                 ->onDelete('cascade')
-                ->onUpdate('cascade'); */
+                ->onUpdate('cascade');
         });
 
     }
