@@ -13,25 +13,14 @@ class CreateResourcesTable extends Migration
      */
     public function up()
     {
-        Schema::create('resources', function (Blueprint $table) {
-            $table->increments('pk_resource');
-            $table->text('code');
-            $table->text('introduction');
-            $table->unsignedInteger('fk_production');
+        Schema::create('productions', function (Blueprint $table) {
+            $table->increments('pk_prodution');
+            $table->string('type', 10);
+            $table->string('title', 30);
+            $table->string('photo');
+            $table->text('abstract');
+            $table->string('pdf');
             $table->timestamps();
-        });
-
-        Schema::create('dataset_resources', function (Blueprint $table) {
-            $table->unsignedInteger('pk_dataset');
-            $table->unsignedInteger('pk_production');
-            $table->foreign('pk_dataset')
-                ->references('pk_dataset')->on('datasets')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
-            $table->foreign('pk_production')
-                ->references('pk_production')->on('productions')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
         });
     }
 
@@ -42,7 +31,6 @@ class CreateResourcesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('resources');
-        Schema::dropIfExists('dataset_resources');
+        Schema::dropIfExists('productions');
     }
 }

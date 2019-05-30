@@ -13,11 +13,12 @@ class CreateUsrsTable extends Migration
             $table->string('first_name', 30);
             $table->string('last_name', 30);
             $table->date('birthdate');
-            $table->string('email', 80)->unique();
+            $table->string('email')->unique();
             $table->string('password');
             $table->string('role', 20);
             $table->string('photo');
             $table->text('biography');
+            $table->rememberToken();
             $table->timestamps();
         });
     }

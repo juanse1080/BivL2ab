@@ -13,15 +13,31 @@ class CreateProductionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('productions', function (Blueprint $table) {
-            $table->increments('pk_prodution');
-            $table->string('type', 10);
-            $table->string('title', 30);
-            $table->string('photo');
-            $table->text('abstract');
-            $table->string('pdf');
+        Schema::create('resources', function (Blueprint $table) {
+            $table->increments('pk_resource');
+            $table->text('code');
+            $table->text('introduction');
+            $table->unsignedInteger('fk_production');
+            $table->foreign('fk_production')
+                ->references('pk_production')->on('productions')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->timestamps();
         });
+
+        Schema::create('dataset_resources', function (Blueprint $table) {
+            $table->unsignedInteger('pk_dataset');
+            $table->unsignedInteger('pk_resource');
+            $table->foreign('pk_dataset')
+                ->references('pk_dataset')->on('datasets')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+            $table->foreign('pk_resource')
+                ->references('pk_resource')->on('resources')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+        });
+
     }
 
     /**
@@ -31,6 +47,7 @@ class CreateProductionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('productions');
+        Schema::dropIfExists('resources');
+        Schema::dropIfExists('dataset_resources');
     }
 }

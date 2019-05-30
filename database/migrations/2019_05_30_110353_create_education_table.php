@@ -19,9 +19,8 @@ class CreateEducationTable extends Migration
             $table->text('title');
             $table->date('start');
             $table->date('end');
-            $table->text('title');
-            $table->unsignedInteger('fk_line');
-            $table->foreign('pk_usr')
+            $table->unsignedInteger('fk_usr');
+            $table->foreign('fk_usr')
                 ->references('pk_usr')->on('usrs')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
