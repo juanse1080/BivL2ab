@@ -9,7 +9,7 @@ class CreateDatasetsTable extends Migration
     public function up()
     {
         Schema::create('datasets', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('pk_dataset');
             $table->string('name', 50);
             $table->text('description');
             $table->string('photo');

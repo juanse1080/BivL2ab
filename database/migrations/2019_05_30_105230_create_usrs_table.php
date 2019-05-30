@@ -9,9 +9,10 @@ class CreateUsrsTable extends Migration
     public function up()
     {
         Schema::create('usrs', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('pk_usr');
             $table->string('first_name', 30);
             $table->string('last_name', 30);
+            $table->date('birthdate');
             $table->string('email', 80)->unique();
             $table->string('password');
             $table->string('role', 20);
