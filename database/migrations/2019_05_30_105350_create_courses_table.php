@@ -17,6 +17,7 @@ class CreateCoursesTable extends Migration
             $table->increments('pk_course');
             $table->string('name', 30)->unique();
             $table->text('description');
+            $table->text('url');
             $table->timestamps();
         });
     }
