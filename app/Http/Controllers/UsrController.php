@@ -39,7 +39,6 @@ class UsrController extends Controller
 
     public function show($pk_usr){
         $usr = Usr::find($pk_usr);
-<<<<<<< HEAD
         $pill = [
             'badge-primary',
             'badge-secondary',
@@ -50,11 +49,9 @@ class UsrController extends Controller
             'badge-light',
             'badge-dark',
         ];
-=======
         // find($pk): pk el id del Modelo que se esta buscando (Production)
         // attach(pk_i): pk_i es la pk del modelo que se quiere enlazar
         dd(Production::find(4)->datasets);
->>>>>>> ef74e9c7b37dbbaed47a9773444fca036221f77b
         if(!empty($usr)){
             return view("usrs.profile", ['usr' => $usr, 'pill' => $pill]);
         } else {
