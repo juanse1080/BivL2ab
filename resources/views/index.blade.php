@@ -152,6 +152,26 @@
     </header>
     <!-- Header Section End --> 
 
+    <!-- Start Video promo Section -->
+    <section class="video-promo section">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+              <div class="video-promo-content text-center">
+                <h2 class="wow zoomIn" data-wow-duration="1000ms" data-wow-delay="100ms">Biomedical Imaging, Vision and Learning Laboratory</h2>
+                <p style="font-size:10rem" class="wow zoomIn" data-wow-duration="1000ms" data-wow-delay="100ms">
+                  BivLab is mainly dedicated to solve problems related with visual information, covering from the acquisition and 
+                  analysis of medical images to the understanding of complex spatio-temporal patterns in the general context of 
+                  computer vision. Such problems are tipically highly variant and challenging, being hence, the proposal of learning strategies fundamental to 
+                  stand out significant behaviors from observed data, and to model prior expert knowledge in robust representations.
+                </p>
+              </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Video Promo Section -->
+
     <!-- section news -->
     <div id="news" class="section" data-stellar-background-ratio="0.1">
       <div class="container">
@@ -178,223 +198,8 @@
         </div>        
       </div>
     </div>
-    <!-- section end news -->
 
-    <!-- Services Section Start -->
-    <!-- <section id="services" class="section">
-      <div class="container">
-        <div class="section-header">          
-          <h2 class="section-title wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">Our Services</h2>
-          <hr class="lines wow zoomIn" data-wow-delay="0.3s">
-          <p class="section-subtitle wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, dignissimos! <br> Lorem ipsum dolor sit amet, consectetur.</p>
-        </div>
-        <div class="row">
-          <div class="col-md-4 col-sm-6">
-            <div class="item-boxes wow fadeInDown" data-wow-delay="0.2s">
-              <div class="icon">
-                <i class="lnr lnr-pencil"></i>
-              </div>
-              <h4>Content Writing</h4>
-              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut.</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6">
-            <div class="item-boxes wow fadeInDown" data-wow-delay="0.8s">
-              <div class="icon">
-                <i class="lnr lnr-code"></i>
-              </div>
-              <h4>Web Development</h4>
-              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut.</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6">
-            <div class="item-boxes wow fadeInDown" data-wow-delay="1.2s">
-              <div class="icon">
-                <i class="lnr lnr-mustache"></i>
-              </div>
-              <h4>Business Consultancy</h4>
-              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> -->
-    <!-- Services Section End -->
-
-    <!-- Features Section Start -->
-    <section id="features" class="section" data-stellar-background-ratio="0.2">
-      <div class="container">
-        <div class="section-header">          
-          <h2 class="section-title">Some Features</h2>
-          <hr class="lines">
-          <p class="section-subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, dignissimos! <br> Lorem ipsum dolor sit amet, consectetur.</p>
-        </div>
-        <div class="row">
-          <div class="col-lg-8 col-md-12 col-xs-12">
-            <div class="container">
-              <div class="row">
-                 <div class="col-lg-6 col-sm-6 col-xs-12 box-item">
-                    <span class="icon">
-                      <i class="lnr lnr-rocket"></i>
-                    </span>
-                    <div class="text">
-                      <h4>Bootstrap 4 Based</h4>
-                      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                    </div>
-                  </div>
-                  <div class="col-lg-6 col-sm-6 col-xs-12 box-item">
-                    <span class="icon">
-                      <i class="lnr lnr-laptop-phone"></i>
-                    </span>
-                    <div class="text">
-                      <h4>Fully Responsive</h4>
-                      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                    </div>
-                  </div>
-                  <div class="col-lg-6 col-sm-6 col-xs-12 box-item">
-                    <span class="icon">
-                      <i class="lnr lnr-layers"></i>
-                    </span>
-                    <div class="text">
-                      <h4>Parallax Background</h4>
-                      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
-                    </div>
-                  </div>
-                  <div class="col-lg-6 col-sm-6 col-xs-12 box-item">
-                    <span class="icon">
-                      <i class="lnr lnr-cog"></i>
-                    </span>
-                    <div class="text">
-                      <h4>Easy to Customize</h4>
-                      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
-                    </div>
-                  </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-xs-12">
-            <div class="show-box">
-              <img class="img-fulid" src="img/features/feature.png" alt="">
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Features Section End -->    
-
-    <!-- Portfolio Section -->
-    <section id="portfolios" class="section">
-      <!-- Container Starts -->
-      <div class="container">
-        <div class="section-header">          
-          <h2 class="section-title">Our Portfolio</h2>
-          <hr class="lines">
-          <p class="section-subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, dignissimos! <br> Lorem ipsum dolor sit amet, consectetur.</p>
-        </div>
-        <div class="row">          
-          <div class="col-md-12">
-            <!-- Portfolio Controller/Buttons -->
-            <div class="controls text-center">
-              <a class="filter active btn btn-common" data-filter="all">
-                All 
-              </a>
-              <a class="filter btn btn-common" data-filter=".design">
-                Design 
-              </a>
-              <a class="filter btn btn-common" data-filter=".development">
-                Development
-              </a>
-              <a class="filter btn btn-common" data-filter=".print">
-                Print 
-              </a>
-            </div>
-            <!-- Portfolio Controller/Buttons Ends-->
-          </div>
-
-          <!-- Portfolio Recent Projects -->
-          <div id="portfolio" class="row">
-            <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mix development print">
-              <div class="portfolio-item">
-                <div class="shot-item">
-                  <img src="img/portfolio/img1.jpg" alt="" />  
-                  <a class="overlay lightbox" href="img/portfolio/img1.jpg">
-                    <i class="lnr lnr-eye item-icon"></i>
-                  </a>
-                </div>               
-              </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mix design print">
-              <div class="portfolio-item">
-                <div class="shot-item">
-                  <img src="img/portfolio/img2.jpg" alt="" />  
-                  <a class="overlay lightbox" href="img/portfolio/img2.jpg">
-                    <i class="lnr lnr-eye item-icon"></i>
-                  </a>
-                </div>               
-              </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mix development">
-              <div class="portfolio-item">
-                <div class="shot-item">
-                  <img src="img/portfolio/img3.jpg" alt="" />  
-                  <a class="overlay lightbox" href="img/portfolio/img3.jpg">
-                    <i class="lnr lnr-eye item-icon"></i>
-                  </a>
-                </div>               
-              </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mix development design">
-              <div class="portfolio-item">
-                <div class="shot-item">
-                  <img src="img/portfolio/img4.jpg" alt="" />  
-                  <a class="overlay lightbox" href="img/portfolio/img4.jpg">
-                    <i class="lnr lnr-eye item-icon"></i>
-                  </a>
-                </div>               
-              </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mix development">
-              <div class="portfolio-item">
-                <div class="shot-item">
-                  <img src="img/portfolio/img5.jpg" alt="" />  
-                  <a class="overlay lightbox" href="img/portfolio/img5.jpg">
-                    <i class="lnr lnr-eye item-icon"></i>
-                  </a>
-                </div>               
-              </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mix print design">
-              <div class="portfolio-item">
-                <div class="shot-item">
-                  <img src="img/portfolio/img6.jpg" alt="" />  
-                  <a class="overlay lightbox" href="img/portfolio/img6.jpg">
-                    <i class="lnr lnr-eye item-icon"></i>
-                  </a>
-                </div>               
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Container Ends -->
-    </section>
-    <!-- Portfolio Section Ends --> 
-
-    <!-- Start Video promo Section -->
-    <section class="video-promo section">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-8">
-              <div class="video-promo-content text-center">
-                <h2 class="wow zoomIn" data-wow-duration="1000ms" data-wow-delay="100ms">Watch Our Intro video</h2>
-                <p class="wow zoomIn" data-wow-duration="1000ms" data-wow-delay="100ms">Aliquam vestibulum cursus felis. In iaculis iaculis sapien ac condimentum. Vestibulum congue posuere lacus, id tincidunt nisi porta sit amet. Suspendisse et sapien varius, pellentesque dui non, semper orci.</p>
-                <a href="https://www.youtube.com/watch?v=IXoMDwh4Cq8" class="video-popup wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="0.3s"><i class="lnr lnr-film-play"></i></a>
-              </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- End Video Promo Section -->
+    
 
     <!-- Start Pricing Table Section -->
     <div id="pricing" class="section pricing-section">
@@ -527,6 +332,25 @@
           <p class="section-subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, dignissimos! <br> Lorem ipsum dolor sit amet, consectetur.</p>
         </div>
         <div class="row">
+          @foreach($usrs as $usr)
+            <div class="col-lg-3 col-md-6 col-xs-12">
+              <div class="single-team">
+                <img src="img/team/team1.jpg" alt="">
+                <div class="team-details">
+                  <div class="team-inner">
+                    <h4 class="team-title">{{$usr->first_name}} {{$usr->last_name}}</h4>
+                    <p>Chief Technical Officer</p>
+                    <ul class="social-list">
+                      <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                      <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                      <li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                      <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          @endforeach
           <div class="col-lg-3 col-md-6 col-xs-12">
             <div class="single-team">
               <img src="img/team/team1.jpg" alt="">
