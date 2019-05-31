@@ -16,11 +16,7 @@ class CreateUsrsTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('role', 20);
-<<<<<<< HEAD
-            $table->string('photo')->default('storage/default.png');
-=======
             $table->string('photo')->default('storage/usrs/default.png');
->>>>>>> 7b84171b1548504e01ffb815ec53a6503845b166
             $table->text('biography')->nullable();
             $table->rememberToken();
             $table->timestamps();
