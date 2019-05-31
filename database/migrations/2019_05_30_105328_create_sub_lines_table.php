@@ -15,7 +15,7 @@ class CreateSubLinesTable extends Migration
     {
         Schema::create('lines', function (Blueprint $table) {
             $table->increments('pk_line');
-            $table->string('name', 30)->unique();
+            $table->string('name', 100)->unique();
             $table->text('description');
             $table->timestamps();
         });

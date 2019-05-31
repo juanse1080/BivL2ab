@@ -10,9 +10,9 @@ use App\Http\Requests\DatasetUpdateValidator;
 
 class DatasetController extends Controller
 {
-    // public function __construct() {
-    //     $this->middleware('admin:0')->except(['index']);
-    // }
+    public function __construct() {
+        $this->middleware('admin:0')->except(['index']);
+    }
 
     public function index() {
         $datasets = Dataset::orderBy('name', 'ASC')->get();
@@ -77,7 +77,7 @@ class DatasetController extends Controller
             return view("datasets.viewDataset", compact('dataset'));
         } else {
             $mensaje = 'Could not find the dataset';
-            return back()->with('error', $mensaje);
+            return back()->withErrors('mensaje', $mensaje);
         }
     }
 }

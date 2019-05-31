@@ -19,3 +19,4 @@ Route::get('/logout', 'Login\LoginController@logout')->name('logout');
 Route::resource('/account', 'UsrController');
 Route::resource('/courses', 'CourseController');
 Route::resource('/datasets', 'DatasetController');
+Route::resource('/lines', 'LineController');

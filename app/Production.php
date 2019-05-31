@@ -13,4 +13,8 @@ class Production extends Model
     public function resources(){
         return $this->hasMany('App\Resource', 'fk_production', 'pk_production');
     }
+
+    public function sublines(){
+        return $this->belongsToMany('App\SubLine');
+    }
 }

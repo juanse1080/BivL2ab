@@ -1,10 +1,10 @@
-{{-- @if ($error)
+@if ($errors->has('message'))
     <div class="alert alert-danger">
         <ul>
-            <li>{{ $error }}</li>
+            <li>{{ $error->message }}</li>
         </ul>
     </div>
-@endif --}}
+@endif
 
 {{$dataset->pk_dataset}},
 {{$dataset->name}},
