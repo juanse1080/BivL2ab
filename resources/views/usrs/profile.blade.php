@@ -27,7 +27,7 @@
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 mb-3">
             <div class="card mb-2">
-                <img src="{{$usr->photo}}" class="card-img-top" alt="{{$usr->first_name}}">
+                <img src="{{asset($usr->photo)}}" class="card-img-top" alt="{{$usr->first_name}}">
             </div>
             <span class="mb-2 mt-2 text-muted">Biography: </span>
             <div class="card">

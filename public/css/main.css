@@ -975,6 +975,16 @@ button:focus {
   color: #fff;
   overflow: hidden;
   position: relative;
+  filter:brightness(0.8);
+}
+
+#productions {
+  background: url(../img/testimonial-bg.jpg) fixed no-repeat;
+  background-size: cover;
+  color: #fff;
+  overflow: hidden;
+  position: relative;
+  filter:brightness(0.8);
 }
 
 .testimonial-item {

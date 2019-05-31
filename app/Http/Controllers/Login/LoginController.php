@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Auth;
 use Mail;
 use App\Mail\ContactMail;
 use App\News;
+use App\Usr;
+use App\Production;
 
 class LoginController extends Controller{
 
@@ -18,7 +20,21 @@ class LoginController extends Controller{
     }
     
     public function __invoke(){
-        return view('index', ['news' => News::all()]);
+        return view('index', [
+            'news' => News::all(), 
+            'usrs' => Usr::all(), 
+            'pills' => $pill = [
+                'badge-primary',
+                'badge-secondary',
+                'badge-success',
+                'badge-danger',
+                'badge-warning',
+                'badge-info',
+                'badge-light',
+                'badge-dark',
+            ],
+            'productions' => Production::all(),
+        ]);
     }
 
     public function authenticate(LoginRequest $request){
