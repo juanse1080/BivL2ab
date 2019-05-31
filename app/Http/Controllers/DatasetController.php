@@ -52,17 +52,17 @@ class DatasetController extends Controller
     }
 
     // update dataset
-    public function update(DatasetValidator $request, $pk_dataset) {
+    public function update(DatasetUpdateValidator $request, $pk_dataset) {
         $validated = $request->all();
         $dataset = Dataset::findOrFail($pk_dataset)->fill($validated);
 
         if ($request->hasFile('photo')) {
             $name = strtolower(str_replace(' ', '_', $request->name));
-            $dataset->photo = UtilsController::subirArchivo($request, $name, 'photo', 'dataset');
+            $dataset->photo = UtilsController::subirArchivo($request, $name, 'photo', 'datasets');
         }
         if ($dataset->save()) {
-            $mensaje = $dataset->name.' has been succesfully saved';
-            return redirect(route('empleados.show', $empleado->cedula))->with('true', $mensaje);
+            $mensaje = $dataset->name.' has been succesfully updated';
+            return redirect(route('datasets.show', $dataset->pk_dataset))->with('true', $mensaje);
         } else {
             return back()->withInput()->with('false', 'Algo no salio bien, intente nuevamente');
         }

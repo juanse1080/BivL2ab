@@ -22,3 +22,4 @@ Route::resource('/account', 'UsrController');
 Route::resource('/courses', 'CourseController');
 Route::resource('/datasets', 'DatasetController');
 Route::resource('/lines', 'LineController');
+Route::resource('/news', 'NewController');
