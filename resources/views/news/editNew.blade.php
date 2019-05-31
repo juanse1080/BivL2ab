@@ -2,7 +2,7 @@
 @section('content')
 @section('titulo','Edit new')
 <div class="container">
-    <h5 class="text-muted mb-3">Create course:</h5>
+    <h5 class="text-muted mb-3">Edit new:</h5>
     <form enctype="multipart/form-data" method="POST" action="{{ route('news.update', $new->pk_new) }}">
         @csrf
         @method('PUT')

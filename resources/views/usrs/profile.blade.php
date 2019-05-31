@@ -27,7 +27,7 @@
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 mb-3">
             <div class="card mb-2">
-                <img src="https://scontent.fbga3-1.fna.fbcdn.net/v/t1.0-9/51043306_2306385492707738_7350515233485488128_n.jpg?_nc_cat=107&_nc_ht=scontent.fbga3-1.fna&oh=fdbcfe08b486be8b5bd16a85445a9e14&oe=5D8C7C3D" class="card-img-top" alt="...">
+                <img src="{{$usr->photo}}" class="card-img-top" alt="{{$usr->first_name}}">
             </div>
             <span class="mb-2 mt-2 text-muted">Biography: </span>
             <div class="card">

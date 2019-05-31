@@ -169,7 +169,7 @@
                   <div class="card-body">
                     <h6 class="card-title" style="font-size: 18px;font-weight: 700;">{{$new->title}}</h6>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="" class="btn-rm ">Show <i class="lnr lnr-arrow-right"></i></a>
+                    <a href="{{route('news.show', $new->pk_new)}}" class="btn-rm ">Show <i class="lnr lnr-arrow-right"></i></a>
                   </div>
                 </div>
               @endforeach

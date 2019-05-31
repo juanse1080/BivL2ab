@@ -2,7 +2,7 @@
 @section('content')
 @section('titulo','Create new')
 <div class="container">
-    <h5 class="text-muted mb-3">Create course:</h5>
+    <h5 class="text-muted mb-3">Create new:</h5>
     <form enctype="multipart/form-data" action="/news" method="POST">
         @csrf
         <div class="row">
