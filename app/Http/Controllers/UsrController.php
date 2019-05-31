@@ -5,11 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Usr;
+use App\Education;
+use App\Resource;
+use App\Dataset;
 
 class UsrController extends Controller
 {
     public function __construct() {
-        $this->middleware('admin:0')->except(['index']);
+        $this->middleware('admin:0,1,2')->only(['show', 'index', 'edit', 'update']);
+        $this->middleware('admin:0')->except(['show', 'index', 'edit', 'update']);
     }
     public function index() {
         $courses = Usr::orderBy('name', 'ASC')->get();
@@ -35,7 +39,7 @@ class UsrController extends Controller
     public function show($pk_usr){
         $usr = Usr::find($pk_usr);
         if(!empty($usr)){
-            return view("usrs.profile", ['empleado' => $usr]);
+            return view("usrs.profile", ['usr' => $usr]);
         } else {
             $mensaje = 'No user found.';
             return back()->with('false', $mensaje);

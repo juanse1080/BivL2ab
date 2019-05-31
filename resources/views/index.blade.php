@@ -48,6 +48,7 @@
                     <div class="form-group">
                       <label for="password">Password:</label>
                       <input type="password" class="form-control"  id="password" name="password">
+                      <div id="password_error" class="invalid-feedback"></div>
                     </div>
                   </div>
                 </div>
@@ -872,14 +873,20 @@
             password
           },
           success: function(data) {
+            console.log(data);
             if(data.state){
               location.pathname = '/home';
             }else{
-              console.log(data);
+              $('#email').addClass('is-invalid')
+              $('#password').addClass('is-invalid')
+              $('#password_error').html(data.msg);
+              $('#email_error').html(data.msg);
             }
           },
           error: function(){
-            alert('Error');
+            $('#email').addClass('is-invalid')
+            $('#password').addClass('is-invalid')
+            $('#password').html('Something went wrong. Try again.');
           }
         }); 
       });

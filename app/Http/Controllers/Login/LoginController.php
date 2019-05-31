@@ -24,7 +24,7 @@ class LoginController extends Controller{
         if ($request->ajax()) {
             $auth = Auth::attempt(['email' => $request->email, 'password' => $request->password]);
             if($auth){
-                session(['user'=> Auth::user()->session(),'role' => Auth::user()->role]);
+                session(['usr'=> Auth::user()->session(),'role' => Auth::user()->role]);
                 return response()->json([
                     'state' => true,
                     'msg' => null,

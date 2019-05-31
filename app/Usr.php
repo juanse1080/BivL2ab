@@ -17,4 +17,8 @@ class Usr extends Authenticatable
     public function projects(){
         return $this->belongsToMany('App\Project');
     }
+
+    public function education(){
+        return $this->hasMany('App\Education', 'fk_usr', 'pk_usr');
+    }
 }

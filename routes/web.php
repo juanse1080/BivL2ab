@@ -15,7 +15,9 @@
 Route::get('/', 'Login\LoginController')->name('home');
 Route::post('/login', 'Login\LoginController@authenticate')->name('login');
 Route::get('/logout', 'Login\LoginController@logout')->name('logout');
-
+Route::get('/home', function () {
+    return redirect('/account/'.session('usr')['pk_usr'].'/');
+})->name('home');
 Route::resource('/account', 'UsrController');
 Route::resource('/courses', 'CourseController');
 Route::resource('/datasets', 'DatasetController');

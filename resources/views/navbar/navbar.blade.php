@@ -22,7 +22,7 @@
         <!-- <script type="text/javascript" src="{{ asset('js/ajax.js') }}"></script> -->
         <meta id="csrf_token" name="csrf-token" content="{{ csrf_token() }}">
     </head>
-    <body>
+    <body style="background:#f0f0f0c7">
         <!-- precarga  de la pagina -->
         @include('precarga.precarga')
         <div id="ver">
@@ -35,7 +35,7 @@
             @include('error.alert')
 
             {{-- contenido de la pagina --}}
-            
+
             @section('content')
             @show
         </div>
