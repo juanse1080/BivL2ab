@@ -39,6 +39,8 @@ class UsrController extends Controller
 
     public function show($pk_usr){
         $usr = Usr::find($pk_usr);
+        // find($pk): pk el id del Modelo que se esta buscando (Production)
+        // attach(pk_i): pk_i es la pk del modelo que se quiere enlazar
         dd(Production::find(4)->datasets);
         if(!empty($usr)){
             return view("usrs.profile", ['usr' => $usr]);
