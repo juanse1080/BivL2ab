@@ -9,22 +9,20 @@
     </div>
 @endif
 
-<form enctype="multipart/form-data" method="POST" action="{{ route('datasets.update',$dataset->pk_dataset) }}">
+<form enctype="multipart/form-data" method="POST" action="{{ route('news.update', $new->pk_new) }}">
     @csrf
     <input name="_method" type="hidden" value="PATCH">
+    {{-- @method('PUT') --}}
 
-    <label for="name"><strong><small style="color : #616161">Name</small></strong></label>
-    <input type="text" class="form-control form-control-sm" name="name" id="name" value="{{$dataset->name}}">
+    <label for="title"><strong><small style="color : #616161">Name</small></strong></label>
+    <input type="text" class="form-control form-control-sm" name="title" id="title" value="{{$new->title}}">
 
     <label for="description"><strong><small style="color : #616161">Description</small></strong></label>
-    <textarea name="description" placeholder="Course description here..">{{$dataset->description}}</textarea>
+    <textarea name="description" placeholder="Course description here..">{{$new->description}}</textarea>
 
-    <img src="{{$dataset->photo}}" alt="{{$dataset->name}}">
+    <img src="{{$new->photo}}" alt="{{$new->title}}">
     <input type="file" name="photo" class="custom-file-input form-group" id="customFileLang" lang="en">
     <label id="photo" class="custom-file-label" for="customFileLang">Upload a photo</label>
-
-    <label for="url"><strong><small style="color : #616161">URL</small></strong></label>
-    <input type="text" class="form-control form-control-sm" name="url" id="url" value="{{$dataset->url}}">
     
     <input type="submit" name="action" value="Update" class=" btn btn-info btn-block rounded-0 py-2 " style="background-color: #17a2b8 !important; border-color: #17a2b8 !important;">
 
