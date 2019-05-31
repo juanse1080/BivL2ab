@@ -38,8 +38,18 @@ class UsrController extends Controller
 
     public function show($pk_usr){
         $usr = Usr::find($pk_usr);
+        $pill = [
+            'badge-primary',
+            'badge-secondary',
+            'badge-success',
+            'badge-danger',
+            'badge-warning',
+            'badge-info',
+            'badge-light',
+            'badge-dark',
+        ];
         if(!empty($usr)){
-            return view("usrs.profile", ['usr' => $usr]);
+            return view("usrs.profile", ['usr' => $usr, 'pill' => $pill]);
         } else {
             $mensaje = 'No user found.';
             return back()->with('false', $mensaje);

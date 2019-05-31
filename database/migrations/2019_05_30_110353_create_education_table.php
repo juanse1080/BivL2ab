@@ -15,8 +15,9 @@ class CreateEducationTable extends Migration
     {
         Schema::create('education', function (Blueprint $table) {
             $table->increments('pk_education');
-            $table->text('university');
+            $table->text('school');
             $table->text('title');
+            $table->text('type');
             $table->date('start');
             $table->date('end');
             $table->unsignedInteger('fk_usr');

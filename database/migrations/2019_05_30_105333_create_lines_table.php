@@ -37,14 +37,14 @@ class CreateLinesTable extends Migration
         Schema::create('production_sublines', function (Blueprint $table) {
             $table->unsignedInteger('pk_production');
             $table->unsignedInteger('pk_subline');
-            /* $table->foreign('pk_production')
+            $table->foreign('pk_production')
                 ->references('pk_production')->on('productions')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
             $table->foreign('pk_subline')
                 ->references('pk_subline')->on('sublines')
                 ->onDelete('cascade')
-                ->onUpdate('cascade'); */
+                ->onUpdate('cascade');
         });
         
     }

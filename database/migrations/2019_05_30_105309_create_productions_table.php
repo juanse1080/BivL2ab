@@ -13,7 +13,7 @@ class CreateProductionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('resources', function (Blueprint $table) {
+        /* Schema::create('resources', function (Blueprint $table) {
             $table->increments('pk_resource');
             $table->text('code');
             $table->text('introduction');
@@ -32,7 +32,7 @@ class CreateProductionsTable extends Migration
                 ->references('pk_resource')->on('resources')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-        });
+        }); */
 
     }
 
@@ -43,7 +43,7 @@ class CreateProductionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('resources');
-        Schema::dropIfExists('dataset_resources');
+       /*  Schema::dropIfExists('resources');
+        Schema::dropIfExists('dataset_resources'); */
     }
 }

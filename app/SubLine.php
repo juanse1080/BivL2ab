@@ -10,11 +10,11 @@ class SubLine extends Model
     protected $table = 'sublines';
     protected $fillable = ['pk_subline','name', 'description', 'fk_line'];
 
-    public function productions(){
-        return $this->hasMany('App\Production', 'fk_subline', 'pk_subline');
+    public function projects(){
+        return $this->hasMany('App\Project', 'project_sublines', 'pk_project', 'pk_subline');
     }
 
-    public function projects(){
-        return $this->belongsToMany('App\Project');
+    public function productions(){
+        return $this->belongsToMany('App\Production', 'production_sublines', 'pk_production', 'pk_subline');
     }
 }

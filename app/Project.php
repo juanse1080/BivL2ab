@@ -11,10 +11,10 @@ class Project extends Model
     protected $fillable = ['pk_project','type', 'title', 'photo', 'summary'];
 
     public function users(){
-        return $this->belongsToMany('App\Usr');
+        return $this->belongsToMany('App\Usr', 'project_usr', 'pk_project',	'pk_usr');
     }
 
     public function sublines(){
-        return $this->belongsToMany('App\SubLine');
+        return $this->belongsToMany('App\SubLine', 'project_sublines', 'pk_project', 'pk_subline');
     }
 }
