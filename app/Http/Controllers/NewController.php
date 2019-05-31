@@ -26,7 +26,6 @@ class NewController extends Controller
 
     // Save new
     public function store(Request $request) {
-        dd($request->all());
         $validated = $request->all();
         $new = (new News)->fill($validated);
 

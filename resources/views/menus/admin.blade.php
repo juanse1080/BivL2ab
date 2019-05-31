@@ -13,11 +13,11 @@
             <ul class="list-unstyled components">
                 {{--  INICIO  --}}
 				<li @if (Request::path()=="empleados/".session('user')['cedula']) class="active" @endif >
-					<a class="nav-link " href="{{ url('empleados/principal') }}"> <i class="fas fa-home"></i> Inicio</a>
+					<a class="nav-link " href="/"> <i class="fas fa-home"></i> Home</a>
                 </li>
                 {{--  HORARIOS  --}}
 				<li @if (Request::path()=="horarios") class="active" @endif >
-					<a class="nav-link " href="{{ url('/horarios') }}"> <i class="far fa-calendar-alt"></i> Horarios</a>
+					<a class="nav-link " href="{{ url('/news') }}"> <i class="far fa-calendar-alt"></i> News</a>
                 </li>
                 {{--  CURSOS  --}}
 				<li @if (Request::path()=="estudiantes") class="active" @endif >
@@ -99,7 +99,7 @@
                 </li>
                 {{--  SALIR  --}}
 				<li class="nav-item">
-					<a class="nav-link" href="{{ url('/logout') }}"> <i class="fas fa-sign-out-alt"></i> Salir </a>
+					<a class="nav-link" href="{{ url('/logout') }}"> <i class="fas fa-sign-out-alt"></i> Log out </a>
 				</li>
 
             </ul>
@@ -128,7 +128,7 @@
                                 </a>
                             </li>
 							<li class="nav-item active">
-								<a class="nav-link" href="{{ url('/logout') }}"> <i class="fas fa-sign-out-alt"></i> Salir </a>
+								<a class="nav-link" href="{{ url('/logout') }}"> <i class="fas fa-sign-out-alt"></i> Log out </a>
 							</li>
                         </ul>
                     </div>

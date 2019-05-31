@@ -10,7 +10,7 @@
         <link type="text/css" rel="stylesheet" href="{{ asset('css/menus.css') }}"  media="screen,projection"/>
         <link type="text/css" rel="stylesheet" href="{{ asset('css/precarga.css') }}"  media="screen,projection"/>
         <!-- Definiendo el titulo de la pagina -->
-        <title>ColCIEF - @yield('titulo')</title>
+        <title>@yield('titulo')</title>
         <!--Let browser know website is optimized for mobile-->
         <!--JavaScript at end of body forr optimized loading-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
