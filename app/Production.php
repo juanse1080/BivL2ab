@@ -15,10 +15,6 @@ class Production extends Model
         return $this->belongsToMany('App\SubLine');
     }
 
-    // public function datasets(){
-    //     return $this->hasMany('App\Dataset', "fk_production", "pk_production");
-    // }
-
     public function datasets(){
         return $this->belongsToMany('App\Dataset', "production_datasets", "pk_production", "pk_dataset");
     }
