@@ -14,6 +14,8 @@ class DatabaseSeeder extends Seeder
         $this->call(UsrSeeder::class);
         $this->call(LineSeeder::class);
         $this->call(SubLineSeeder::class);
-        $this->call(NewSeeder::class);
+        $this->call(ProjectSeeder::class);
+        $this->call(ProductionSeeder::class);
+        // $this->call(ProductionProductionSeeder::class);
     }
 }
