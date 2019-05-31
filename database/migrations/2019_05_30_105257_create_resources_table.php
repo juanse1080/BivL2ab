@@ -15,8 +15,8 @@ class CreateResourcesTable extends Migration
     {
         Schema::create('productions', function (Blueprint $table) {
             $table->increments('pk_production');
-            $table->string('type', 10);
-            $table->string('title', 30);
+            $table->string('type');
+            $table->text('title');
             $table->string('photo');
             $table->string('code');
             $table->text('abstract');
@@ -24,11 +24,24 @@ class CreateResourcesTable extends Migration
             $table->timestamps();
         });
 
-        Schema::create('production_datasets', function (Blueprint $table) {
+        Schema::create('production_dataset', function (Blueprint $table) {
             $table->unsignedInteger('pk_dataset');
             $table->unsignedInteger('pk_production');
             $table->foreign('pk_dataset')
                 ->references('pk_dataset')->on('datasets')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+            $table->foreign('pk_production')
+                ->references('pk_production')->on('productions')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+        });
+
+        Schema::create('production_usr', function (Blueprint $table) {
+            $table->unsignedInteger('pk_usr');
+            $table->unsignedInteger('pk_production');
+            $table->foreign('pk_usr')
+                ->references('pk_usr')->on('usrs')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
             $table->foreign('pk_production')

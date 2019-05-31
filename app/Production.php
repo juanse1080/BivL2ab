@@ -8,7 +8,7 @@ class Production extends Model
 {
     protected $primaryKey = 'pk_production';
     protected $table = 'productions';
-    protected $fillable = ['pk_production','type', 'title','photo', 'abstract', 'pdf'];
+    protected $fillable = ['pk_production','type', 'title','photo', 'abstract', 'pdf', 'code'];
 
 
     public function sublines(){
@@ -16,6 +16,10 @@ class Production extends Model
     }
 
     public function datasets(){
-        return $this->belongsToMany('App\Dataset', "production_datasets", "pk_production", "pk_dataset");
+        return $this->belongsToMany('App\Dataset', "production_dataset", "pk_production", "pk_dataset");
+    }
+
+    public function usrs(){
+        return $this->belongsToMany('App\Usr', 'production_usr', 'pk_production', 'pk_usr');
     }
 }

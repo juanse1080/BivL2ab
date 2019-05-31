@@ -11,6 +11,6 @@ class Dataset extends Model
     protected $fillable = ['pk_dataset','name', 'description', 'url'];
 
     public function productions(){
-        return $this->belongsToMany('App\Production', "production_datasets", "pk_production", "pk_dataset");
+        return $this->belongsToMany('App\Production', "production_dataset", "pk_production", "pk_dataset");
     }
 }

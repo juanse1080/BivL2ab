@@ -6,31 +6,44 @@
         padding: .5rem 0.7rem;
         background-color: #fff;
     }
+    #owl-demo .item{
+        margin: 3px;
+    }
+    #owl-demo .item img{
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+    #owl-demo2 .item{
+        margin: 3px;
+    }
+    #owl-demo2 .item img{
+        display: block;
+        width: 100%;
+        height: auto;
+    }
 </style>
 <div class="container">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 mb-3">
-            <div class="card">
+            <div class="card mb-2">
                 <img src="https://scontent.fbga3-1.fna.fbcdn.net/v/t1.0-9/51043306_2306385492707738_7350515233485488128_n.jpg?_nc_cat=107&_nc_ht=scontent.fbga3-1.fna&oh=fdbcfe08b486be8b5bd16a85445a9e14&oe=5D8C7C3D" class="card-img-top" alt="...">
             </div>
+            <span class="mb-2 mt-2 text-muted">Biography: </span>
+            <div class="card">
+                <div class="card-body">{{$usr->biography}}</div>
+            </div>
+            
         </div>
-        @foreach($usr->projects as $project)
-            @foreach($project->sublines as $subline)
-                @foreach($subline->production as $production)
-                    <p>{{$production->title}}</p>
-                @endforeach
-            @endforeach
-        @endforeach
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-8">
-            <div class="accordion" id="accordionExample">
+            <div class="accordion" id="accordionE">
                 <div class="card">
-                    <div class="card-header" id="headingOne"  data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                    <div class="card-header" id="headingOne"  data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                         <span>
                             Basic information:
                         </span>
                     </div>
-
-                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionE">
                         <div class="card-body" style="padding: 0.5rem 0.8rem;">
                             <div class="d-block d-md-block d-lg-none">
                                 <small class="text-muted">First name:</small>
@@ -103,21 +116,48 @@
                         </div>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="card-header" id="headingThree"  data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
-                        <span>
-                            <span>Biography:</span>
-                        </span>
-                    </div>
-                    <div id="collapseFour" class="collapse show" aria-labelledby="headingFour" data-parent="#accordionExample">
-                    <div class="card-body">
-                        {{$usr->biography}}
-                    </div>
-                    </div>
-                </div>
+            </div>
+            <span class="mb-2 mt-2 text-muted">Productions: </span>
+            <div id="owl-demo" class="owl-carousel d-none d-sm-none d-md-none d-lg-none d-xl-block">
+                @foreach($usr->productions as $production)
+                    <a class="item" href="">
+                        <div class="card ml-3" >
+                            <img class="lazyOwl card-botton" data-src="{{$production->photo}}" alt="Lazy Owl Image">
+                            <div class="card-body">
+                                {{$production->title}}
+                            </div>
+                        </div>
+                    </a>
+                @endforeach
+            </div>
+            <div id="owl-demo2" class="owl-carousel d-block d-sm-block d-md-block d-lg-block d-xl-none">
+                @foreach($usr->productions as $production)
+                    <a class="item" href="">
+                        <div class="card ml-3" >
+                            <img class="lazyOwl card-botton" data-src="{{$production->photo}}" alt="Lazy Owl Image">
+                            <div class="card-body">
+                                {{$production->title}}
+                            </div>
+                        </div>
+                    </a>
+                @endforeach
             </div>
         </div>
     </div>
-    
+    <script>
+        $(document).ready(function() {
+            $("#owl-demo").owlCarousel({
+                items : 2,
+                lazyLoad : true,
+                navigation : true
+            });
+            $("#owl-demo2").owlCarousel({
+                items : 1,
+                lazyLoad : true,
+                navigation : true,
+                singleItem: true,
+            }); 
+        });
+    </script>
 </div>
 @endsection

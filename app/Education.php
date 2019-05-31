@@ -16,7 +16,6 @@ class Education extends Model
     }
 
     public function dateString($param){
-        setlocale(LC_TIME, 'es_ES.UTF-8');
-        return strftime("%d de %B del %Y",strtotime($this->$param));
+        return strftime("%B %d, %Y",strtotime($this->$param));
     }
 }
