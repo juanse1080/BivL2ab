@@ -10,7 +10,7 @@ class Dataset extends Model
     protected $table = 'datasets';
     protected $fillable = ['pk_dataset','name', 'description', 'url'];
 
-    public function resources(){
-        return $this->belongsToMany('App\Resource');
+    public function productions(){
+        return $this->belongsToMany('App\Production', "production_datasets", "pk_production", "pk_dataset");
     }
 }
