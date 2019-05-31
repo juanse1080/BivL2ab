@@ -163,16 +163,16 @@
         <div class="row justify-content-md-center">
           <div class="col-md-12">
             <div class="touch-slider owl-carousel text-dark">
-              @for($i=0;$i<'10';$i++)
+              @foreach($news as $new)
                 <div class="card m-2 border-0">
-                  <img class="card-img-top" src="img/testimonial/customer2.jpg" alt="Card image cap">
+                  <img class="card-img-top" src="{{$new->photo}}" alt="Card image cap">
                   <div class="card-body">
-                    <h6 class="card-title" style="font-size: 18px;font-weight: 700;">Card title</h6>
+                    <h6 class="card-title" style="font-size: 18px;font-weight: 700;">{{$new->title}}</h6>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn-rm ">Show <i class="lnr lnr-arrow-right"></i></a>
+                    <a href="" class="btn-rm ">Show <i class="lnr lnr-arrow-right"></i></a>
                   </div>
                 </div>
-              @endfor
+              @endforeach
             </div>
           </div>
         </div>        

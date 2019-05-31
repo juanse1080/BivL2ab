@@ -1,29 +1,44 @@
-<h1>Create course</h1>
-@if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+@extends('navbar.navbar')
+@section('content')
+@section('titulo','Edit new')
+<div class="container">
+    <h5 class="text-muted mb-3">Create course:</h5>
+    <form enctype="multipart/form-data" method="POST" action="{{ route('news.update', $new->pk_new) }}">
+        @csrf
+        @method('PUT')
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="title">Title:</label>
+                    <input type="text" class="form-control" name="title" id="title" value="{{$new->title}}" required>
+                    <small class="invalid-feedback">{{$errors->title}}</small>
+                </div>
+            </div>
+            <div class="col-6" style="cursor:pointer">
+                <label for="photo">Photo:</label>
+                <div class="input-group mb-3">
+                    <div class="custom-file form-control form-control-sm">
+                        <input type="file" class="custom-file-input" name="photo" id="photo">
+                    </div>
+                </div>
+                <small class="invalid-feedback">{{$errors->photo}}</small>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <textarea required rows="5" name="description" class="form-control" placeholder="Course description here..">{{$new->description}}</textarea>
+                    <small class="invalid-feedback">{{$errors->description}}</small>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <button type="submit" name="action" class="btn btn-sm btn-success float-right" value="Create">Update</button>
+            </div>
+        </div>
+    </form>
+</div>
+@endsection
 
-<form enctype="multipart/form-data" method="POST" action="{{ route('news.update', $new->pk_new) }}">
-    @csrf
-    <input name="_method" type="hidden" value="PATCH">
-    {{-- @method('PUT') --}}
-
-    <label for="title"><strong><small style="color : #616161">Name</small></strong></label>
-    <input type="text" class="form-control form-control-sm" name="title" id="title" value="{{$new->title}}">
-
-    <label for="description"><strong><small style="color : #616161">Description</small></strong></label>
-    <textarea name="description" placeholder="Course description here..">{{$new->description}}</textarea>
-
-    <img src="{{$new->photo}}" alt="{{$new->title}}">
-    <input type="file" name="photo" class="custom-file-input form-group" id="customFileLang" lang="en">
-    <label id="photo" class="custom-file-label" for="customFileLang">Upload a photo</label>
-    
-    <input type="submit" name="action" value="Update" class=" btn btn-info btn-block rounded-0 py-2 " style="background-color: #17a2b8 !important; border-color: #17a2b8 !important;">
-
-</form>

@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 use Mail;
 use App\Mail\ContactMail;
+use App\News;
 
 class LoginController extends Controller{
 
@@ -17,7 +18,7 @@ class LoginController extends Controller{
     }
     
     public function __invoke(){
-        return view('index');
+        return view('index', ['news' => News::all()]);
     }
 
     public function authenticate(LoginRequest $request){

@@ -53,7 +53,7 @@ class NewController extends Controller
 
     public function update(NewUpdateValidator $request, $pk_new) {
         $validated = $request->all();
-        $new = News::findOrFail($pk_new)->fill($validated);
+        $new = News::find($pk_new)->fill($validated);
         if ($request->hasFile('photo')) {
             $name = strtolower(str_replace(' ', '_', $request->title)) . $new->pk_new;
             $new->photo = UtilsController::subirArchivo($request, $name, 'photo', 'news');
