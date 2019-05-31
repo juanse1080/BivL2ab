@@ -36,6 +36,10 @@ class Usr extends Authenticatable
         return $aux;
     }
 
+    public function educationActual(){
+        return $this->education()->orderBy('start', 'ASC');
+    }
+
     public function birthdateString(){
         return strftime("%B %d, %Y",strtotime($this->birthdate));
     }

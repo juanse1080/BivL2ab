@@ -64,11 +64,13 @@
     <!-- Header Section Start -->
     <header id="hero-area" data-stellar-background-ratio="0.5">    
       <!-- Navbar Start -->
-      <nav class="navbar navbar-expand-lg fixed-top scrolling-navbar indigo">
+      <nav class="navbar navbar-expand-lg fixed-top scrolling-navbar indigo" style="padding: 10px;">
         <div class="container">
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
-            <a href="index.html" class="navbar-brand"><img class="img-fulid" src="img/logo.png" alt=""></a>
+            <a href="index.html" class="navbar-brand">
+              <img class="img-fulid" src="{{asset('img/logo.svg')}}" style="max-height:50px;max-width:60px" alt="">
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
               <i class="lnr lnr-menu"></i>
             </button>
@@ -82,19 +84,13 @@
                 <a class="nav-link page-scroll" href="#news">News</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link page-scroll" href="#features">Features</a>
+                <a class="nav-link page-scroll" href="#testimonial">People</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link page-scroll" href="#portfolios">Works</a>
+                <a class="nav-link page-scroll" href="#research">Lines</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link page-scroll" href="#pricing">Pricing</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link page-scroll" href="#team">Team</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link page-scroll" href="#blog">Blog</a>
+                <a class="nav-link page-scroll" href="#productions">Productions</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link page-scroll" href="#contact">Contact</a>
@@ -113,19 +109,7 @@
             <a class="page-scroll" href="#news">News</a>
           </li>
           <li>
-            <a class="page-scroll" href="#features">Features</a>
-          </li>
-          <li>
-            <a class="page-scroll" href="#portfolios">Works</a>
-          </li>
-          <li>
-            <a class="page-scroll" href="#pricing">Pricing</a>
-          </li>
-          <li>
-            <a class="page-scroll" href="#team">Team</a>
-          </li>
-          <li >
-            <a class="page-scroll" href="#blog">Blog</a>
+            <a class="page-scroll" href="#testimonial">People</a>
           </li>
           <li>
             <a class="page-scroll" href="#contact">Contact</a>
@@ -142,15 +126,35 @@
         <div class="row justify-content-md-center">
           <div class="col-md-10">
             <div class="contents text-center">
-              <h1 class="wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="0.3s">Mate - Free Parallax Website Template</h1>
-              <p class="lead  wow fadeIn" data-wow-duration="1000ms" data-wow-delay="400ms">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-              <a href="#" class="btn btn-common wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="400ms">Download</a>
+              <h1 class="wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="0.3s">BIVL2AB</h1>
+              <p class="lead  wow fadeIn" data-wow-duration="1000ms" data-wow-delay="400ms">Biomedical Imaging, Vision and Learning Laboratory, Computer Engineering and Informatics School, Universidad Industrial de Santander</p>
+              <a href="#contact" class="btn btn-common wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="400ms">Contact with us</a>
             </div>
           </div>
         </div> 
       </div>           
     </header>
     <!-- Header Section End --> 
+
+    <!-- Start Video promo Section -->
+    <section class="video-promo section">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+              <div class="video-promo-content text-center">
+                <h2 class="wow zoomIn" data-wow-duration="1000ms" data-wow-delay="100ms">Biomedical Imaging, Vision and Learning Laboratory</h2>
+                <p style="font-size:10rem" class="wow zoomIn" data-wow-duration="1000ms" data-wow-delay="100ms">
+                  BivLab is mainly dedicated to solve problems related with visual information, covering from the acquisition and 
+                  analysis of medical images to the understanding of complex spatio-temporal patterns in the general context of 
+                  computer vision. Such problems are tipically highly variant and challenging, being hence, the proposal of learning strategies fundamental to 
+                  stand out significant behaviors from observed data, and to model prior expert knowledge in robust representations.
+                </p>
+              </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Video Promo Section -->
 
     <!-- section news -->
     <div id="news" class="section" data-stellar-background-ratio="0.1">
@@ -165,7 +169,7 @@
             <div class="touch-slider owl-carousel text-dark">
               @foreach($news as $new)
                 <div class="card m-2 border-0">
-                  <img class="card-img-top" src="{{$new->photo}}" alt="Card image cap">
+                  <img class="card-img-top" src="{{asset($new->photo)}}" alt="Card image cap">
                   <div class="card-body">
                     <h6 class="card-title" style="font-size: 18px;font-weight: 700;">{{$new->title}}</h6>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -178,466 +182,31 @@
         </div>        
       </div>
     </div>
-    <!-- section end news -->
 
-    <!-- Services Section Start -->
-    <!-- <section id="services" class="section">
-      <div class="container">
-        <div class="section-header">          
-          <h2 class="section-title wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">Our Services</h2>
-          <hr class="lines wow zoomIn" data-wow-delay="0.3s">
-          <p class="section-subtitle wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, dignissimos! <br> Lorem ipsum dolor sit amet, consectetur.</p>
-        </div>
-        <div class="row">
-          <div class="col-md-4 col-sm-6">
-            <div class="item-boxes wow fadeInDown" data-wow-delay="0.2s">
-              <div class="icon">
-                <i class="lnr lnr-pencil"></i>
-              </div>
-              <h4>Content Writing</h4>
-              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut.</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6">
-            <div class="item-boxes wow fadeInDown" data-wow-delay="0.8s">
-              <div class="icon">
-                <i class="lnr lnr-code"></i>
-              </div>
-              <h4>Web Development</h4>
-              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut.</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6">
-            <div class="item-boxes wow fadeInDown" data-wow-delay="1.2s">
-              <div class="icon">
-                <i class="lnr lnr-mustache"></i>
-              </div>
-              <h4>Business Consultancy</h4>
-              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> -->
-    <!-- Services Section End -->
-
-    <!-- Features Section Start -->
-    <section id="features" class="section" data-stellar-background-ratio="0.2">
-      <div class="container">
-        <div class="section-header">          
-          <h2 class="section-title">Some Features</h2>
-          <hr class="lines">
-          <p class="section-subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, dignissimos! <br> Lorem ipsum dolor sit amet, consectetur.</p>
-        </div>
-        <div class="row">
-          <div class="col-lg-8 col-md-12 col-xs-12">
-            <div class="container">
-              <div class="row">
-                 <div class="col-lg-6 col-sm-6 col-xs-12 box-item">
-                    <span class="icon">
-                      <i class="lnr lnr-rocket"></i>
-                    </span>
-                    <div class="text">
-                      <h4>Bootstrap 4 Based</h4>
-                      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                    </div>
-                  </div>
-                  <div class="col-lg-6 col-sm-6 col-xs-12 box-item">
-                    <span class="icon">
-                      <i class="lnr lnr-laptop-phone"></i>
-                    </span>
-                    <div class="text">
-                      <h4>Fully Responsive</h4>
-                      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                    </div>
-                  </div>
-                  <div class="col-lg-6 col-sm-6 col-xs-12 box-item">
-                    <span class="icon">
-                      <i class="lnr lnr-layers"></i>
-                    </span>
-                    <div class="text">
-                      <h4>Parallax Background</h4>
-                      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
-                    </div>
-                  </div>
-                  <div class="col-lg-6 col-sm-6 col-xs-12 box-item">
-                    <span class="icon">
-                      <i class="lnr lnr-cog"></i>
-                    </span>
-                    <div class="text">
-                      <h4>Easy to Customize</h4>
-                      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
-                    </div>
-                  </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-xs-12">
-            <div class="show-box">
-              <img class="img-fulid" src="img/features/feature.png" alt="">
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Features Section End -->    
-
-    <!-- Portfolio Section -->
-    <section id="portfolios" class="section">
-      <!-- Container Starts -->
-      <div class="container">
-        <div class="section-header">          
-          <h2 class="section-title">Our Portfolio</h2>
-          <hr class="lines">
-          <p class="section-subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, dignissimos! <br> Lorem ipsum dolor sit amet, consectetur.</p>
-        </div>
-        <div class="row">          
-          <div class="col-md-12">
-            <!-- Portfolio Controller/Buttons -->
-            <div class="controls text-center">
-              <a class="filter active btn btn-common" data-filter="all">
-                All 
-              </a>
-              <a class="filter btn btn-common" data-filter=".design">
-                Design 
-              </a>
-              <a class="filter btn btn-common" data-filter=".development">
-                Development
-              </a>
-              <a class="filter btn btn-common" data-filter=".print">
-                Print 
-              </a>
-            </div>
-            <!-- Portfolio Controller/Buttons Ends-->
-          </div>
-
-          <!-- Portfolio Recent Projects -->
-          <div id="portfolio" class="row">
-            <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mix development print">
-              <div class="portfolio-item">
-                <div class="shot-item">
-                  <img src="img/portfolio/img1.jpg" alt="" />  
-                  <a class="overlay lightbox" href="img/portfolio/img1.jpg">
-                    <i class="lnr lnr-eye item-icon"></i>
-                  </a>
-                </div>               
-              </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mix design print">
-              <div class="portfolio-item">
-                <div class="shot-item">
-                  <img src="img/portfolio/img2.jpg" alt="" />  
-                  <a class="overlay lightbox" href="img/portfolio/img2.jpg">
-                    <i class="lnr lnr-eye item-icon"></i>
-                  </a>
-                </div>               
-              </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mix development">
-              <div class="portfolio-item">
-                <div class="shot-item">
-                  <img src="img/portfolio/img3.jpg" alt="" />  
-                  <a class="overlay lightbox" href="img/portfolio/img3.jpg">
-                    <i class="lnr lnr-eye item-icon"></i>
-                  </a>
-                </div>               
-              </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mix development design">
-              <div class="portfolio-item">
-                <div class="shot-item">
-                  <img src="img/portfolio/img4.jpg" alt="" />  
-                  <a class="overlay lightbox" href="img/portfolio/img4.jpg">
-                    <i class="lnr lnr-eye item-icon"></i>
-                  </a>
-                </div>               
-              </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mix development">
-              <div class="portfolio-item">
-                <div class="shot-item">
-                  <img src="img/portfolio/img5.jpg" alt="" />  
-                  <a class="overlay lightbox" href="img/portfolio/img5.jpg">
-                    <i class="lnr lnr-eye item-icon"></i>
-                  </a>
-                </div>               
-              </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mix print design">
-              <div class="portfolio-item">
-                <div class="shot-item">
-                  <img src="img/portfolio/img6.jpg" alt="" />  
-                  <a class="overlay lightbox" href="img/portfolio/img6.jpg">
-                    <i class="lnr lnr-eye item-icon"></i>
-                  </a>
-                </div>               
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Container Ends -->
-    </section>
-    <!-- Portfolio Section Ends --> 
-
-    <!-- Start Video promo Section -->
-    <section class="video-promo section">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-8">
-              <div class="video-promo-content text-center">
-                <h2 class="wow zoomIn" data-wow-duration="1000ms" data-wow-delay="100ms">Watch Our Intro video</h2>
-                <p class="wow zoomIn" data-wow-duration="1000ms" data-wow-delay="100ms">Aliquam vestibulum cursus felis. In iaculis iaculis sapien ac condimentum. Vestibulum congue posuere lacus, id tincidunt nisi porta sit amet. Suspendisse et sapien varius, pellentesque dui non, semper orci.</p>
-                <a href="https://www.youtube.com/watch?v=IXoMDwh4Cq8" class="video-popup wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="0.3s"><i class="lnr lnr-film-play"></i></a>
-              </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- End Video Promo Section -->
-
-    <!-- Start Pricing Table Section -->
-    <div id="pricing" class="section pricing-section">
-      <div class="container">
-        <div class="section-header">          
-          <h2 class="section-title">Pricing Table</h2>
-          <hr class="lines">
-          <p class="section-subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, dignissimos! <br> Lorem ipsum dolor sit amet, consectetur.</p>
-        </div>
-
-        <div class="row pricing-tables">
-          <div class="col-md-4 col-sm-6 col-xs-12">
-            <div class="pricing-table">
-              <div class="pricing-details">
-                <h2>Free</h2>
-                <span>$00</span>
-                <ul>
-                  <li>Consectetur adipiscing</li>
-                  <li>Nunc luctus nulla et tellus</li>
-                  <li>Suspendisse quis metus</li>
-                  <li>Vestibul varius fermentum erat</li>
-                </ul>
-              </div>
-              <div class="plan-button">
-                <a href="#" class="btn btn-common">Get Plan</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4 col-sm-6 col-xs-12">
-            <div class="pricing-table">
-              <div class="pricing-details">
-                <h2>Popular</h2>
-                <span>$3.99</span>
-                <ul>
-                  <li>Consectetur adipiscing</li>
-                  <li>Nunc luctus nulla et tellus</li>
-                  <li>Suspendisse quis metus</li>
-                  <li>Vestibul varius fermentum erat</li>
-                </ul>
-              </div>
-              <div class="plan-button">
-                <a href="#" class="btn btn-common">Buy Now</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4 col-sm-6 col-xs-12">
-            <div class="pricing-table">
-              <div class="pricing-details">
-                <h2>Premium</h2>
-                <span>$9.50</span>
-                <ul>
-                  <li>Consectetur adipiscing</li>
-                  <li>Nunc luctus nulla et tellus</li>
-                  <li>Suspendisse quis metus</li>
-                  <li>Vestibul varius fermentum erat</li>
-                </ul>
-              </div>
-              <div class="plan-button">
-                <a href="#" class="btn btn-common">Buy Now</a>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-    <!-- End Pricing Table Section -->
-
-    <!-- Counter Section Start -->
-    <div class="counters section" data-stellar-background-ratio="0.5">
-      <div class="container">
-        <div class="row"> 
-          <div class="col-sm-6 col-md-3 col-lg-3">
-            <div class="facts-item">   
-              <div class="icon">
-                <i class="lnr lnr-clock"></i>
-              </div>             
-              <div class="fact-count">
-                <h3><span class="counter">1589</span></h3>
-                <h4>Working Hours</h4>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-md-3 col-lg-3">
-            <div class="facts-item">   
-              <div class="icon">
-                <i class="lnr lnr-briefcase"></i>
-              </div>            
-              <div class="fact-count">
-                <h3><span class="counter">699</span></h3>
-                <h4>Completed Projects</h4>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-md-3 col-lg-3">
-            <div class="facts-item"> 
-              <div class="icon">
-                <i class="lnr lnr-user"></i>
-              </div>              
-              <div class="fact-count">
-                <h3><span class="counter">203</span></h3>
-                <h4>No. of Clients</h4>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-md-3 col-lg-3">
-            <div class="facts-item"> 
-              <div class="icon">
-                <i class="lnr lnr-heart"></i>
-              </div>              
-              <div class="fact-count">
-                <h3><span class="counter">1689</span></h3>
-                <h4>Peoples Love</h4>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Counter Section End -->
-
-    <!-- Team section Start -->
-    <section id="team" class="section">
-      <div class="container">
-        <div class="section-header">          
-          <h2 class="section-title">Our Team</h2>
-          <hr class="lines">
-          <p class="section-subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, dignissimos! <br> Lorem ipsum dolor sit amet, consectetur.</p>
-        </div>
-        <div class="row">
-          <div class="col-lg-3 col-md-6 col-xs-12">
-            <div class="single-team">
-              <img src="img/team/team1.jpg" alt="">
-              <div class="team-details">
-                <div class="team-inner">
-                  <h4 class="team-title">Jhon Doe</h4>
-                  <p>Chief Technical Officer</p>
-                  <ul class="social-list">
-                    <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                    <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-xs-12">
-            <div class="single-team">
-              <img src="img/team/team2.jpg" alt="">
-              <div class="team-details">
-                <div class="team-inner">
-                  <h4 class="team-title">Paul Kowalsy</h4>
-                  <p>CEO & Co-Founder</p>
-                  <ul class="social-list">
-                    <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                    <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-xs-12">
-            <div class="single-team">
-              <img src="img/team/team3.jpg" alt="">
-              <div class="team-details">
-                <div class="team-inner">                  
-                  <h4 class="team-title">Emilly Williams</h4>
-                  <p>Business Manager</p>
-                  <ul class="social-list">
-                    <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                    <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-xs-12">
-            <div class="single-team">
-              <img class="img-fulid" src="img/team/team4.jpg" alt="">
-              <div class="team-details">
-                <div class="team-inner">
-                  <h4 class="team-title">Patricia Green</h4>
-                  <p>Graphic Designer</p>
-                  <ul class="social-list">
-                    <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                    <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Team section End -->
+              
 
     <!-- testimonial Section Start -->
     <div id="testimonial" class="section" data-stellar-background-ratio="0.1">
       <div class="container">
+        <div class="section-header">          
+          <h2 class="section-title text-white">Our Team</h2>
+          <hr class="lines">
+        </div>
         <div class="row justify-content-md-center">
           <div class="col-md-12">
             <div class="touch-slider owl-carousel owl-theme">
-              <div class="testimonial-item">
-                <img src="img/testimonial/customer1.jpg" alt="Client Testimonoal" />
-                <div class="testimonial-text">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. send do <br> adipisicing ciusmod tempor incididunt ut labore et</p>
-                  <h3>Jone Deam</h3>
-                  <span>Fondor of Jalmori</span>
+              @foreach($usrs as $usr)
+                <div class="testimonial-item">
+                  <img src="{{asset($usr->photo)}}" alt="Client Testimonoal" />
+                  <div class="testimonial-text">
+                    <p>{{substr($usr->biography, 0, 200 )}}</p>
+                    <h3>{{$usr->first_name}} {{$usr->last_name}}</h3>
+                    @foreach($usr->group('education') as $key => $education)
+                        <span class="badge badge-pill text-white {{$pills[$key%7]}}">{{$education}}</span>
+                    @endforeach
+                  </div>
                 </div>
-              </div>
-              <div class="testimonial-item">
-                <img src="img/testimonial/customer2.jpg" alt="Client Testimonoal" />
-                <div class="testimonial-text">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. send do <br> adipisicing ciusmod tempor incididunt ut labore et</p>
-                  <h3>Oidila Matik</h3>
-                  <span>President Lexo Inc</span>
-                </div>
-              </div>
-              <div class="testimonial-item">
-                <img src="img/testimonial/customer3.jpg" alt="Client Testimonoal" />
-                <div class="testimonial-text">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. send do <br> adipisicing ciusmod tempor incididunt ut labore et</p>
-                  <h3>Alex Dattilo</h3>
-                  <span>CEO Optima Inc</span>
-                </div>
-              </div>
-              <div class="testimonial-item">
-                <img src="img/testimonial/customer4.jpg" alt="Client Testimonoal" />
-                <div class="testimonial-text">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. send do <br> adipisicing ciusmod tempor incididunt ut labore et</p>
-                  <h3>Paul Kowalsy</h3>
-                  <span>CEO & Founder</span>
-                </div>
-              </div>
+              @endforeach
             </div>
           </div>
         </div>        
@@ -645,104 +214,133 @@
     </div>
     <!-- testimonial Section Start -->
 
-    <!-- Blog Section -->
-    <section id="blog" class="section">
-      <!-- Container Starts -->
+    <div id="research" class="section" data-stellar-background-ratio="0.1">
       <div class="container">
         <div class="section-header">          
-          <h2 class="section-title">Recent Blog</h2>
+          <h2 class="section-title">Lines of research</h2>
           <hr class="lines">
-          <p class="section-subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, dignissimos! <br> Lorem ipsum dolor sit amet, consectetur.</p>
+          <!-- <p class="section-subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, dignissimos! <br> Lorem ipsum dolor sit amet, consectetur.</p> -->
         </div>
-        <div class="row">
-          <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 blog-item">
-            <!-- Blog Item Starts -->
-            <div class="blog-item-wrapper">
-              <div class="blog-item-img">
-                <a href="single-post.html">
-                  <img src="img/blog/img1.jpg" alt="">
-                </a>                
-              </div>
-              <div class="blog-item-text"> 
-                <div class="meta-tags">
-                  <span class="date"><i class="lnr  lnr-clock"></i>2 Days Ago</span>
-                  <span class="comments"><a href="#"><i class="lnr lnr-bubble"></i> 24 Comments</a></span>
+        <div class="row justify-content-md-center">
+          <div class="col-md-12">
+            <div id="accordion">
+              <div class="card">
+                <div class="card-header" id="headingOne">
+                  <span data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="font">
+                    Imaging and Inverse Problems
+                  </span>
                 </div>
-                <h3>
-                  <a href="single-post.html">How often should you tweet?</a>
-                </h3>
-                <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua... 
-                </p>
-                <a href="single-post.html" class="btn-rm">Read More <i class="lnr lnr-arrow-right"></i></a>
-              </div>
-            </div>
-            <!-- Blog Item Wrapper Ends-->
-          </div>
-
-          <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 blog-item">
-            <!-- Blog Item Starts -->
-            <div class="blog-item-wrapper">
-              <div class="blog-item-img">
-                <a href="single-post.html">
-                  <img src="img/blog/img2.jpg" alt="">
-                </a>                
-              </div>
-              <div class="blog-item-text"> 
-                <div class="meta-tags">
-                  <span class="date"><i class="lnr  lnr-clock"></i>2 Days Ago</span>
-                  <span class="comments"><a href="#"><i class="lnr lnr-bubble"></i> 24 Comments</a></span>
+            
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                  <div class="card-body">
+                      <ul>
+                          <li>Image Formation Models</li>
+                          <li>Image Reconstruction</li>
+                          <li>Biomedical Image Processing</li>
+                      </ul>
+                  </div>
                 </div>
-                <h3>
-                  <a href="single-post.html">Content is still king</a>
-                </h3>
-                <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua... 
-                </p>
-                <a href="single-post.html" class="btn-rm">Read More <i class="lnr lnr-arrow-right"></i></a>
+              </div>
+              <div class="card">
+                <div class="card-header" id="headingTwo">
+                    <span data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Motion Understanding
+                    </span>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                  <div class="card-body">
+                    <ul>
+                        <li>MU1: Motion Magnification</li>
+                        <li>MU2: Gait Analysis</li>
+                        <li>MU3: Tracking and Temporal Segmentation</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="headingThree">
+                  <span data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  Learning and Image representation
+                </span>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                  <div class="card-body">
+                    <ul>
+                        <li>LIR-1: Learning models</li>
+                        <li>LIR-2: Image Data Analytics</li>
+                        <li>LIR-3: Fusion Models</li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
-            <!-- Blog Item Wrapper Ends-->
           </div>
-
-          <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 blog-item">
-            <!-- Blog Item Starts -->
-            <div class="blog-item-wrapper">
-              <div class="blog-item-img">
-                <a href="single-post.html">
-                  <img src="img/blog/img3.jpg" alt="">
-                </a>                
-              </div>
-              <div class="blog-item-text"> 
-                <div class="meta-tags">
-                  <span class="date"><i class="lnr  lnr-clock"></i>2 Days Ago</span>
-                  <span class="comments"><a href="#"><i class="lnr lnr-bubble"></i> 24 Comments</a></span>
-                </div> 
-                <h3>
-                  <a href="single-post.html">Social media at work</a>
-                </h3>
-                <p>
-                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua... 
-                </p>
-                <a href="single-post.html" class="btn-rm">Read More <i class="lnr lnr-arrow-right"></i></a>
-              </div>
-            </div>
-            <!-- Blog Item Wrapper Ends-->
-          </div>
-        </div>
+        </div>        
       </div>
-    </section>
-    <!-- blog Section End -->
+    </div>
+
+    <div id="productions" class="section" data-stellar-background-ratio="0.1">
+      <div class="container">
+        <div class="section-header">          
+          <h2 class="section-title text-white">Productions</h2>
+          <hr class="lines">
+        </div>
+        <div class="row justify-content-md-center">
+          <div class="col-md-12">
+            <div class="touch-slider owl-carousel text-dark">
+              @foreach($productions as $production)
+                <div class="card m-2 border-0">
+                  <img class="card-img-top" src="{{asset($production->photo)}}" alt="Card image cap">
+                  <div class="card-body">
+                    <h6 class="card-title" style="font-size: 18px;font-weight: 700;">{{$production->title}}</h6>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  </div>
+                </div>
+              @endforeach
+            </div>
+          </div>
+        </div>        
+      </div>
+    </div>
 
     <!-- Contact Section Start -->
     <section id="contact" class="section" data-stellar-background-ratio="-0.2">      
       <div class="contact-form">
         <div class="container">
           <div class="row">     
-            <div class="col-lg-6 col-sm-6 col-xs-12">
+            <div class="col-lg-6 col-sm-12 col-xs-12 mb-4">
               <div class="contact-us">
                 <h3>Contact With us</h3>
-                <div class="contact-address">
+                <div>
+                  <div class="text-white mb-3 pl-4">
+                    <h6 style="">Lola Bautista Rozo</h6>
+                    Assistant professor<br>
+                    Email: lxbautis <at> uis dot edu dot co<br>
+                    Phone: (+57) 6 344000<br>
+                    Escuela de Ingeniería de Sistemas e Informática<br>
+                    Universidad Industrial de Santander<br></at>
+                  </div>
+
+                  
+                  <div class="text-white pl-4">
+                    <h6 style="">Fabio Martínez Carrillo</h6>
+                    Assistant professor<br>
+                    Email: famarcar <at> uis dot edu dot co<br>
+                    Phone: (+57) 6 344000 - ext 2110<br>
+                    Escuela de Ingeniería de Sistemas e Informática<br>
+                    Universidad Industrial de Santander<br></at>
+                  </div>
+                </div>
+
+                <div class="ml-4 social-icons">
+                  <ul>
+                    <li class="facebook"><a href="https://www.facebook.com/bivl2ab/"><i class="fa fa-facebook"></i></a></li>
+                    <li class="twitter"><a href="https://twitter.com/bivl2ab"><i class="fa fa-twitter"></i></a></li>
+                    <li class="google-plus"><a href="https://www.instagram.com/bivl2ab/"><i class="fa fa-instagram"></i></a></li>
+                  </ul>
+                </div>
+
+                <!-- <div class="contact-address">
                   <p>Centerville Road, DE 19808, US </p>
                   <p class="phone">Phone: <span>(+94 123 456 789)</span></p>
                   <p class="email">E-mail: <span>(contact@mate.com)</span></p>
@@ -755,7 +353,7 @@
                     <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
                     <li class="dribbble"><a href="#"><i class="fa fa-dribbble"></i></a></li>
                   </ul>
-                </div>
+                </div> -->
               </div>
             </div>     
             <div class="col-lg-6 col-xs-12">
@@ -797,22 +395,6 @@
       <div class="container">
         <div class="row">
           <!-- Footer Links -->
-          <div class="col-lg-6 col-sm-6 col-xs-12">
-            <ul class="footer-links">
-              <li>
-                <a href="#">Homepage</a>
-              </li>
-              <li>
-                <a href="#">Services</a>
-              </li>
-              <li>
-                <a href="#">About Us</a>
-              </li>
-              <li>
-                <a href="#">Contact</a>
-              </li>
-            </ul>
-          </div>
           <div class="col-lg-6 col-sm-6 col-xs-12">
             <div class="copyright">
               <p>All copyrights reserved &copy; 2018 - Designed & Developed by <a rel="nofollow" href="https://uideck.com">UIdeck</a></p>
