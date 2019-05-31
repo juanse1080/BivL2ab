@@ -51,7 +51,7 @@ class UsrController extends Controller
         ];
         // find($pk): pk el id del Modelo que se esta buscando (Production)
         // attach(pk_i): pk_i es la pk del modelo que se quiere enlazar
-        dd(Production::find(4)->datasets);
+        // dd(Production::find(4)->datasets);
         if(!empty($usr)){
             return view("usrs.profile", ['usr' => $usr, 'pill' => $pill]);
         } else {
