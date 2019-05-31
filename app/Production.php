@@ -10,11 +10,16 @@ class Production extends Model
     protected $table = 'productions';
     protected $fillable = ['pk_production','type', 'title','photo', 'abstract', 'pdf'];
 
-    public function resources(){
-        return $this->hasMany('App\Resource', 'fk_production', 'pk_production');
-    }
 
     public function sublines(){
         return $this->belongsToMany('App\SubLine');
+    }
+
+    // public function datasets(){
+    //     return $this->hasMany('App\Dataset', "fk_production", "pk_production");
+    // }
+
+    public function datasets(){
+        return $this->belongsToMany('App\Dataset', "production_datasets", "pk_production", "pk_dataset");
     }
 }

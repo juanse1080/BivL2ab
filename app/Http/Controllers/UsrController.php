@@ -8,6 +8,7 @@ use App\Usr;
 use App\Education;
 use App\Resource;
 use App\Dataset;
+use App\Production;
 
 class UsrController extends Controller
 {
@@ -38,6 +39,7 @@ class UsrController extends Controller
 
     public function show($pk_usr){
         $usr = Usr::find($pk_usr);
+        dd(Production::find(4)->datasets);
         if(!empty($usr)){
             return view("usrs.profile", ['usr' => $usr]);
         } else {
