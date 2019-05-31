@@ -16,13 +16,13 @@
     
     <?php 
         $card_deck = '</div><div class="card-deck">';
-        // function edit_button($id) {
-        //     return '<a href='.route("usrs.edit", $id).' role="button" class="btn btn-success">Edit</a>';
-        // } 
+        function edit_button($id) {
+            return '<a href='.route("account.edit", $id).' role="button" class="btn btn-success">Edit</a>';
+        } 
     ?>
     
     <div class="container">
-            <h1 class="display-3 text-muted">Users</h1>
+            <h5 class="text-muted">Users:</h5>
         <div class="card-deck">
         @foreach ($usrs as $key => $usr)
                 <!--Card-->
@@ -46,12 +46,12 @@
                     </div>
                     <!--/.Card content-->
                     <div class="card-footer text-center">
-                        {{-- <a href="{{route('usrs.show', $usr->pk_usr)}}" role="button" class="btn btn-secondary">View</a> --}}
-                        {{-- @if (Auth::check())
+                        <a href="{{route('account.show', $usr->pk_usr)}}" role="button" class="btn btn-secondary">View</a>
+                        @if (Auth::check())
                             @if (session('role') == 0 || session('role') == 1)
                                 {!! edit_button($usr->pk_usr) !!}
                             @endif
-                        @endif --}}
+                        @endif
                     </div>
                 </div>
                 <!--/.Card-->

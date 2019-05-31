@@ -31,21 +31,6 @@
 						</li>
 					</ul>
                 </li>
-                {{--  COURSES  --}}
-				<li @if (Request::path()=="courses" or Request::path()=="/courses/create") class="active" @endif >
-                    <!-- <a class="nav-link " href="{{ url('courses') }}"> <i class="fas fa-user-graduate"></i> Estudiantes</a> -->
-                    <a href="#coursesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <i class="fas fa-user-graduate"></i> Courses
-					</a>
-					<ul class="collapse list-unstyled" id="coursesSubmenu">
-                        <li>
-							<a href="{{ url('/courses') }}"><i class="fas fa-eye"></i> View</a>
-						</li>
-						<li>
-							<a href="{{ url('/courses/create') }}"><i class="fas fa-user-plus"></i> Create</a>
-						</li>
-					</ul>
-                </li>
                 {{--  USERS  --}}
 				<li @if (Request::path()=="account" or Request::path()=="account/create") class="active" @endif >
 					<a href="#accountSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
@@ -60,25 +45,7 @@
 						</li>
 					</ul>
                 </li>
-                {{--  DATASETS  --}}
-                <li @if (Request::path()=="datasets" or Request::path()=="datasets/create") class="active" @endif >
-                    <a href="#datasetSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <i class="fas fa-th-list"></i> Datasets
-                    </a>
-                    <ul class="collapse list-unstyled" id="datasetSubmenu">
-                        <li>
-                            <a href="{{ url('/datasets') }}"><i class="fas fa-eye"></i> View</a>
-                        </li>
-                        <li>
-                            <a href="{{ url('/datasets/create') }}"><i class="fas fa-pen-square"></i> Create</a>
-                        </li>
-                    </ul>
-					{{-- <a class="nav-link " href="{{ url('divisiones') }}"> <i class="fas fa-th-list"></i> </a> --}}
-                </li>
-                {{--  MATERIAS  --}}
-				<li @if (Request::path()=="materiaspc") class="active" @endif >
-					<a class="nav-link " href="/materiaspc"> <i class="fas fa-search-plus"></i> Research Lines</a>
-                </li>
+                
 
             </ul>
         </nav>
@@ -98,12 +65,7 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item active">
-                                <a class="nav-link" href="{{ url('empleados/principal') }}">{{ucwords(session('user')['nombre'])}} {{ucwords(session('user')['apellido'])}} <i class="fas fa-user-circle"></i></a>
-                            </li>
-                            <li id="notification_li">
-                                <a id="noo" title="<a title='Ver todas' href='{{ url('/notificaciones') }}'>Notificaciones</a>" class="nav-link" data-container="body" data-toggle="popover" data-placement="bottom" data-content="">
-                                    <i class="fas fa-bell"></i> <span id="notificaciones" class="badge badge-pill badge-secondary"></span>
-                                </a>
+                                <a class="nav-link mr-3" href="{{ url('/home') }}">{{ucwords(session('usr')['first_name'])}} {{ucwords(session('usr')['last_name'])}} <i class="fas fa-user-circle"></i></a>
                             </li>
 							<li class="nav-item active">
 								<a class="nav-link" href="{{ url('/logout') }}"> <i class="fas fa-sign-out-alt"></i> Log out </a>
