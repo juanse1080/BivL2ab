@@ -50,7 +50,7 @@
                                 <div style="padding: 0.3rem 0.8rem;">{{$usr->first_name}}</div>
                                 <small class="text-muted">Last name:</small>
                                 <div style="padding: 0.3rem 0.8rem;">{{$usr->last_name}}</div>
-                                <small class="text-muted">Birthday:</small>
+                                <small class="text-muted">Birthdate:</small>
                                 <div style="padding: 0.3rem 0.8rem;">{{$usr->birthdate}}</div>
                             </div>
                             <div class="d-none d-sm-none d-md-none d-lg-block d-xl-block p-2">
@@ -63,7 +63,7 @@
                                     <span class="ml-4">{{$usr->last_name}}</span>
                                 </div>
                                 <div class="">
-                                    <span class="text-muted">Birthday:</span>
+                                    <span class="text-muted">Birthdate:</span>
                                     <span class="ml-5">{{$usr->birthdateString()}}</span>
                                 </div>
                             </div>

@@ -9,6 +9,8 @@ use App\Education;
 use App\Resource;
 use App\Dataset;
 use App\Production;
+use App\Http\Requests\CreateUserValidator;
+
 
 class UsrController extends Controller
 {
@@ -17,21 +19,21 @@ class UsrController extends Controller
         $this->middleware('admin:0')->except(['show', 'index', 'edit', 'update']);
     }
     public function index() {
-        $courses = Usr::orderBy('name', 'ASC')->get();
-        return view('courses.listCourses', compact('courses'));
+        $usrs = Usr::orderBy('role', 'ASC')->get();
+        return view('usrs.listUsers', compact('usrs'));
     }
 
-    // Create form for course
+    // Create form for User
     public function create() {
-        return view('courses.createCourse');
+        return view('usrs.createUser');
     }
 
-    // Save course
-    public function store(CourseValidator $request) {
+    // Save users
+    public function store(CreateUserValidator $request) {
         $validated = $request->all();
-        $course = (new Usr)->fill($validated);
-        if ($course->save()) {
-            return redirect('/courses')->with('true', 'The course' . $course->name . ' has been succesfully created');
+        $user = (new Usr)->fill($validated);
+        if ($user->save()) {
+            return redirect('/account')->with('true', 'The user' . $user->first_name . ' has been succesfully created');
         } else {
             return back()->with('validated', 'Something went wrong. Try again.');
         }
@@ -58,7 +60,6 @@ class UsrController extends Controller
             $mensaje = 'No user found.';
             return back()->with('false', $mensaje);
         }
-        
     }
 
     // delete course
@@ -67,9 +68,9 @@ class UsrController extends Controller
         return redirect('/courses')->with('true', 'The course' . $course->name . ' has been succesfully deleted');
     }
 
-    public function edit($pk_course) {
-        $course = Usr::findOrFail($pk_course);
-        return view("courses.editCourse", compact('course'));
+    public function edit($pk_usr) {
+        $usr = Usr::findOrFail($pk_usr);
+        return view("usrs.editUser", compact('usr'));
     }
 
     public function update(CourseValidator $request, $pk_course) {

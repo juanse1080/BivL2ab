@@ -17,7 +17,7 @@ class CreateUsrsTable extends Migration
             $table->string('password');
             $table->string('role', 20);
             $table->string('photo')->default('storage/default.png');
-            $table->text('biography');
+            $table->text('biography')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

@@ -8,7 +8,7 @@ class Usr extends Authenticatable
 {
     protected $primaryKey = 'pk_usr';
     protected $table = 'usrs';
-    protected $fillable = ['pk_usr','first_name', 'last_name', 'birthdate', 'email', 'password', 'role', 'photo', 'biography'];
+    protected $fillable = ['pk_usr','first_name', 'last_name', 'email', 'birthdate', 'password', 'role'];
     
     public function session(){
         return $this->attributes;
