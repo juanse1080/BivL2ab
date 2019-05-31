@@ -6,101 +6,79 @@
         <!-- Sidebar  -->
         <nav id="sidebar" class="active" >
             <div class="sidebar-header"  style="cursor: pointer;">
-                <h3 style="color: white;"><i style="color: Dodgerblue;" class="fab fa-contao"></i>olCief</h3>
-                <strong style="color: Dodgerblue;" ><i class="fab fa-contao"></i></strong>
+                <img src="" alt="">
+                <h3 style="color: white;">Bivlab <i class="fas fa-flask"></i></h3>
+                <strong style="color: Dodgerblue;" ><i class="fas fa-flask"></i></strong>
             </div>
 
             <ul class="list-unstyled components">
-                {{--  INICIO  --}}
-				<li @if (Request::path()=="empleados/".session('user')['cedula']) class="active" @endif >
+                {{--  HOME  --}}
+				<li @if (Request::path()=="account/".session('user')['pk_usr']) class="active" @endif >
 					<a class="nav-link " href="/"> <i class="fas fa-home"></i> Home</a>
                 </li>
-                {{--  HORARIOS  --}}
-				<li @if (Request::path()=="horarios") class="active" @endif >
-					<a class="nav-link " href="{{ url('/news') }}"> <i class="far fa-calendar-alt"></i> News</a>
-                </li>
-                {{--  CURSOS  --}}
-				<li @if (Request::path()=="estudiantes") class="active" @endif >
-					<a class="nav-link " href="{{ url('estudiantes') }}"> <i class="fas fa-chalkboard-teacher"></i> Cursos</a>
-                </li>
-                {{--  ESTUDIANTES  --}}
-				<li @if (Request::path()=="filtro" or Request::path()=="/estudiantes/crear") class="active" @endif >
-                    <!-- <a class="nav-link " href="{{ url('filtro') }}"> <i class="fas fa-user-graduate"></i> Estudiantes</a> -->
-                    <a href="#estudianteSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <i class="fas fa-user-graduate"></i> Estudiantes
+                {{--  NEWS  --}}
+				<li @if (Request::path()=="news" or Request::path()=="/news/create") class="active" @endif >
+                    <!-- <a class="nav-link " href="{{ url('courses') }}"> <i class="fas fa-user-graduate"></i> Estudiantes</a> -->
+                    <a href="#newsSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <i class="far fa-newspaper"></i> News
 					</a>
-					<ul class="collapse list-unstyled" id="estudianteSubmenu">
+					<ul class="collapse list-unstyled" id="newsSubmenu">
                         <li>
-							<a href="{{ url('/filtro') }}"><i class="fas fa-eye"></i> Ver</a>
+							<a href="{{ url('/news') }}"><i class="fas fa-eye"></i> View</a>
 						</li>
 						<li>
-							<a href="{{ url('/estudiantes/crear') }}"><i class="fas fa-user-plus"></i> Crear</a>
+							<a href="{{ url('/news/create') }}"><i class="fas fa-user-plus"></i> Create</a>
 						</li>
 					</ul>
                 </li>
-                {{--  EMPLEADOS  --}}
-				<li @if (Request::path()=="empleados" or Request::path()=="empleados/crear") class="active" @endif >
-					<a href="#empleadoSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-						<i class="fas fa-users"></i> Empleados
+                {{--  COURSES  --}}
+				<li @if (Request::path()=="courses" or Request::path()=="/courses/create") class="active" @endif >
+                    <!-- <a class="nav-link " href="{{ url('courses') }}"> <i class="fas fa-user-graduate"></i> Estudiantes</a> -->
+                    <a href="#coursesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <i class="fas fa-user-graduate"></i> Courses
 					</a>
-					<ul class="collapse list-unstyled" id="empleadoSubmenu">
+					<ul class="collapse list-unstyled" id="coursesSubmenu">
                         <li>
-							<a href="{{ url('/empleados') }}"><i class="fas fa-eye"></i> Ver</a>
+							<a href="{{ url('/courses') }}"><i class="fas fa-eye"></i> View</a>
 						</li>
 						<li>
-							<a href="{{ url('/empleados/crear') }}"><i class="fas fa-user-plus"></i> Crear</a>
+							<a href="{{ url('/courses/create') }}"><i class="fas fa-user-plus"></i> Create</a>
 						</li>
 					</ul>
                 </li>
-                {{--  COMPONENTES  --}}
-                <li @if (Request::path()=="divisiones" or Request::path()=="divisiones/editar") class="active" @endif >
-                    <a href="#divisionSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <i class="fas fa-th-list"></i> Componentes
+                {{--  USERS  --}}
+				<li @if (Request::path()=="account" or Request::path()=="account/create") class="active" @endif >
+					<a href="#accountSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+						<i class="fas fa-users"></i> Users
+					</a>
+					<ul class="collapse list-unstyled" id="accountSubmenu">
+                        <li>
+							<a href="{{ url('/account') }}"><i class="fas fa-eye"></i> View</a>
+						</li>
+						<li>
+							<a href="{{ url('/account/create') }}"><i class="fas fa-user-plus"></i> Create</a>
+						</li>
+					</ul>
+                </li>
+                {{--  DATASETS  --}}
+                <li @if (Request::path()=="datasets" or Request::path()=="datasets/create") class="active" @endif >
+                    <a href="#datasetSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <i class="fas fa-th-list"></i> Datasets
                     </a>
-                    <ul class="collapse list-unstyled" id="divisionSubmenu">
+                    <ul class="collapse list-unstyled" id="datasetSubmenu">
                         <li>
-                            <a href="{{ url('/divisiones') }}"><i class="fas fa-eye"></i> Ver</a>
+                            <a href="{{ url('/datasets') }}"><i class="fas fa-eye"></i> View</a>
                         </li>
                         <li>
-                            <a href="{{ url('/divisiones/editar') }}"><i class="fas fa-pen-square"></i> Editar</a>
+                            <a href="{{ url('/datasets/create') }}"><i class="fas fa-pen-square"></i> Create</a>
                         </li>
                     </ul>
 					{{-- <a class="nav-link " href="{{ url('divisiones') }}"> <i class="fas fa-th-list"></i> </a> --}}
                 </li>
                 {{--  MATERIAS  --}}
 				<li @if (Request::path()=="materiaspc") class="active" @endif >
-					<a class="nav-link " href="/materiaspc"> <i class="fas fa-book"></i> Materias</a>
+					<a class="nav-link " href="/materiaspc"> <i class="fas fa-search-plus"></i> Research Lines</a>
                 </li>
-                {{--  FECHAS  --}}
-				<li @if (Request::path()=="fechas") class="active" @endif >
-					<a class="nav-link " href="/fechas"> <i class="far fa-calendar-alt"></i> Fechas</a>
-                </li>
-                {{--  NIVELACIONES  --}}
-				<li @if (Request::path()=="nivelaciones") class="active" @endif >
-					<a class="nav-link " href="/nivelaciones"> <i class="fas fa-user-check"></i> Nivelaciones</a>
-                </li>
-                {{--  SIGSE  --}}
-                <li @if (Request::path()=="SIGSE") class="active" @endif >
-					<a class="nav-link " href="/SIGSE"> <i class="fas fa-chart-bar"></i> SIGSE</a>
-                </li>
-                {{--  DOCUMENTOS  --}}
-                <li @if (Request::path()=="/archivos" or Request::path()=="/archivos/crear") class="active" @endif >
-                    <a href="#archivoSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <i class="far fa-folder-open"></i> Documentos
-                    </a>
-                    <ul class="collapse list-unstyled" id="archivoSubmenu">
-                        <li>
-                            <a href="{{ url('/archivos/crear') }}"><i class="fas fa-cloud-upload-alt"></i>Subir</a>
-                        </li>
-                        <li>
-                            <a href="{{ url('/archivos') }}"><i class="fas fa-eye"></i>Ver</a>
-                        </li>
-                    </ul>
-                </li>
-                {{--  SALIR  --}}
-				<li class="nav-item">
-					<a class="nav-link" href="{{ url('/logout') }}"> <i class="fas fa-sign-out-alt"></i> Log out </a>
-				</li>
 
             </ul>
         </nav>

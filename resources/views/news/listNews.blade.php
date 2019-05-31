@@ -22,6 +22,7 @@
 ?>
 
 <div class="container">
+        <h1 class="display-3 text-muted">News</h1>
     <div class="card-deck">
     @foreach ($news as $key => $new)
             <!--Card-->
