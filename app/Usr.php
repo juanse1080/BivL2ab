@@ -19,7 +19,7 @@ class Usr extends Authenticatable
     }
 
     public function productions(){
-        return $this->belongsToMany('App\Production', 'production_usr', 'pk_production', 'pk_usr');
+        return $this->belongsToMany('App\Production', 'production_usr', 'pk_usr', 'pk_production' );
     }
 
     public function education(){

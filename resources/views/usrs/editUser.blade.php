@@ -3,8 +3,7 @@
 @section('titulo','Create user')
 <div class="container">
     <h5 class="text-muted mb-3">Create User:</h5>
-    {{-- {{ route('usrs.update', $usr->pk_usr) }} --}}
-    <form enctype="multipart/form-data" method="POST" action="/">
+    <form enctype="multipart/form-data" method="POST" action="{{route('account.edit', $usr->pk_usr)}}">
         @csrf
         @method('PUT')
         <div class="row">

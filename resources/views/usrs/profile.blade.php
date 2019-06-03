@@ -120,7 +120,7 @@
             <span class="mb-2 mt-2 text-muted">Productions: </span>
             <div id="owl-demo" class="owl-carousel d-none d-sm-none d-md-none d-lg-none d-xl-block">
                 @foreach($usr->productions as $production)
-                    <a class="item" href="">
+                    <a class="item">
                         <div class="card ml-3" >
                             <img class="lazyOwl card-botton" data-src="{{$production->photo}}" alt="Lazy Owl Image">
                             <div class="card-body">
@@ -132,7 +132,7 @@
             </div>
             <div id="owl-demo2" class="owl-carousel d-block d-sm-block d-md-block d-lg-block d-xl-none">
                 @foreach($usr->productions as $production)
-                    <a class="item" href="">
+                    <a class="item">
                         <div class="card ml-3" >
                             <img class="lazyOwl card-botton" data-src="{{$production->photo}}" alt="Lazy Owl Image">
                             <div class="card-body">

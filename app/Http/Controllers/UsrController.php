@@ -10,6 +10,7 @@ use App\Resource;
 use App\Dataset;
 use App\Production;
 use App\Http\Requests\CreateUserValidator;
+use App\Http\Requests\UpdateUserValidator;
 
 
 class UsrController extends Controller
@@ -64,7 +65,7 @@ class UsrController extends Controller
 
     // delete course
     public function destroy(Request $request, $pk_course) {
-        $curso = Usr::findOrFail($pk_course)->delete();
+        $course = Usr::findOrFail($pk_course)->delete();
         return redirect('/courses')->with('true', 'The course' . $course->name . ' has been succesfully deleted');
     }
 
@@ -73,7 +74,8 @@ class UsrController extends Controller
         return view("usrs.editUser", compact('usr'));
     }
 
-    public function update(CourseValidator $request, $pk_course) {
+    public function update(UpdateUserValidator $request, $pk_course) {
+        dd($request->all());
         $validated = $request->all();
         Usr::findOrFail($pk_course)->update($validated);
         return redirect()->route('courses.index')->with('success','The course has been succesfully updated');
