@@ -6,75 +6,31 @@
     <form enctype="multipart/form-data" action="/account" method="POST">
         @csrf
         <div class="row">
-            <div class="col-4">
+            <div class="col-md-6">
                 <div class="form-group">
-                    <label for="title">First name:</label>
-                    <input type="text" class="form-control" name="first_name" id="first_name" value="{{old('first_name')}}" required>
-                    <small class="invalid-feedback">{{$errors->title}}</small>
+                    <label for="email">Email:</label>
+                    <input id="email" name="email" type="text" class="form-control @is_valid('email', $errors) @endis_valid" placeholder="example@email.com" value="@eachError('email', $errors) @endeachError">
+                    <small class="invalid-feedback">@showError('email', $errors) @endshowError</small>
                 </div>
             </div>
-            <div class="col-4">
+            <div class="col-md-6">
                 <div class="form-group">
-                    <label for="title">Last name:</label>
-                    <input type="text" class="form-control" name="last_name" id="last_name" value="{{old('last_name')}}" required>
-                    <small class="invalid-feedback">{{$errors->title}}</small>
-                </div>
-            </div>
-
-            <div class="col-4">
-                <div class="form-group">
-                    <label for="title">Role:</label>
-                    <select class="form-control custom-select" name="role" id="role" required>
+                    <label for="role">Role:</label>
+                    <select class="form-control custom-select @is_valid('role', $errors) @endis_valid" name="role" id="role" required>
                         <option value="" disabled selected>Select the role</option>
                         <option @select('role', '0') @endselect value="0">Admin</option>
                         <option @select('role', '1') @endselect value="1">News</option>
                         <option @select('role', '2') @endselect value="2">Student</option>
                     </select>
-                </div>
-            </div>
-        </div>
-        {{-- <div class="row">
-            <div class="col-6">
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" class="form-control" name="email" id="email" value="{{old('email')}}" required>
-                    <small class="invalid-feedback">{{$errors->title}}</small>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="form-group">
-                    <label for="password">Password:</label>
-                    <input type="password" class="passwPassword="password" id="password" value="{{old('password')}}" required>
-                    <small class="invalid-feedback">{{$errors->title}}</small>
-                </div>
-            </div>
-        </div> --}}
-        <div class="row">
-            <div class="col">
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input id="email" name="email" type="text" class="form-control" placeholder="example@email.com">
-                </div>
-            </div>
-            <div class="col">
-                <div class="form-group">
-                    <label for="password">Password:</label>
-                    <input id="password" name="password" type="password" class="form-control" placeholder="Password">
+                    <small class="invalid-feedback">@showError('role', $errors) @endshowError</small>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-12">
-                <div class="form-group">
-                    <label for="title">Birthdate:</label>
-                    <input type="date" class="form-control" name="birthdate" id="birthdate" value="{{old('birthdate')}}" required>
-                    <small class="invalid-feedback">{{$errors->title}}</small>
+                <div class="float-right">
+                    <button type="submit" name="action" class="btn btn-sm btn-success float-right" value="Create">Save</button>
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-6">
-                <button type="submit" name="action" class="btn btn-sm btn-success float-right" value="Create">Save</button>
             </div>
         </div>
     </form>

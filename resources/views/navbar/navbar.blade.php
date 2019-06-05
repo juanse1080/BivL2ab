@@ -38,7 +38,6 @@
 
             {{-- Mensajes de error --}}
             <div id="br"></div>
-            @include('error.error')
             @include('error.alert')
 
             {{-- contenido de la pagina --}}

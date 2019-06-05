@@ -1,7 +1,7 @@
 @if(session()->has('false'))
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-10">
+        <div class="row">
+            <div class="col-12">
                 <div id="info" class="alert alert-danger danger-dismissible fade show hidden" role="alert">
                     {{session('false')}}
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -16,8 +16,8 @@
     @endphp
 @elseif(session()->has('true'))
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-10">
+        <div class="row">
+            <div class="col-md-12">
                 <div id="info" class="alert alert-success success-dismissible fade show hidden" role="alert">
                     {{session('true')}}
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">

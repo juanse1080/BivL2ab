@@ -10,9 +10,9 @@ class CreateUsrsTable extends Migration
     {
         Schema::create('usrs', function (Blueprint $table) {
             $table->increments('pk_usr');
-            $table->string('first_name', 30);
-            $table->string('last_name', 30);
-            $table->date('birthdate');
+            $table->string('first_name', 30)->nullable();
+            $table->string('last_name', 30)->nullable();
+            $table->date('birthdate')->nullable();
             $table->string('email')->unique();
             $table->string('password');
             $table->string('role', 20);
@@ -20,6 +20,7 @@ class CreateUsrsTable extends Migration
             $table->text('biography')->nullable();
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

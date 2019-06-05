@@ -3,12 +3,15 @@
 namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Usr extends Authenticatable
 {
+    use SoftDeletes;
     protected $primaryKey = 'pk_usr';
     protected $table = 'usrs';
-    protected $fillable = ['pk_usr','first_name', 'last_name', 'email', 'birthdate', 'password', 'role'];
+    protected $fillable = ['pk_usr','first_name', 'last_name', 'email', 'birthdate', 'password', 'role', 'photo', 'biography'];
+    protected $dates = ['deleted_at'];
     
     public function session(){
         return $this->attributes;

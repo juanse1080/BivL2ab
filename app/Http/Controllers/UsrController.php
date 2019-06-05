@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Usr;
+use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\CreateUserValidator;
 use App\Http\Requests\UpdateUserValidator;
 
@@ -29,6 +30,7 @@ class UsrController extends Controller
     public function store(CreateUserValidator $request) {
         $validated = $request->all();
         $user = (new Usr)->fill($validated);
+        $user->password = Hash::make($user->email);
         if ($user->save()) {
             return redirect('/account')->with('true', 'The user' . $user->first_name . ' has been succesfully created');
         } else {
@@ -59,10 +61,12 @@ class UsrController extends Controller
         }
     }
 
-    // delete course
-    public function destroy(Request $request, $pk_course) {
-        $course = Usr::findOrFail($pk_course)->delete();
-        return redirect('/courses')->with('true', 'The course' . $course->name . ' has been succesfully deleted');
+    // delete usr
+    public function destroy(Request $request, $pk_usr) {
+        $usr = Usr::findOrFail($pk_usr);
+        $mensaje = 'The usr' . $usr->first_name . ' has been succesfully deleted';
+        $usr->delete();
+        return redirect('/courses')->with('true', $mensaje);
     }
 
     public function edit($pk_usr) {
@@ -70,7 +74,7 @@ class UsrController extends Controller
         return view("usrs.editUser", compact('usr'));
     }
 
-    public function update(UpdateUserValidator $request, $pk_course) {
+    public function update(UpdateUserValidator $request, $pk_usr) {
         $validated = $request->all();
         Usr::findOrFail($pk_course)->update($validated);
         return redirect()->route('courses.index')->with('success','The course has been succesfully updated');

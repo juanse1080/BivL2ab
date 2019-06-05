@@ -24,22 +24,16 @@ class CreateUserValidator extends FormRequest
     public function rules()
     {
         return [
-            'first_name' => 'required|string',
-            'last_name' => 'required|string',
-            'email' => 'required|email',
-            'password' => 'required',
-            'birthdate' => 'required|date'
+            
+            'email' => 'required|unique:usrs,email|email',
+            'role' => 'required',
         ];
     }
 
     public function messages(){
         return [
-            'first_name.required' => 'First name is required',
-            'first_name.string' => 'The First name field must be an String',
-            'last_name.required' => 'First name is required',
-            'last_name.string' => 'The First name field must be an String',
-            'password.required' => 'Password field is required',
-            'birthdate.required' => 'Birthdate field is required'
+            'email.required' => 'Email name is required',
+            'email.string' => 'The Email name field must be an String',
         ];
     }
 }
