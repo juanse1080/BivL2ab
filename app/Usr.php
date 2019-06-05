@@ -60,7 +60,11 @@ class Usr extends Authenticatable
                     );
                 }
             } else {
-                $result['others'] = [];
+                if (!array_key_exists('others', $result)){
+                    $result['others'] = [$usr];
+                } else {
+                    array_push($result['others'], $usr);
+                }
             }
         }
         return $result;
