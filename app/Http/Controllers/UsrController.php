@@ -77,23 +77,6 @@ class UsrController extends Controller
     }
 
     public static function list(){
-        $result = ['blank' => []];
-        foreach(Usr::all() as $usr){
-            if (!is_null($usr->educationActual()->first()['type'])){
-                if (!in_array($usr->educationActual()->first()['type'], $result)){
-                    $result[$usr->educationActual()->first()['type']] => [];
-                }
-                array_push(
-                    $result[
-                        is_null($usr->educationActual()->first()['type']) 
-                            ? 'blank' 
-                            : $usr->educationActual()->first()['type']
-                    ], $usr
-                );
-            }
-            
-        }
-        array_push($result['blank'], Usr::find(1));
-        dd($result);
+        dd(Usr::educationGroup());
     }
 }

@@ -44,4 +44,23 @@ class Usr extends Authenticatable
         return strftime("%B %d, %Y",strtotime($this->birthdate));
     }
 
+    public static function educationGroup(){
+        $result = ['blank' => []];
+        foreach(Usr::all() as $usr){
+            if (!is_null($usr->educationActual()->first()['type'])){
+                if (!in_array($usr->educationActual()->first()['type'], $result)){
+                    $result[$usr->educationActual()->first()['type']] = [];
+                }
+                array_push(
+                    $result[
+                        is_null($usr->educationActual()->first()['type']) 
+                            ? 'blank' 
+                            : $usr->educationActual()->first()['type']
+                    ], $usr
+                );
+            }
+        }
+        return $result;
+    }
+
 }
