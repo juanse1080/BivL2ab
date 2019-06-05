@@ -30,7 +30,11 @@
         @include('precarga.precarga')
         <div id="ver">
             <!-- En esta parte va el menu con la directiva includee para que quede en el lugar -->
-            @include('menus.admin')
+            @if (Auth::check())
+                @include('menus.admin')
+            @else
+                @include('menus.admin')
+            @endif
 
             {{-- Mensajes de error --}}
             <div id="br"></div>

@@ -96,26 +96,50 @@
                 <a class="nav-link page-scroll" href="#contact">Contact</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link page-scroll" data-toggle="modal" data-target="#exampleModalCenter">Login</a>
+                @if (Auth::check())
+                  <a href="{{route('home')}}" class="nav-link page-scroll">
+                    {{session('usr')['first_name']}}
+                  </a>
+                @else
+                  <a class="page-scroll nav-link" data-toggle="modal" data-target="#exampleModalCenter">
+                    Login
+                  </a>
+                @endif
               </li>
-              
             </ul>
           </div>
         </div>
 
         <!-- Mobile Menu Start -->
         <ul class="mobile-menu">
-          <li>
-            <a class="page-scroll" href="#news">News</a>
+          <li class="nav-item">
+            <a class="nav-link page-scroll" href="#hero-area">Home</a>
           </li>
-          <li>
-            <a class="page-scroll" href="#testimonial">People</a>
+          <li class="nav-item">
+            <a class="nav-link page-scroll" href="#news">News</a>
           </li>
-          <li>
-            <a class="page-scroll" href="#contact">Contact</a>
+          <li class="nav-item">
+            <a class="nav-link page-scroll" href="#testimonial">People</a>
           </li>
-          <li>
-            <a class="page-scroll" data-toggle="modal" data-target="#exampleModalCenter">Login</a>
+          <li class="nav-item">
+            <a class="nav-link page-scroll" href="#research">Lines</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link page-scroll" href="#productions">Productions</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link page-scroll" href="#contact">Contact</a>
+          </li>
+          <li class="nav-item">
+            @if (Auth::check())
+              <a href="{{route('home')}}" class="nav-link page-scroll">
+                {{session('usr')['first_name']}}
+              </a>
+            @else
+              <a class="page-scroll nav-link" data-toggle="modal" data-target="#exampleModalCenter">
+                Login
+              </a>
+            @endif
           </li>
         </ul>
         <!-- Mobile Menu End -->

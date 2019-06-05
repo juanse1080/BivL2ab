@@ -45,19 +45,22 @@ class Usr extends Authenticatable
     }
 
     public static function educationGroup(){
-        $result = ['blank' => []];
+        $result = [];
         foreach(Usr::all() as $usr){
             if (!is_null($usr->educationActual()->first()['type'])){
-                if (!in_array($usr->educationActual()->first()['type'], $result)){
-                    $result[$usr->educationActual()->first()['type']] = [];
+                if (!array_key_exists($usr->educationActual()->first()['type'], $result)){
+                    $result[$usr->educationActual()->first()['type']] = [$usr];
+                } else {
+                    array_push(
+                        $result[
+                            is_null($usr->educationActual()->first()['type']) 
+                                ? 'others' 
+                                : $usr->educationActual()->first()['type']
+                        ], $usr
+                    );
                 }
-                array_push(
-                    $result[
-                        is_null($usr->educationActual()->first()['type']) 
-                            ? 'blank' 
-                            : $usr->educationActual()->first()['type']
-                    ], $usr
-                );
+            } else {
+                $result['others'] = [];
             }
         }
         return $result;

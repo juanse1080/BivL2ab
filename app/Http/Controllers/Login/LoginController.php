@@ -16,7 +16,7 @@ use App\Production;
 class LoginController extends Controller{
 
     public function __construct(){
-        $this->middleware('guest')->except('logout');
+        $this->middleware('guest')->except(['logout', '__invoke']);
     }
     
     public function __invoke(){

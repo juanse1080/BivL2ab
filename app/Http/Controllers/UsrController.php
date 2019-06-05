@@ -12,11 +12,11 @@ use App\Http\Requests\UpdateUserValidator;
 class UsrController extends Controller
 {
     public function __construct() {
-        $this->middleware('admin:0,1,2')->only(['show', 'index', 'edit', 'update']);
+        $this->middleware('admin:0,1,2')->only(['edit', 'update']);
         $this->middleware('admin:0')->except(['show', 'index', 'edit', 'update']);
     }
     public function index() {
-        $usrs = Usr::orderBy('role', 'ASC')->get();
+        $usrs = Usr::educationGroup();
         return view('usrs.listUsers', compact('usrs'));
     }
 
@@ -74,9 +74,5 @@ class UsrController extends Controller
         $validated = $request->all();
         Usr::findOrFail($pk_course)->update($validated);
         return redirect()->route('courses.index')->with('success','The course has been succesfully updated');
-    }
-
-    public static function list(){
-        dd(Usr::educationGroup());
     }
 }
