@@ -65,7 +65,7 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item active">
-                                <a class="nav-link mr-3" href="{{ url('/home') }}">{{ucwords(session('usr')['first_name'])}} {{ucwords(session('usr')['last_name'])}} <img class="rounded-circle w-100 pl-2" style="max-width:50px" src="{{asset(session('usr')['photo'])}}"></a>
+                                <a class="nav-link mr-3" href="{{ url('/home') }}">{{ucwords(session('usr')['first_name'])}} {{ucwords(session('usr')['last_name'])}} <img class="rounded-circle w-100 pl-2" style="max-width:40px" src="{{asset(session('usr')['photo'])}}"></a>
                             </li>
 							<li class="nav-item active">
 								<a class="nav-link" href="{{ url('/logout') }}"> <i class="fas fa-sign-out-alt"></i> Log out </a>

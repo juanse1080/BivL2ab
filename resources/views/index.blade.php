@@ -228,6 +228,7 @@
                     @foreach($usr->group('education') as $key => $education)
                         <span class="badge badge-pill text-white {{$pills[$key%7]}}">{{$education}}</span>
                     @endforeach
+                    <div class="float-right"></div>
                   </div>
                 </div>
               @endforeach
