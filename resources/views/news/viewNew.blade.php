@@ -14,7 +14,7 @@
     </div>
     <div class="row justify-content-center">
         <div class="col-10">
-            <p ALIGN="justify">{{$new->description}}</p>
+            <p ALIGN="justify">{!! nl2br(e($new->description)) !!}</p>
         </div>
     </div>
 </div>

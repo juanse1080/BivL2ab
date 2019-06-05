@@ -16,6 +16,20 @@
 				<li @if (Request::path()=="account/".session('user')['pk_usr']) class="active" @endif >
 					<a class="nav-link " href="/"> <i class="fas fa-home"></i> Home</a>
                 </li>
+                {{--  USERS  --}}
+				<li @if (Request::path()=="account" or Request::path()=="account/create") class="active" @endif >
+					<a href="#accountSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+						<i class="fas fa-users"></i> Users
+					</a>
+					<ul class="collapse list-unstyled" id="accountSubmenu">
+                        <li>
+							<a href="{{ url('/account') }}"><i class="fas fa-eye"></i> View</a>
+						</li>
+						<li>
+							<a href="{{ url('/account/create') }}"><i class="fas fa-user-plus"></i> Create</a>
+						</li>
+					</ul>
+                </li>
                 {{--  NEWS  --}}
 				<li @if (Request::path()=="news" or Request::path()=="/news/create") class="active" @endif >
                     <!-- <a class="nav-link " href="{{ url('courses') }}"> <i class="fas fa-user-graduate"></i> Estudiantes</a> -->
@@ -28,20 +42,6 @@
 						</li>
 						<li>
 							<a href="{{ url('/news/create') }}"><i class="fas fa-user-plus"></i> Create</a>
-						</li>
-					</ul>
-                </li>
-                {{--  USERS  --}}
-				<li @if (Request::path()=="account" or Request::path()=="account/create") class="active" @endif >
-					<a href="#accountSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-						<i class="fas fa-users"></i> Users
-					</a>
-					<ul class="collapse list-unstyled" id="accountSubmenu">
-                        <li>
-							<a href="{{ url('/account') }}"><i class="fas fa-eye"></i> View</a>
-						</li>
-						<li>
-							<a href="{{ url('/account/create') }}"><i class="fas fa-user-plus"></i> Create</a>
 						</li>
 					</ul>
                 </li>
