@@ -126,7 +126,7 @@
         <div class="row justify-content-md-center">
           <div class="col-md-10">
             <div class="contents text-center">
-              <h1 class="wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="0.3s">BIVL2AB</h1>
+              <h1 class="wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="0.3s">BIVL<sup>2</sup>AB</h1>
               <p class="lead  wow fadeIn" data-wow-duration="1000ms" data-wow-delay="400ms">Biomedical Imaging, Vision and Learning Laboratory, Computer Engineering and Informatics School, Universidad Industrial de Santander</p>
               <a href="#contact" class="btn btn-common wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="400ms">Contact with us</a>
             </div>
@@ -144,7 +144,7 @@
               <div class="video-promo-content text-center">
                 <h2 class="wow zoomIn" data-wow-duration="1000ms" data-wow-delay="100ms">Biomedical Imaging, Vision and Learning Laboratory</h2>
                 <p style="font-size:10rem" class="wow zoomIn" data-wow-duration="1000ms" data-wow-delay="100ms">
-                  BivLab is mainly dedicated to solve problems related with visual information, covering from the acquisition and 
+                  BivL<sup>2</sup>ab is mainly dedicated to solve problems related with visual information, covering from the acquisition and 
                   analysis of medical images to the understanding of complex spatio-temporal patterns in the general context of 
                   computer vision. Such problems are tipically highly variant and challenging, being hence, the proposal of learning strategies fundamental to 
                   stand out significant behaviors from observed data, and to model prior expert knowledge in robust representations.

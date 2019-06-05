@@ -5,10 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Usr;
-use App\Education;
-use App\Resource;
-use App\Dataset;
-use App\Production;
 use App\Http\Requests\CreateUserValidator;
 use App\Http\Requests\UpdateUserValidator;
 
@@ -75,9 +71,29 @@ class UsrController extends Controller
     }
 
     public function update(UpdateUserValidator $request, $pk_course) {
-        dd($request->all());
         $validated = $request->all();
         Usr::findOrFail($pk_course)->update($validated);
         return redirect()->route('courses.index')->with('success','The course has been succesfully updated');
+    }
+
+    public static function list(){
+        $result = ['blank' => []];
+        foreach(Usr::all() as $usr){
+            if (!is_null($usr->educationActual()->first()['type'])){
+                if (!in_array($usr->educationActual()->first()['type'], $result)){
+                    $result[$usr->educationActual()->first()['type']] => [];
+                }
+                array_push(
+                    $result[
+                        is_null($usr->educationActual()->first()['type']) 
+                            ? 'blank' 
+                            : $usr->educationActual()->first()['type']
+                    ], $usr
+                );
+            }
+            
+        }
+        array_push($result['blank'], Usr::find(1));
+        dd($result);
     }
 }

@@ -19,6 +19,7 @@ Route::get('/home', function () {
     return redirect('/account/'.session('usr')['pk_usr'].'/');
 })->name('home');
 Route::resource('/account', 'UsrController');
+Route::get('/list', 'UsrController@list');
 Route::resource('/courses', 'CourseController');
 Route::resource('/datasets', 'DatasetController');
 Route::resource('/lines', 'LineController');

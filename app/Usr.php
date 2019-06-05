@@ -37,7 +37,7 @@ class Usr extends Authenticatable
     }
 
     public function educationActual(){
-        return $this->education()->orderBy('start', 'ASC');
+        return $this->education()->orderBy('start', 'ASC')->limit(1)->get();
     }
 
     public function birthdateString(){
