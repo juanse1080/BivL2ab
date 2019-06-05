@@ -1,6 +1,22 @@
 @extends('navbar.navbar')
 @section('content')
 @section('titulo','Datasets')
+
+<?php 
+    function edit_button ($id) {
+        return '<a href='.route("datasets.edit", $id).' role="button" class="btn btn-md btn-success float-right ml-1">Edit</a> ';
+    } 
+    // function delete_button ($id) {
+    //     return '<form method="POST" action="/datasets/'.$id.'">
+    //                 '.{{ csrf_field() }}.
+    //                 {{ method_field("DELETE") }}.'
+    //                 <div class="form-group">
+    //                     <input type="submit" class="btn btn-danger delete-user" value="Delete">
+    //                 </div>
+    //             </form>';
+    // } 
+?>
+
 <div class="container">
     <div class="row">
         <div class="col-md-4">
@@ -17,15 +33,25 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="text-center">
-                                    <img src="{{$dataset->photo}}" class="Responsive image" alt="..." style="width:36%; height:250px;">
+                                    <img src="{{asset($dataset->photo)}}" class="Responsive image" alt="..." style="width:36%; height:250px;">
                                 </div>
                                 <hr>
                                 <div class="container">
-                                    <p class="text-break font-weight-light">{{$dataset->description}}</p>
+                                    <p class="text-break font-weight-light">{!! nl2br(e($dataset->description)) !!}</p>
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <a href="{{$dataset->url}}" target="_blank" class="btn btn-md btn-primary float-right"><span class="glyphicon glyphicon-cloud-download"></span> <i class="fas fa-download"></i> Download</a>
+                                <a href="{{$dataset->url}}" target="_blank" class="btn btn-md btn-primary float-right ml-1"><span class="glyphicon glyphicon-cloud-download"></span> <i class="fas fa-download"></i> Download</a>
+                                @if (Auth::check())
+                                    @if (session('role') == 0)
+                                        {!! edit_button($dataset->pk_dataset) !!} 
+                                        <form method="POST" action="{{route("datasets.destroy", $dataset->pk_dataset)}}">
+                                            {{ csrf_field() }}
+                                            {{ method_field("DELETE") }}
+                                                <input type="submit" class="btn btn-danger delete-user float-right ml-1" value="Delete">
+                                        </form>
+                                    @endif
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -35,9 +61,3 @@
     </div>
 </div>
 @endsection
-
-{{-- <ul>
-    @foreach ($datasets as $dataset)
-        <li>Name: {{$dataset->name}} , description: {{$dataset->description}}, url: {{$dataset->url}}, photo: <img src="{{$dataset->photo}}" alt="{{$dataset->name}}">, dataset path: {{$dataset->photo}}</li>
-    @endforeach
-</ul> --}}

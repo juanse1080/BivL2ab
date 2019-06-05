@@ -34,7 +34,7 @@
         </div>
         <div class="row">
             <div class="col-12">
-                <button type="submit" name="action" class="btn btn-sm btn-success float-right" value="Create">Save</button>
+                <button type="submit" name="action" class="btn btn-md btn-success float-right" value="Create">Save</button>
             </div>
         </div>
     </form>

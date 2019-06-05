@@ -8,8 +8,8 @@
         </div>
     </div>
     <div class="row justify-content-center mb-5">
-        <div class="col-10">
-            <img src="{{asset($new->photo)}}" class="rounded w-100" alt="{{$new->title}}">
+        <div class="col-10 text-center">
+            <img src="{{asset($new->photo)}}" style="width:36%; height:250px;" class="rounded" alt="{{$new->title}}">
         </div>
     </div>
     <div class="row justify-content-center">

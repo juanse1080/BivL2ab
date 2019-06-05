@@ -45,6 +45,20 @@
 						</li>
 					</ul>
                 </li>
+                {{--  DATASETS  --}}
+				<li @if (Request::path()=="datasets" or Request::path()=="datasets/create") class="active" @endif >
+					<a href="#datasetSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <i class="fas fa-book-open"></i> Datasets
+					</a>
+					<ul class="collapse list-unstyled" id="datasetSubmenu">
+                        <li>
+							<a href="{{ url('/datasets') }}"><i class="fas fa-eye"></i> View</a>
+						</li>
+						<li>
+							<a href="{{ url('/datasets/create') }}"><i class="fas fa-user-plus"></i> Create</a>
+						</li>
+					</ul>
+                </li>
                 
 
             </ul>

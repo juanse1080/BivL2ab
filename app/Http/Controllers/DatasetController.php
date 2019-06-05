@@ -41,8 +41,10 @@ class DatasetController extends Controller
 
     // delete dataset
     public function destroy(Request $request, $pk_dataset) {
-        $curso = Dataset::findOrFail($pk_dataset)->delete();
-        return redirect('/datasets')->with('true', 'The course' . $dataset->name . ' has been succesfully deleted');
+        $dataset = Dataset::findOrFail($pk_dataset);
+        $message = 'The dataset' . $dataset->name . ' has been succesfully deleted';
+        $dataset->delete();
+        return redirect('/datasets')->with('true', $message);
     }
 
     // edit dataset
@@ -62,22 +64,10 @@ class DatasetController extends Controller
         }
         if ($dataset->save()) {
             $mensaje = $dataset->name.' has been succesfully updated';
-            return redirect(route('datasets.show', $dataset->pk_dataset))->with('true', $mensaje);
+            return redirect(route('datasets.index', $dataset->pk_dataset))->with('true', $mensaje);
         } else {
             return back()->withInput()->with('false', 'Algo no salio bien, intente nuevamente');
         }
         return redirect()->route('datasets.index')->with('success','The dataset has been succesfully updated');
-    }
-
-    // Show dataset
-    public function show($pk_dataset)
-    {
-        $dataset = Dataset::findOrFail($pk_dataset);
-        if (!empty($dataset)) {
-            return view("datasets.viewDataset", compact('dataset'));
-        } else {
-            $mensaje = 'Could not find the dataset';
-            return back()->withErrors('mensaje', $mensaje);
-        }
     }
 }
