@@ -16,7 +16,7 @@ class UsrController extends Controller
 {
     public function __construct() {
         $this->middleware('admin:0,1,2')->only(['edit', 'update']);
-        $this->middleware('admin:0')->except(['show', 'index', 'edit', 'update', 'createEducation', 'storeEducation']);
+        $this->middleware('admin:0')->except(['show', 'index', 'edit', 'update', 'createEducation', 'storeEducation', 'changePassword', 'updatePassword']);
     }
     public function index() {
         $usrs = Usr::educationGroup();
@@ -96,6 +96,30 @@ class UsrController extends Controller
     public function createEducation($pk_usr) {
         $usr = Usr::findOrFail($pk_usr);
         return view("usrs.createEducation", compact('usr'));
+    }
+
+    public function changePassword() {
+        return view("usrs.changePassword");
+    }
+
+    public function updatePassword(Request $request, $pk_usr) {
+        dd($request->all());
+        
+        $usr = Usr::findOrFail($pk_usr);
+        if($request->oldPassword === $request->retypePassword){
+            $usr->password = $request->password;
+            $match = Hash::check($request->password, $usr->password);
+            if ($request->password) {
+                if($usr->save()){
+                    $mensaje = 'Password updated';
+                    return redirect(route('usrs.show', $pk_usr))->with('true', $mensaje);
+                } else {
+                    return back()->with('validated', 'Something went wrong. Try again.');
+                }
+            }
+        } else {
+            return back()->with('validated', 'Passwords do not match.');
+        }
     }
 
     public function storeEducation(EducationValidator $request, $pk_usr) {

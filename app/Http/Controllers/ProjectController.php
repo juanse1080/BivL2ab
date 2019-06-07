@@ -25,11 +25,13 @@ class ProjectController extends Controller
         $project->photo = $request->photo;
         $project->type = $request->type;
         if ($project->save()) {
-            foreach ($request->user as $key => $pk_usr) {
-                $project->users()->attach([$project->pk_project, $pk_usr]);
+
+            for ($i=0; $i < sizeof($request->user); $i++) { 
+                $pk_user = $request->user[$i];
+                $project->users()->attach([$pk_user]);
             }
         }
-        dd($project->pk_project);
-        
+        $mensaje = 'Project created';
+        return redirect(route('projects.index', $pk_usr))->with('true', $mensaje);
     }
 }
