@@ -220,6 +220,7 @@
           <div class="col-md-12">
             <div class="touch-slider owl-carousel owl-theme">
               @foreach($usrs as $usr)
+              <a href="{{route('account.show', $usr->pk_usr)}}" style="color: #fff;">
                 <div class="testimonial-item">
                   <img src="{{asset($usr->photo)}}" alt="Client Testimonoal" />
                   <div class="testimonial-text">
@@ -229,10 +230,8 @@
                         <span class="badge badge-pill text-white {{$pills[$key%7]}}">{{$education}}</span>
                     @endforeach
                   </div>
-                  <a href="{{route('account.show', $usr->pk_usr)}}">
-                    <i class="fa fa-eye"></i>
-                  </a>
                 </div>
+              </a>
               @endforeach
             </div>
           </div>

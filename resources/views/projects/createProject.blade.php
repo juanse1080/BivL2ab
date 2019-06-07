@@ -88,7 +88,7 @@
         </div>
         <div class="row">
             <div class="col-12">
-                <button type="submit" name="action" class="btn btn-md btn-success float-right" value="Create">Create</button>
+                <button type="submit" class="btn btn-md btn-success float-right">Create</button>
             </div>
         </div>
     </form>
