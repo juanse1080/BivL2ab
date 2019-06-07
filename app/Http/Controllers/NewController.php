@@ -25,7 +25,7 @@ class NewController extends Controller
     }
 
     // Save new
-    public function store(Request $request) {
+    public function store(NewValidator $request) {
         $validated = $request->all();
         $new = (new News)->fill($validated);
 

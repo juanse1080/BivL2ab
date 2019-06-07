@@ -5,16 +5,18 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Usr;
+use App\Education;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\CreateUserValidator;
 use App\Http\Requests\UpdateUserValidator;
+use App\Http\Requests\EducationValidator;
 
 
 class UsrController extends Controller
 {
     public function __construct() {
         $this->middleware('admin:0,1,2')->only(['edit', 'update']);
-        $this->middleware('admin:0')->except(['show', 'index', 'edit', 'update']);
+        $this->middleware('admin:0')->except(['show', 'index', 'edit', 'update', 'createEducation', 'storeEducation']);
     }
     public function index() {
         $usrs = Usr::educationGroup();
@@ -76,7 +78,34 @@ class UsrController extends Controller
 
     public function update(UpdateUserValidator $request, $pk_usr) {
         $validated = $request->all();
-        Usr::findOrFail($pk_course)->update($validated);
-        return redirect()->route('courses.index')->with('success','The course has been succesfully updated');
+        $usr = Usr::findOrFail($pk_usr)->fill($validated);
+        // dd($request->photo);
+        if ($request->hasFile('photo')) {
+            $name = strtolower(str_replace(' ', '_', $request->first_name)).'_'.$pk_usr;
+            $usr->photo = UtilsController::subirArchivo($request, $name, 'photo', 'usrs');
+        }
+        if ($usr->save()) {
+            $mensaje = $usr->first_name.' profile has been succesfully updated';
+            return redirect(route('account.show', $usr->pk_usr))->with('true', $mensaje);
+        } else {
+            return back()->with('validated', 'Something went wrong. Try again.');
+        }
+        return redirect()->route('account.update', $pk_usr)->with('success','The user has been succesfully updated');
+    }
+
+    public function createEducation($pk_usr) {
+        $usr = Usr::findOrFail($pk_usr);
+        return view("usrs.createEducation", compact('usr'));
+    }
+
+    public function storeEducation(EducationValidator $request, $pk_usr) {
+        $validated = $request->all();
+        $education = (new Education)->fill($validated);
+        if ($education->save()) {
+            $mensaje = 'Education has been added';
+            return redirect(route('account.show', $pk_usr))->with('true', $mensaje);
+        } else {
+            return back()->with('validated', 'Something went wrong. Try again.');
+        }
     }
 }

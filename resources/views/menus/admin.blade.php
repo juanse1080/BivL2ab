@@ -7,7 +7,7 @@
         <nav id="sidebar" class="active" >
             <div class="sidebar-header"  style="cursor: pointer;">
                 <img src="" alt="">
-                <h3 style="color: white;">Bivlab <i class="fas fa-flask"></i></h3>
+                <h3 style="color: white;">BivL²ab <i class="fas fa-flask" style="color: Dodgerblue;"></i></h3>
                 <strong style="color: Dodgerblue;" ><i class="fas fa-flask"></i></strong>
             </div>
 
@@ -81,9 +81,12 @@
                             <li class="nav-item active">
                                 <a class="nav-link mr-3" href="{{ url('/home') }}">{{ucwords(session('usr')['first_name'])}} {{ucwords(session('usr')['last_name'])}} <img class="rounded-circle w-100 pl-2" style="max-width:40px" src="{{asset(session('usr')['photo'])}}"></a>
                             </li>
+                            <li class="nav-item active">
+                                <a class="nav-link mr-3" href="{{ route('account.edit', session('usr')['pk_usr']) }}">Edit profile</a>
+                            </li>
 							<li class="nav-item active">
 								<a class="nav-link" href="{{ url('/logout') }}"> <i class="fas fa-sign-out-alt"></i> Log out </a>
-							</li>
+                            </li>
                         </ul>
                     </div>
                 </div>
