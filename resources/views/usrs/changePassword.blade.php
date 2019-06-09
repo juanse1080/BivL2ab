@@ -2,7 +2,7 @@
 @section('content')
 @section('titulo','Change password')
 <div class="container">
-    <form enctype="multipart/form-data" action="./updatePassword" method="POST">
+    <form action="{{route('updatePassword')}}" method="POST">
         @csrf
         @method('PUT')
         <div class="row">
@@ -23,7 +23,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="retypepassword">Retype Password:</label>
-                    <input id="retypepassword" name="retypepassword" type="retypepassword" class="form-control">
+                    <input id="retypepassword" name="retypepassword" type="password" class="form-control">
                     <small class="invalid-feedback">@showError('retypepassword', $errors) @endshowError</small>
                 </div>
             </div>

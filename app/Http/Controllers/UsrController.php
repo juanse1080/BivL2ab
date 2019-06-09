@@ -10,13 +10,14 @@ use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\CreateUserValidator;
 use App\Http\Requests\UpdateUserValidator;
 use App\Http\Requests\EducationValidator;
+use App\Http\Requests\PasswordValidator;
 
 
 class UsrController extends Controller
 {
     public function __construct() {
-        $this->middleware('admin:0,1,2')->only(['edit', 'update']);
-        $this->middleware('admin:0')->except(['show', 'index', 'edit', 'update', 'createEducation', 'storeEducation', 'changePassword', 'updatePassword']);
+        // $this->middleware('admin:0,1,2')->only(['edit', 'update']);
+        // $this->middleware('admin:0')->except(['show', 'index', 'edit', 'update', 'createEducation', 'storeEducation', 'changePassword', 'updatePassword']);
     }
     public function index() {
         $usrs = Usr::educationGroup();
@@ -93,8 +94,8 @@ class UsrController extends Controller
         return redirect()->route('account.update', $pk_usr)->with('success','The user has been succesfully updated');
     }
 
-    public function createEducation($pk_usr) {
-        $usr = Usr::findOrFail($pk_usr);
+    public function createEducation() {
+        $usr = Usr::findOrFail(session('usr')['pk_usr']);
         return view("usrs.createEducation", compact('usr'));
     }
 
@@ -102,32 +103,28 @@ class UsrController extends Controller
         return view("usrs.changePassword");
     }
 
-    public function updatePassword(Request $request, $pk_usr) {
-        dd($request->all());
-        
-        $usr = Usr::findOrFail($pk_usr);
-        if($request->oldPassword === $request->retypePassword){
-            $usr->password = $request->password;
-            $match = Hash::check($request->password, $usr->password);
-            if ($request->password) {
-                if($usr->save()){
-                    $mensaje = 'Password updated';
-                    return redirect(route('usrs.show', $pk_usr))->with('true', $mensaje);
-                } else {
-                    return back()->with('validated', 'Something went wrong. Try again.');
-                }
+    public function updatePassword(PasswordValidator $request) {
+        $validated = $request->all();
+        $usr = Usr::find(session('usr')['pk_usr']);
+        if(Hash::check($request->oldpassword, $usr->password)){
+            $usr->password = Hash::make($request->password);
+            if($usr->save()){
+                $mensaje = 'Password updated';
+                return redirect(route('account.show', $usr->pk_usr))->with('true', $mensaje);
+            } else {
+                return back()->with('validated', 'Something went wrong. Try again.');
             }
         } else {
-            return back()->with('validated', 'Passwords do not match.');
+            return back()->with('validated', 'Try again');
         }
     }
 
-    public function storeEducation(EducationValidator $request, $pk_usr) {
+    public function storeEducation(EducationValidator $request) {
         $validated = $request->all();
         $education = (new Education)->fill($validated);
         if ($education->save()) {
             $mensaje = 'Education has been added';
-            return redirect(route('account.show', $pk_usr))->with('true', $mensaje);
+            return redirect(route('account.show', session('usr')['pk_usr']))->with('true', $mensaje);
         } else {
             return back()->with('validated', 'Something went wrong. Try again.');
         }
