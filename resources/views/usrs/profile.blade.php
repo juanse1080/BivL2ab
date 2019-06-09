@@ -116,6 +116,31 @@
                         </div>
                     </div>
                 </div>
+                @if (Auth::check())
+                    @if (session('usr')['role'] == '0' || session('usr')['pk_usr'] == $usr->pk_usr)
+                        <div class="card">
+                            <div class="card-header">
+                                <span>
+                                    <span class="mr-2">Actions:</span>
+                                    <a href="{{route('account.edit', $usr->pk_usr)}}" class="badge badge-pill badge-primary">
+                                        <i class="fas fa-edit"></i>
+                                        Edit
+                                    </a>
+                                    {{-- <a href="{{route('account.edit', $usr->pk_usr)}}" class="badge badge-pill badge-danger">Delete</a> --}}
+                                    <a class="badge badge-pill badge-danger text-white" onclick="$('#usr{{$usr->pk_usr}}').submit()">
+                                        <i class="fas fa-trash"></i>
+                                        Delete
+                                    </a>
+                                    <form action="{{route('account.destroy', $usr->pk_usr)}}" id="usr{{$usr->pk_usr}}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                    </form>
+                                </span>
+                            </div>
+                        </div>
+                    @endif
+                @endif
+                
             </div>
             <span class="mb-2 mt-2 text-muted">Productions: </span>
             <div id="owl-demo" class="owl-carousel d-none d-sm-none d-md-none d-lg-none d-xl-block">

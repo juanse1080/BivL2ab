@@ -10,33 +10,7 @@
                 <div class="row">
             @endif
                 <div class="col-md-6 mt-3">
-                    <div class="card">
-                        <a style="cursor:pointer;max-width:30px;position:relative;top:15px;left:calc(100% - 45px);display:inline-block" class="text-muted rounded-circle text-center" id="dropdown{{$usr->pk_usr}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-ellipsis-v"></i>
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="dropdown{{$usr->pk_usr}}">
-                            <a class="dropdown-item" href="{{route('account.show', $usr->pk_usr)}}">
-                                <i class="fas fa-eye"></i>
-                                View
-                            </a>
-                            @if (Auth::check())
-                                @if (session('role') == 0 || $usr->pk_usr == session('usr')['pk_usr'] )
-                                    <a class="dropdown-item" href="{{route('account.edit', $usr->pk_usr)}}">
-                                        <i class="fas fa-edit"></i>
-                                        Edit
-                                    </a>
-                                    <a class="dropdown-item" onclick="$('#usr{{$usr->pk_usr}}').submit()">
-                                        <i class="fas fa-trash"></i>
-                                        Delete
-                                    </a>
-                                    <form action="{{route('account.destroy', $usr->pk_usr)}}" id="usr{{$usr->pk_usr}}" method="POST">
-                                        @csrf
-                                        @method('DESTROY')
-                                    </form>
-                                    
-                                @endif
-                            @endif
-                        </div>
+                    <div class="card" onclick="location.href='{{route('account.show', $usr->pk_usr)}}'">
                         <div class="row no-gutters">
                             <div class="col-md-4">
                                 <img src="{{asset($usr->photo)}}" class="card-img" alt="{{$usr->first_name}}">
