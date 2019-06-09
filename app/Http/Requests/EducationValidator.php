@@ -25,7 +25,7 @@ class EducationValidator extends FormRequest
     {
         return [
             'school' => 'required|string',
-            'type' => 'required',
+            'type' => 'required|in:Undergraduate,Master,Doctor,Postdoctor',
             'start' => 'required|date',
             'end' => 'required|date|after:start',
         ];
