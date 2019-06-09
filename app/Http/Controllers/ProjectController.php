@@ -50,4 +50,15 @@ class ProjectController extends Controller
         $users = DB::table('project_usr')->where('pk_project', $pk_project)->select('first_name','last_name')->join('usrs', 'usrs.pk_usr', '=', 'project_usr.pk_usr')->get();
         return view('projects.viewProject', ['project' => $project, 'users' => $users]);
     }
+
+    // Show project
+    public function edit($pk_project) {
+        $project = Project::find($pk_project);
+        $users = DB::table('project_usr')->where('pk_project', $pk_project)->join('usrs', 'usrs.pk_usr', '=', 'project_usr.pk_usr')->get();
+        return view('projects.editProject', ['project' => $project, 'users' => $users]);
+    }
+
+    public function update(Request $request, $pk_project) {
+        return 'holi';
+    }
 }
