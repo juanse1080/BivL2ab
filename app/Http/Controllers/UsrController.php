@@ -69,7 +69,7 @@ class UsrController extends Controller
         $usr = Usr::findOrFail($pk_usr);
         $mensaje = 'The usr' . $usr->first_name . ' has been succesfully deleted';
         $usr->delete();
-        return redirect('/courses')->with('true', $mensaje);
+        return redirect('/account')->with('true', $mensaje);
     }
 
     public function edit($pk_usr) {
