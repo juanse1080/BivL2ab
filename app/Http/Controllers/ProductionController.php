@@ -25,8 +25,21 @@ class ProductionController extends Controller
     }
 
     // Create form for Production
-    public function show() {
-        return 'holi';
+    public function show($pk_production) {
+        $production = Production::find($pk_production);
+
+        $pill = [
+            'badge-primary',
+            'badge-secondary',
+            'badge-success',
+            'badge-danger',
+            'badge-warning',
+            'badge-info',
+            'badge-light',
+            'badge-dark',
+        ];
+
+        return view('productions.viewProduction', ['production' => $production, 'pill' => $pill]);
     }
 
     // Edit production
