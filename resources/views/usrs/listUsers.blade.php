@@ -13,7 +13,7 @@
                     <div class="card" onclick="location.href='{{route('account.show', $usr->pk_usr)}}'">
                         <div class="row no-gutters">
                             <div class="col-md-4">
-                                <img src="{{asset($usr->photo)}}" class="card-img" alt="{{$usr->first_name}}">
+                                <img src="{{asset($usr->photo)}}" class="card-img" alt="{{$usr->first_name}}" style="max-height: 200px; object-fit: cover;;">
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">

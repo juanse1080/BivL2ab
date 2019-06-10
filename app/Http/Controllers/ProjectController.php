@@ -13,8 +13,18 @@ class ProjectController extends Controller
 {
 
     public function index() {
-        $projects = Project::all();
-        return view('projects.listProjects', compact('projects'));
+        $projects = Project::orderBy('created_at', 'desc')->get();
+        $pill = [
+            'badge-primary',
+            'badge-secondary',
+            'badge-success',
+            'badge-danger',
+            'badge-warning',
+            'badge-info',
+            'badge-light',
+            'badge-dark',
+        ];
+        return view('projects.listProjects', ['projects' => $projects, 'pill' => $pill]);
     }
 
     // Create form for Project

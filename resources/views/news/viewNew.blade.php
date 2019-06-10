@@ -15,6 +15,14 @@
     <div class="row justify-content-center">
         <div class="col-10">
             <p ALIGN="justify">{!! nl2br(e($new->description)) !!}</p>
+            <a class="badge badge-pill badge-danger text-white" onclick="$('#{{$new->pk_new}}').submit()">
+                <i class="fas fa-trash"></i>
+                Delete
+            </a>
+            <form action="{{route('news.destroy', $new->pk_new)}}" id="{{$new->pk_new}}" method="POST">
+                @csrf
+                @method('DELETE')
+            </form>
         </div>
     </div>
 </div>

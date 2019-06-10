@@ -1,6 +1,19 @@
+<style>
+    .card-img-top {
+        width: 100%;
+        height: 20vw;
+        object-fit: cover;
+    }
+
+    .card-deck {
+        margin-bottom: 15px;
+    }
+</style>
+
 @extends('navbar.navbar')
 @section('content')
 @section('titulo','Projects')
+
 
 <?php 
     $card_deck = '</div><div class="card-deck">';
@@ -10,11 +23,10 @@
 ?>
 
 <div class="container">
-    <h1 class="display-3 text-muted">Projects</h1>
     <div class="card-deck">
-    @foreach ($projects as $key => $project)
+        @foreach ($projects as $key => $project)
             <!--Card-->
-            <div class="card card-cascade">
+            <div class="card card-cascade mb-2">
 
                 <!--Card image-->
                 <div class="view view-cascade">
@@ -29,8 +41,9 @@
                 <div class="card-body card-body-cascade">
                     <!--Title-->
                     <h4 class="card-title text-center"><strong>{{$project->title}}</strong></h4>
-                    <h5 class="text-center">{{ strftime("%B %d, %Y",strtotime($project->created_at)) }}</h5>
-                    <!--Facebook-->
+                    @foreach ($project->users()->get() as $key2 => $user)
+                        <h5 style="display: inline-block;"><span class="badge badge-pill {{$pill[$key2%7]}}">{{explode(' ',$user->first_name)[0]}} {{explode(' ', $user->last_name)[0]}}</span></h5>
+                    @endforeach
                 </div>
                 <!--/.Card content-->
                 <div class="card-footer text-center">
@@ -43,9 +56,10 @@
                 </div>
             </div>
             <!--/.Card-->
-        @if ($key % 3 == 2)
-            {!! $card_deck !!}
-        @endif
-    @endforeach
+            @if ($key % 2 == 1)
+                {!! $card_deck !!}
+            @endif
+        @endforeach
+    </div>
 </div>
 @endsection
