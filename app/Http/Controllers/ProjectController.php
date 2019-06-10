@@ -7,7 +7,7 @@ use DB;
 
 use App\Project;
 use App\Usr;
-use App\SubLine;
+use App\Line;
 use App\Http\Requests\StoreProject;
 
 class ProjectController extends Controller
@@ -30,9 +30,10 @@ class ProjectController extends Controller
 
     // Create form for Project
     public function create() {
-        $sublines = SubLine::orderBy('name')->get();
+        $lines = Line::orderBy('name')->get();
+        // dd($lines[0]->sublines()->get());
         $users = Usr::orderBy('first_name', 'asc')->get();
-        return view('projects.createProject', ['sublines' => $sublines, 'users' => $users]);
+        return view('projects.createProject', ['lines' => $lines, 'users' => $users]);
     }
 
     // Save projects
@@ -43,9 +44,11 @@ class ProjectController extends Controller
             $project->photo = UtilsController::subirArchivo($request, $name, 'photo', 'projects');
         }
         if ($project->save()) {
-            for ($i=0; $i < sizeof($request->usrs); $i++) { 
-                $pk_user = $request->usrs[$i];
-                $project->users()->attach([$pk_user]);
+            foreach($request->usrs as $usr){
+                $project->users()->attach([$usr]);
+            }
+            foreach($request->sublines as $subline){
+                $project->sublines()->attach([$subline]);
             }
         }
         $mensaje = 'Project created';

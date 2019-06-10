@@ -22,12 +22,11 @@
                     <div class="col-6 mb-3">
                         <div class="form-group mb-2">
                             <label for="type"><strong><small style="color : #616161">Type:</small></strong></label>
-                            <select name="type" id="type" class="form-control custom-select @is_valid('type', $errors) @endis_valid" value="{{old('type')}}" required>
-                                <option value="" disabled selected>Select</option>
-                                <option value="Undergraduate">Undergraduate</option>
-                                <option value="Master">Master</option>
-                                <option value="Doctor">Doctor</option>
-                                <option value="Postdoctor">Postdoctor</option>
+                            <select name="type" id="type" class="form-control selectpicker @is_valid('type', $errors) @endis_valid" data-live-search="true" required>
+                                <option @select('type', 'Undergraduate') @endselect value="Undergraduate">Undergraduate</option>
+                                <option @select('type', 'Master') @endselect value="Master">Master</option>
+                                <option @select('type', 'Doctor') @endselect value="Doctor">Doctor</option>
+                                <option @select('type', 'Postdoctor') @endselect value="Postdoctor">Postdoctor</option>
                             </select>
                             <small class="invalid-feedback">@showError('type', $errors) @endshowError</small>
                         </div>
@@ -42,15 +41,7 @@
                         </div>
                     </div> 
                 </div>
-                <div class="row">
-                    <div class="col-12 col-sm-12 mb-3">
-                        <div class="form-group mb-2">
-                            <label for="summary"><strong><small style="color : #616161">Summary:</small></strong></label>
-                            <textarea required rows="5" name="summary" class="form-control @is_valid('summary', $errors) @endis_valid" placeholder="Project description here">{{old('summary')}}</textarea>
-                            <small class="invalid-feedback">@showError('summary', $errors) @endshowError</small>
-                        </div>
-                    </div>
-                </div>
+                
                 <div class="row">
                     <div class="col-12">
                         <div class="form-group mb-2">
@@ -61,6 +52,32 @@
                                 @endforeach
                             </select>
                             <small class="invalid-feedback">@showError('usrs', $errors) @endshowError</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group mb-2">
+                            <label for="sublines"><strong><small style="color : #616161">Sublines:</small></strong></label>
+                            <select id="sublines" name="sublines[]" class="selectpicker form-control @is_valid('sublines', $errors) @endis_valid" multiple data-live-search="true" required>
+                                @foreach ($lines as $line)
+                                    <optgroup label="{{$line->name}}">
+                                        @foreach ($line->sublines()->get() as $subline)
+                                            <option value="{{$subline->pk_usr}}">{{$subline->name}}</option>
+                                        @endforeach
+                                      </optgroup>
+                                @endforeach
+                            </select>
+                            <small class="invalid-feedback">@showError('sublines', $errors) @endshowError</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-sm-12 mb-3">
+                        <div class="form-group mb-2">
+                            <label for="summary"><strong><small style="color : #616161">Summary:</small></strong></label>
+                            <textarea required rows="5" name="summary" class="form-control @is_valid('summary', $errors) @endis_valid" placeholder="Project description here">{{old('summary')}}</textarea>
+                            <small class="invalid-feedback">@showError('summary', $errors) @endshowError</small>
                         </div>
                     </div>
                 </div>
