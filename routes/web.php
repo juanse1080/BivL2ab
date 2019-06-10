@@ -24,6 +24,8 @@ Route::get('/account/education/create', 'UsrController@createEducation')->name('
 Route::get('/account/password', 'UsrController@changePassword')->name('changePassword');
 Route::put('/account/updatePassword', 'UsrController@updatePassword')->name('updatePassword');
 
+Route::get('/productions/downloadpdf/{pk_production}', 'ProductionController@downloadPDF')->name('downloadPDF');
+
 Route::resource('/account', 'UsrController');
 Route::resource('/courses', 'CourseController');
 Route::resource('/datasets', 'DatasetController');

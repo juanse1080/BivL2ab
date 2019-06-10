@@ -9,28 +9,28 @@
         margin-bottom: 15px;
     }
 </style>
-
+    
 @extends('navbar.navbar')
 @section('content')
-@section('titulo','Projects')
+@section('titulo','Productions')
 
 
 <?php 
     $card_deck = '</div><div class="card-deck">';
     function edit_button($id) {
-        return '<a href='.route("projects.edit", $id).' role="button" class="btn btn-success">Edit</a>';
+        return '<a href='.route("productions.edit", $id).' role="button" class="btn btn-success">Edit</a>';
     } 
 ?>
 
 <div class="container">
     <div class="card-deck">
-        @foreach ($projects as $key => $project)
+        @foreach ($productions as $key => $production)
             <!--Card-->
-            <div class="card card-cascade mb-2" style="cursor:pointer" onclick="location.href='{{route('projects.show', $project->pk_project)}}'">
+            <div class="card card-cascade mb-2" style="cursor:pointer" onclick="location.href='{{route('productions.show', $production->pk_production)}}'">
 
                 <!--Card image-->
                 <div class="view view-cascade">
-                    <img src="{{asset($project->photo)}}" class="card-img-top" alt="">
+                    <img src="{{asset($production->photo)}}" class="card-img-top" alt="">
                     <a>
                         <div class="mask rgba-white-slight"></div>
                     </a>
@@ -40,7 +40,7 @@
                 <!--Card content-->
                 <div class="card-body card-body-cascade">
                     <!--Title-->
-                    <h4 class="card-title text-center"><strong>{{$project->title}}</strong></h4>
+                    <h4 class="card-title text-center"><strong>{{$production->title}}</strong></h4>
                 </div>
                 <!--/.Card content-->
             </div>
@@ -52,7 +52,7 @@
     </div>
     <div class="d-flex">
         <div class="mx-auto">
-            {{$projects->links()}}
+            {{$productions->links()}}
         </div>
     </div>
 </div>

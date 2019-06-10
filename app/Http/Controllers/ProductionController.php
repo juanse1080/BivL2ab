@@ -20,6 +20,26 @@ class ProductionController extends Controller
         $this->middleware('admin:0')->except(['show', 'index']);
     }
 
+    public function downloadPDF($pk_production) {
+        $production = Production::find($pk_production);
+        return response()->file($production->pdf);
+    }
+
+    public function index() {
+        $productions = Production::orderBy('created_at', 'desc')->paginate(6);
+        $pill = [
+            'badge-primary',
+            'badge-secondary',
+            'badge-success',
+            'badge-danger',
+            'badge-warning',
+            'badge-info',
+            'badge-light',
+            'badge-dark',
+        ];
+        return view('productions.listProductions', ['productions' => $productions, 'pill' => $pill]);
+    }
+
     // Create form for Production
     public function create() {
         $lines = Line::orderBy('name')->get();

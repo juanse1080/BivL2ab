@@ -71,6 +71,10 @@
                             <div class="card-header">
                                 <span>
                                     <span class="mr-2">Actions:</span>
+                                    <a href="{{route('downloadPDF', $production->pk_production)}}" class="badge badge-pill badge-success text-white"  style="cursor:pointer">
+                                        <i class="fas fa-file-pdf"></i>
+                                        PDF
+                                    </a>
                                     <a href="{{route('productions.edit', $production->pk_production)}}" class="badge badge-pill badge-primary">
                                         <i class="fas fa-edit"></i>
                                         Edit
