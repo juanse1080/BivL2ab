@@ -14,8 +14,13 @@ use App\Http\Requests\UpdateProject;
 class ProjectController extends Controller
 {
 
+    public function __construct() {
+        $this->middleware('admin:0,1,2')->only(['edit', 'update']);
+        $this->middleware('admin:0')->except(['show', 'index']);
+    }
+
     public function index() {
-        $projects = Project::orderBy('created_at', 'desc')->get();
+        $projects = Project::orderBy('created_at', 'desc')->paginate(6);
         $pill = [
             'badge-primary',
             'badge-secondary',

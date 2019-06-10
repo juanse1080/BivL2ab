@@ -11,6 +11,7 @@ use App\Http\Requests\CreateUserValidator;
 use App\Http\Requests\UpdateUserValidator;
 use App\Http\Requests\EducationValidator;
 use App\Http\Requests\PasswordValidator;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 
 class UsrController extends Controller

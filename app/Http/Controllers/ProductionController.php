@@ -15,6 +15,11 @@ use App\Http\Requests\CreateProductValidator;
 
 class ProductionController extends Controller
 {
+    public function __construct() {
+        $this->middleware('admin:0,1,2')->only(['edit', 'update']);
+        $this->middleware('admin:0')->except(['show', 'index']);
+    }
+
     // Create form for Production
     public function create() {
         $lines = Line::orderBy('name')->get();
