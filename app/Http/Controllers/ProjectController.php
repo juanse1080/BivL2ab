@@ -58,8 +58,17 @@ class ProjectController extends Controller
     // Show project
     public function show($pk_project) {
         $project = Project::find($pk_project);
-        $users = DB::table('project_usr')->where('pk_project', $pk_project)->select('first_name','last_name')->join('usrs', 'usrs.pk_usr', '=', 'project_usr.pk_usr')->orderBy('first_name','asc')->get();
-        return view('projects.viewProject', ['project' => $project, 'users' => $users]);
+        $pill = [
+            'badge-primary',
+            'badge-secondary',
+            'badge-success',
+            'badge-danger',
+            'badge-warning',
+            'badge-info',
+            'badge-light',
+            'badge-dark',
+        ];
+        return view('projects.viewProject', ['project' => $project, 'pill' => $pill]);
     }
 
     // Show project
@@ -94,5 +103,12 @@ class ProjectController extends Controller
         }
         $mensaje = 'The project has been succesfully updated';
         return redirect(route('projects.show', $project->pk_project))->with('true', $mensaje);
+    }
+
+    public function destroy(Request $request, $pk_project) {
+        $project = Project::findOrFail($pk_project);
+        $mensaje = 'The project' . $project->title . ' has been succesfully deleted';
+        $project->delete();
+        return redirect('/account')->with('true', $mensaje);
     }
 }

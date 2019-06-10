@@ -17,4 +17,8 @@ class Project extends Model
     public function sublines(){
         return $this->belongsToMany('App\SubLine', 'project_sublines', 'pk_project', 'pk_subline');
     }
+
+    public function productions(){
+        return $this->hasMany('App\Production', 'fk_project', 'pk_project');
+    }
 }

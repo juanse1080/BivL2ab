@@ -8,7 +8,9 @@
         @method('PUT')
         <h5 class="modal-title mb-3" id="exampleModalLabel">Edit Project</h5>
         <div class="row justify-content-md-center">
-            <img src="{{asset($project->photo)}}"  class="thumbnail">
+            <div class="col-12 text-center">
+                <img src="{{asset($project->photo)}}" style="max-height:400px;object-fit:scale-down" class="thumbnail">
+            </div>
         </div>
         <div class="row">
             <div class="col-12 col-sm-12 mb-3">
@@ -36,7 +38,7 @@
                 <div class="form-group mb-2">
                     <label for="type"><strong><small style="color : #616161">Photo:</small></strong></label>
                     <div class="custom-file form-control form-control-sm @is_valid('photo', $errors) @endis_valid">
-                        <input type="file" class="custom-file-input" name="photo" id="photo" required>
+                        <input type="file" class="custom-file-input" name="photo" id="photo">
                     </div>
                     <small class="invalid-feedback">@showError('photo', $errors) @endshowError</small>
                 </div>

@@ -47,6 +47,10 @@ class Usr extends Authenticatable
         return strftime("%B %d, %Y",strtotime($this->birthdate));
     }
 
+    public function shortName(){
+        return explode(' ', $this->first_name)[0] .' '. explode(' ', $this->last_name)[0];
+    }
+
     public static function educationGroup(){
         $result = [];
         foreach(Usr::all() as $usr){
