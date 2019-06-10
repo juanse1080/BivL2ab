@@ -31,7 +31,6 @@ class ProjectController extends Controller
     // Create form for Project
     public function create() {
         $lines = Line::orderBy('name')->get();
-        // dd($lines[0]->sublines()->get());
         $users = Usr::orderBy('first_name', 'asc')->get();
         return view('projects.createProject', ['lines' => $lines, 'users' => $users]);
     }
@@ -64,32 +63,35 @@ class ProjectController extends Controller
 
     // Show project
     public function edit($pk_project) {
+        
         $project = Project::find($pk_project);
         $users = Usr::orderBy('first_name', 'asc')->get();
-        $usersInProject = DB::table('project_usr')->where('pk_project', $pk_project)->join('usrs', 'usrs.pk_usr', '=', 'project_usr.pk_usr')->get();
-        return view('projects.editProject', ['project' => $project, 'users' => $users, 'usersInProject' => $usersInProject]);
+        $lines = Line::orderBy('name')->get();
+        return view('projects.editProject', ['project' => $project, 'users' => $users, 'lines' => $lines]);
     }
 
     public function update(Request $request, $pk_project) {
         $project = Project::find($pk_project);
-        $project->title = $request->title;
-        $project->summary = $request->summary;
-        $project->type = $request->type;
+        $project->fill($request->all());
         if($request->hasFile('photo')) {
             $name = strtolower(str_replace(' ', '_', $request->title)).'_'.$project->pk_project;
             $project->photo = UtilsController::subirArchivo($request, $name, 'photo', 'projects');
         }
         if ($project->save()) {
-            // dd($project->users()->get());
-            foreach ($project->users()->get() as $key => $reg) {
+            foreach ($project->users()->get() as $reg) {
                 $project->users()->detach([$reg->pk_usr]);
             }
-            for ($i=0; $i < sizeof($request->user); $i++) { 
-                $pk_user = $request->user[$i];
-                $project->users()->attach([$pk_user]);
+            foreach($request->usrs as $usr){
+                $project->users()->attach([$usr]);
+            }
+            foreach ($project->sublines()->get() as $reg) {
+                $project->sublines()->detach([$reg->pk_subline]);
+            }
+            foreach($request->sublines as $subline){
+                $project->sublines()->attach([$subline]);
             }
         }
-        $mensaje = 'Project updated';
+        $mensaje = 'The project has been succesfully updated';
         return redirect(route('projects.show', $project->pk_project))->with('true', $mensaje);
     }
 }
