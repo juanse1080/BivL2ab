@@ -51,7 +51,7 @@
                         <span>
                             <span class="mr-2">Sublines:</span>
                             @foreach($project->sublines()->get() as $key => $subline)
-                                <span class="badge badge-pill {{$pill[7-($key%7)]}}">{{$subline->name}}</span>
+                                <span class="badge badge-pill badge-light">{{$subline->name}}</span>
                             @endforeach
                         </span>
                     </div>
