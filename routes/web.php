@@ -29,4 +29,5 @@ Route::resource('/courses', 'CourseController');
 Route::resource('/datasets', 'DatasetController');
 Route::resource('/lines', 'LineController');
 Route::resource('/projects', 'ProjectController');
+Route::resource('/productions', 'ProductionController');
 Route::resource('/news', 'NewController');
