@@ -17,6 +17,8 @@ class CreateResourcesTable extends Migration
             $table->increments('pk_production');
             $table->string('type');
             $table->text('title');
+            $table->boolean('external')->default(false);
+            $table->string('ext_author')->nullable();
             $table->string('photo');
             $table->string('code');
             $table->text('abstract');
