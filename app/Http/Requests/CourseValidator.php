@@ -26,7 +26,8 @@ class CourseValidator extends FormRequest
         return [
             'name' => 'required|string',
             'description' => 'required',
-            'url' => 'required|url'
+            'url' => 'required|url',
+            'photo' => 'required|image|mimes:jpeg,bmp,png,jpg'
         ];
     }
 
@@ -35,6 +36,8 @@ class CourseValidator extends FormRequest
             'name.required' => 'A name is required',
             'name.string' => 'The name field must be an String',
             'description.required'  => 'A description is required',
+            'photo.required'  => 'A photo is required',
+            'photo.image'  => 'Photo input must be an image',
             'url.required' => 'A URL is required',
             'url.url' => 'Not a valid URL'
         ];

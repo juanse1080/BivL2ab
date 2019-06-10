@@ -28,6 +28,10 @@ class CourseController extends Controller
     public function store(CourseValidator $request) {
         $validated = $request->all();
         $course = (new Course)->fill($validated);
+        if($request->hasFile('photo')) {
+            $name = strtolower(str_replace(' ', '_', $request->name));
+            $course->photo = UtilsController::subirArchivo($request, $name, 'photo', 'courses');
+        }
         if ($course->save()) {
             return redirect('/courses')->with('true', 'The course' . $course->name . ' has been succesfully created');
         } else {
@@ -37,8 +41,10 @@ class CourseController extends Controller
 
     // delete course
     public function destroy(Request $request, $pk_course) {
-        $curso = Course::findOrFail($pk_course)->delete();
-        return redirect('/courses')->with('true', 'The course' . $course->name . ' has been succesfully deleted');
+        $curso = Course::findOrFail($pk_course);
+        $name = $curso->name;
+        $curso->delete();
+        return redirect('/courses')->with('true', 'The course ' . $name . ' has been succesfully deleted');
     }
 
     public function edit($pk_course) {
@@ -48,7 +54,15 @@ class CourseController extends Controller
 
     public function update(CourseValidator $request, $pk_course) {
         $validated = $request->all();
-        Course::findOrFail($pk_course)->update($validated);
-        return redirect()->route('courses.index')->with('success','The course has been succesfully updated');
+        $course = Course::find($pk_course)->fill($validated);
+        if($request->hasFile('photo')) {
+            $name = strtolower(str_replace(' ', '_', $request->name));
+            $course->photo = UtilsController::subirArchivo($request, $name, 'photo', 'courses');
+        }
+        if ($course->save()) {
+            return redirect('/courses')->with('true', 'The course' . $course->name . ' has been succesfully updated');
+        } else {
+            return back()->with('validated', 'Something went wrong. Try again.');
+        }
     }
 }

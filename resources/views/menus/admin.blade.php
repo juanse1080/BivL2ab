@@ -30,9 +30,36 @@
 						</li>
 					</ul>
                 </li>
+                {{--  PROJECTS  --}}
+				<li @if (Request::path()=="projects" or Request::path()=="/projects/create") class="active" @endif >
+                    <a href="#projectsSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <i class="fas fa-project-diagram"></i> projects
+					</a>
+					<ul class="collapse list-unstyled" id="projectsSubmenu">
+                        <li>
+							<a href="{{ url('/projects') }}"><i class="fas fa-eye"></i> View</a>
+						</li>
+						<li>
+							<a href="{{ url('/projects/create') }}"><i class="fas fa-user-plus"></i> Create</a>
+						</li>
+					</ul>
+                </li>
+                {{--  PRODUCTIONS  --}}
+				<li @if (Request::path()=="productions" or Request::path()=="/productions/create") class="active" @endif >
+                    <a href="#productionsSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <i class="fas fa-copy"></i> Productions
+					</a>
+					<ul class="collapse list-unstyled" id="productionsSubmenu">
+                        <li>
+							<a href="{{ url('/productions') }}"><i class="fas fa-eye"></i> View</a>
+						</li>
+						<li>
+							<a href="{{ url('/productions/create') }}"><i class="fas fa-user-plus"></i> Create</a>
+						</li>
+					</ul>
+                </li>
                 {{--  NEWS  --}}
 				<li @if (Request::path()=="news" or Request::path()=="/news/create") class="active" @endif >
-                    <!-- <a class="nav-link " href="{{ url('courses') }}"> <i class="fas fa-user-graduate"></i> Estudiantes</a> -->
                     <a href="#newsSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                         <i class="far fa-newspaper"></i> News
 					</a>
@@ -48,7 +75,7 @@
                 {{--  DATASETS  --}}
 				<li @if (Request::path()=="datasets" or Request::path()=="datasets/create") class="active" @endif >
 					<a href="#datasetSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <i class="fas fa-book-open"></i> Datasets
+                        <i class="fas fa-database"></i> Datasets
 					</a>
 					<ul class="collapse list-unstyled" id="datasetSubmenu">
                         <li>
@@ -56,6 +83,20 @@
 						</li>
 						<li>
 							<a href="{{ url('/datasets/create') }}"><i class="fas fa-user-plus"></i> Create</a>
+						</li>
+					</ul>
+                </li>
+                {{--  COURSES  --}}
+				<li @if (Request::path()=="courses" or Request::path()=="courses/create") class="active" @endif >
+					<a href="#courseSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <i class="fas fa-pencil-alt"></i> courses
+					</a>
+					<ul class="collapse list-unstyled" id="courseSubmenu">
+                        <li>
+							<a href="{{ url('/courses') }}"><i class="fas fa-eye"></i> View</a>
+						</li>
+						<li>
+							<a href="{{ url('/courses/create') }}"><i class="fas fa-user-plus"></i> Create</a>
 						</li>
 					</ul>
                 </li>
