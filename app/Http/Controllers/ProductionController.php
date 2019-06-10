@@ -30,13 +30,11 @@ class ProductionController extends Controller
     }
 
     // Save production
-    public function store(Request $request) {
+    public function store(CreateProductValidator $request) {
         $production = (new Production)->fill($request->all());
         if($request->external == 'true') {
             $production->external = true;
         }
-        // dd($request->external);
-        // dd($production);
         if($request->hasFile('photo')) {
             $name = strtolower(str_replace(' ', '_', $request->title)).'_'.$production->pk_production;
             $production->photo = UtilsController::subirArchivo($request, $name, 'photo', 'productions');
@@ -58,8 +56,6 @@ class ProductionController extends Controller
                 }
             }
             $mensaje = 'Production created';
-            dd($production);
-
             return redirect(route('productions.show', $production->pk_production))->with('true', $mensaje);
         } else {
             return back()->with('validated', 'Something went wrong. Try again.');
