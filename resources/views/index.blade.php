@@ -68,8 +68,8 @@
         <div class="container">
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
-            <a href="index.html" class="navbar-brand">
-              <img class="img-fulid" src="{{asset('img/logo.svg')}}" style="max-height:50px;max-width:60px" alt="">
+            <a href="{{route('root')}}" class="navbar-brand">
+              <img class="img-fulid" src="{{asset('img/logo.svg')}}" style="max-height:50px;max-width:60px">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
               <i class="lnr lnr-menu"></i>

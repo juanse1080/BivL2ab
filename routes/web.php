@@ -12,7 +12,7 @@
 */
 
 /* RUTAS DEL LOGIN*/
-Route::get('/', 'Login\LoginController')->name('home');
+Route::get('/', 'Login\LoginController')->name('root');
 Route::post('/login', 'Login\LoginController@authenticate')->name('login');
 Route::get('/logout', 'Login\LoginController@logout')->name('logout');
 Route::get('/home', function () {
