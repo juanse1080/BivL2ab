@@ -38,7 +38,7 @@
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-8">
             <div class="accordion" id="accordionE">
                 <div class="card">
-                    <div class="card-header" id="headingOne"  data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    <div class="card-header" style="cursor:pointer" id="headingOne"  data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                         <span>
                             Basic information:
                         </span>
@@ -71,7 +71,7 @@
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-header" id="headingTwo" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    <div class="card-header" style="cursor:pointer" id="headingTwo" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                         <span>
                             Contact information: 
                         </span>
@@ -92,7 +92,7 @@
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-header" id="headingThree"  data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    <div class="card-header" style="cursor:pointer" id="headingThree"  data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                         <span>
                             <span class="mr-2">Education:</span>
                             @foreach($usr->group('education') as $key => $education)
@@ -119,7 +119,7 @@
                 @if (Auth::check())
                     @if (session('usr')['role'] == '0' || session('usr')['pk_usr'] == $usr->pk_usr)
                         <div class="card">
-                            <div class="card-header">
+                            <div class="card-header" style="cursor:pointer">
                                 <span>
                                     <span class="mr-2">Actions:</span>
                                     <a href="{{route('account.edit', $usr->pk_usr)}}" class="badge badge-pill badge-primary">
