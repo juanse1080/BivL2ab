@@ -18,7 +18,7 @@ class Production extends Model
         return $this->belongsToMany('App\Dataset', "production_dataset", "pk_production", "pk_dataset");
     }
 
-    public function usrs(){
+    public function users(){
         return $this->belongsToMany('App\Usr', 'production_usr', 'pk_production', 'pk_usr');
     }
 

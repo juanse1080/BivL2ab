@@ -29,6 +29,16 @@ class ProductionController extends Controller
         return 'holi';
     }
 
+    // Edit production
+    public function edit($pk_production) {
+        $production = Production::find($pk_production);
+        $lines = Line::orderBy('name')->get();
+        $users = Usr::orderBy('first_name', 'asc')->get();
+        $datasets = Dataset::orderBy('name', 'asc')->get();
+        $projects = Project::orderBy('title', 'asc')->get();
+        return view('productions.editProduction', ['production' => $production, 'users' => $users, 'lines' => $lines, 'datasets' => $datasets, 'projects' => $projects]);
+    }
+
     // Save production
     public function store(CreateProductValidator $request) {
         $production = (new Production)->fill($request->all());
@@ -61,5 +71,10 @@ class ProductionController extends Controller
             return back()->with('validated', 'Something went wrong. Try again.');
         }
         
+    }
+
+    // Update production
+    public function update(Request $request, $pk_production) {
+        dd($request->all());
     }
 }
