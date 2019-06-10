@@ -5,16 +5,7 @@
 <?php 
     function edit_button ($id) {
         return '<a href='.route("datasets.edit", $id).' role="button" class="btn btn-md btn-success float-right ml-1">Edit</a> ';
-    } 
-    // function delete_button ($id) {
-    //     return '<form method="POST" action="/datasets/'.$id.'">
-    //                 '.{{ csrf_field() }}.
-    //                 {{ method_field("DELETE") }}.'
-    //                 <div class="form-group">
-    //                     <input type="submit" class="btn btn-danger delete-user" value="Delete">
-    //                 </div>
-    //             </form>';
-    // } 
+    }
 ?>
 
 <div class="container">

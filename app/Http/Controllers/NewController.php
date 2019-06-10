@@ -42,8 +42,10 @@ class NewController extends Controller
 
     // delete new
     public function destroy(Request $request, $pk_new) {
-        $curso = News::findOrFail($pk_new)->delete();
-        return redirect('/news')->with('true', 'The course' . $new->title . ' has been succesfully deleted');
+        $new = News::find($pk_new);
+        $title = $new->title;
+        $new->delete();
+        return redirect('/news')->with('true', 'The new ' . $new->title . ' has been succesfully deleted');
     }
 
     public function edit($pk_new) {

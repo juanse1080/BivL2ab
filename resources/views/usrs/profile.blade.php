@@ -131,6 +131,10 @@
                                         <i class="fas fa-trash"></i>
                                         Delete
                                     </a>
+                                    <a class="badge badge-pill badge-success text-white" href="{{route('createEducation')}}">
+                                        <i class="fas fa-plus"></i>
+                                        Add education
+                                    </a>
                                     <form action="{{route('account.destroy', $usr->pk_usr)}}" id="usr{{$usr->pk_usr}}" method="POST">
                                         @csrf
                                         @method('DELETE')
