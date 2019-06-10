@@ -17,6 +17,8 @@ class CreateResourcesTable extends Migration
             $table->increments('pk_production');
             $table->string('type');
             $table->text('title');
+            $table->boolean('external')->default(false);
+            $table->string('ext_author')->nullable();
             $table->string('photo');
             $table->string('code');
             $table->text('abstract');
@@ -27,7 +29,7 @@ class CreateResourcesTable extends Migration
         Schema::create('production_dataset', function (Blueprint $table) {
             $table->unsignedInteger('pk_dataset');
             $table->unsignedInteger('pk_production');
-            $table->primary('pk_dataset','pk_production');
+            $table->primary(['pk_dataset','pk_production']);
             $table->foreign('pk_dataset')
                 ->references('pk_dataset')->on('datasets')
                 ->onDelete('cascade')
@@ -41,6 +43,7 @@ class CreateResourcesTable extends Migration
         Schema::create('production_usr', function (Blueprint $table) {
             $table->unsignedInteger('pk_usr');
             $table->unsignedInteger('pk_production');
+            $table->primary(['pk_usr','pk_production']);
             $table->foreign('pk_usr')
                 ->references('pk_usr')->on('usrs')
                 ->onDelete('cascade')

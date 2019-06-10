@@ -19,8 +19,8 @@ class ProjectController extends Controller
 
     // Create form for Project
     public function create() {
-        $sublines = SubLine::all();
-        $users = Usr::all();
+        $sublines = SubLine::orderBy('name')->get();
+        $users = Usr::orderBy('first_name', 'asc')->get();
         return view('projects.createProject', ['sublines' => $sublines, 'users' => $users]);
     }
 
@@ -46,19 +46,39 @@ class ProjectController extends Controller
 
     // Show project
     public function show($pk_project) {
-        $project = Project::findOrFail($pk_project);
-        $users = DB::table('project_usr')->where('pk_project', $pk_project)->select('first_name','last_name')->join('usrs', 'usrs.pk_usr', '=', 'project_usr.pk_usr')->get();
+        $project = Project::find($pk_project);
+        $users = DB::table('project_usr')->where('pk_project', $pk_project)->select('first_name','last_name')->join('usrs', 'usrs.pk_usr', '=', 'project_usr.pk_usr')->orderBy('first_name','asc')->get();
         return view('projects.viewProject', ['project' => $project, 'users' => $users]);
     }
 
     // Show project
     public function edit($pk_project) {
         $project = Project::find($pk_project);
-        $users = DB::table('project_usr')->where('pk_project', $pk_project)->join('usrs', 'usrs.pk_usr', '=', 'project_usr.pk_usr')->get();
-        return view('projects.editProject', ['project' => $project, 'users' => $users]);
+        $users = Usr::orderBy('first_name', 'asc')->get();
+        $usersInProject = DB::table('project_usr')->where('pk_project', $pk_project)->join('usrs', 'usrs.pk_usr', '=', 'project_usr.pk_usr')->get();
+        return view('projects.editProject', ['project' => $project, 'users' => $users, 'usersInProject' => $usersInProject]);
     }
 
     public function update(Request $request, $pk_project) {
-        return 'holi';
+        $project = Project::find($pk_project);
+        $project->title = $request->title;
+        $project->summary = $request->summary;
+        $project->type = $request->type;
+        if($request->hasFile('photo')) {
+            $name = strtolower(str_replace(' ', '_', $request->title)).'_'.$project->pk_project;
+            $project->photo = UtilsController::subirArchivo($request, $name, 'photo', 'projects');
+        }
+        if ($project->save()) {
+            // dd($project->users()->get());
+            foreach ($project->users()->get() as $key => $reg) {
+                $project->users()->detach([$reg->pk_usr]);
+            }
+            for ($i=0; $i < sizeof($request->user); $i++) { 
+                $pk_user = $request->user[$i];
+                $project->users()->attach([$pk_user]);
+            }
+        }
+        $mensaje = 'Project updated';
+        return redirect(route('projects.show', $project->pk_project))->with('true', $mensaje);
     }
 }

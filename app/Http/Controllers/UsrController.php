@@ -16,8 +16,8 @@ use App\Http\Requests\PasswordValidator;
 class UsrController extends Controller
 {
     public function __construct() {
-        // $this->middleware('admin:0,1,2')->only(['edit', 'update']);
-        // $this->middleware('admin:0')->except(['show', 'index', 'edit', 'update', 'createEducation', 'storeEducation', 'changePassword', 'updatePassword']);
+        $this->middleware('admin:0,1,2')->only(['edit', 'update']);
+        $this->middleware('admin:0')->except(['show', 'index', 'edit', 'update', 'createEducation', 'storeEducation', 'changePassword', 'updatePassword']);
     }
     public function index() {
         $usrs = Usr::educationGroup();
@@ -122,6 +122,7 @@ class UsrController extends Controller
     public function storeEducation(EducationValidator $request) {
         $validated = $request->all();
         $education = (new Education)->fill($validated);
+        $education->type = ucwords($education->type);
         if ($education->save()) {
             $mensaje = 'Education has been added';
             return redirect(route('account.show', session('usr')['pk_usr']))->with('true', $mensaje);

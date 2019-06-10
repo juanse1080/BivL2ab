@@ -2,10 +2,16 @@
 @section('content')
 @section('titulo','Create Project')
 <div class="container">
+
+    
     <form enctype="multipart/form-data" action="{{route('projects.update', $project->pk_project)}}" method="POST">
         {{ csrf_field() }}
+        @method('PUT')
         <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Create Project</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Edit Project</h5>
+            <div class="container">
+                <img src="{{asset($project->photo)}}"  class="thumbnail">
+            </div>
         </div>
         <div class="modal-body">
             <div id="containerh" class="container" style="background:#fff !important;">
@@ -26,10 +32,10 @@
                             <div class="input-group mb-2">
                                 <select name="type" id="type" required class="form-control custom-select">
                                     <option value="" disabled >Select</option>
-                                    <option value="Undergraduate" @if ($project->type === "Undergraduate") selected @endif >Undergraduate</option>
-                                    <option value="Master" @if ($project->type === "Master") selected @endif >Master</option>
-                                    <option value="Doctor" @if ($project->type === "Doctor") selected @endif >Doctor</option>
-                                    <option value="Postdoctor @if ($project->type === "Postdoctor") selected @endif ">Postdoctor</option>
+                                    <option value="Undergraduate" @if ($project->type == "Undergraduate") selected @endif >Undergraduate</option>
+                                    <option value="Master" @if ($project->type == "Master") selected @endif >Master</option>
+                                    <option value="Doctor" @if ($project->type == "Doctor") selected @endif >Doctor</option>
+                                    <option value="Postdoctor @if ($project->type == "Postdoctor") selected @endif ">Postdoctor</option>
                                 </select>
                             </div>
                         </div>
@@ -53,21 +59,21 @@
                             <label for="user"><strong><small style="color : #616161">Users:</small></strong></label>
                             <div class="input-group mb-2" id="addUsers">
                                 <select name="user[0]" id="user[0]" required class="form-control custom-select ml-2">
-                                    <option value="" disabled selected>Select</option>
+                                    <option value="" disabled>Select</option>
                                     @foreach ($users as $user)
-                                        <option value="{{$user->pk_usr}}">{{$user->first_name}} {{$user->last_name}}</option>
+                                        <option value="{{$user->pk_usr}}" @if ($usersInProject[0]->pk_usr === $user->pk_usr) selected @endif >{{$user->first_name}} {{$user->last_name}}</option>
                                     @endforeach
                                 </select>
                                 <select name="user[1]" id="user[1]" required class="form-control custom-select ml-2">
-                                    <option value="" disabled selected>Select</option>
+                                    <option value="" disabled >Select</option>
                                     @foreach ($users as $user)
-                                        <option value="{{$user->pk_usr}}">{{$user->first_name}} {{$user->last_name}}</option>
+                                        <option value="{{$user->pk_usr}}" @if ($usersInProject[1]->pk_usr === $user->pk_usr) selected @endif ">{{$user->first_name}} {{$user->last_name}}</option>
                                     @endforeach
                                 </select>
                                 <select name="user[2]" id="user[2]" required class="form-control custom-select ml-2">
-                                    <option value="" disabled selected>Select</option>
+                                    <option value="" disabled >Select</option>
                                     @foreach ($users as $user)
-                                        <option value="{{$user->pk_usr}}">{{$user->first_name}} {{$user->last_name}}</option>
+                                        <option value="{{$user->pk_usr}}" @if ($usersInProject[2]->pk_usr === $user->pk_usr) selected @endif ">{{$user->first_name}} {{$user->last_name}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -88,7 +94,7 @@
         </div>
         <div class="row">
             <div class="col-12">
-                <button type="submit" class="btn btn-md btn-success float-right">Create</button>
+                <button type="submit" class="btn btn-md btn-success float-right">Edit</button>
             </div>
         </div>
     </form>
