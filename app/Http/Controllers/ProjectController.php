@@ -8,6 +8,7 @@ use DB;
 use App\Project;
 use App\Usr;
 use App\SubLine;
+use App\Http\Requests\StoreProject;
 
 class ProjectController extends Controller
 {
@@ -25,18 +26,15 @@ class ProjectController extends Controller
     }
 
     // Save projects
-    public function store(Request $request) {
-        $project = new Project;
-        $project->title = $request->title;
-        $project->summary = $request->summary;
-        $project->type = $request->type;
+    public function store(StoreProject $request) {
+        $project = (new Project)->fill($request->all());
         if($request->hasFile('photo')) {
             $name = strtolower(str_replace(' ', '_', $request->title)).'_'.$project->pk_project;
             $project->photo = UtilsController::subirArchivo($request, $name, 'photo', 'projects');
         }
         if ($project->save()) {
-            for ($i=0; $i < sizeof($request->user); $i++) { 
-                $pk_user = $request->user[$i];
+            for ($i=0; $i < sizeof($request->usrs); $i++) { 
+                $pk_user = $request->usrs[$i];
                 $project->users()->attach([$pk_user]);
             }
         }

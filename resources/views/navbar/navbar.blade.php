@@ -11,6 +11,8 @@
         <link type="text/css" rel="stylesheet" href="{{ asset('css/precarga.css') }}"  media="screen,projection"/>
         <link rel="stylesheet" href="{{asset('css/owl.carousel.css')}}">
         <link rel="stylesheet" href="{{asset('css/owl.theme.css')}}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+
         <!-- Definiendo el titulo de la pagina -->
         <title>@yield('titulo')</title>
         <!--Let browser know website is optimized for mobile-->
@@ -22,6 +24,7 @@
         <script type="text/javascript" src="{{ asset('js/popper.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
         <script src="{{asset('js/owl.carousel.js')}}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
         <meta id="csrf_token" name="csrf-token" content="{{ csrf_token() }}">
     </head>
     <body style="background:#f0f0f0c7">
@@ -47,6 +50,7 @@
         <script>
             $('[data-toggle="tooltip"]').tooltip();
             $('[data-toggle="popover"]').popover({ html : true });
+            $('select').selectpicker();
         </script>
     </body>
 </html>

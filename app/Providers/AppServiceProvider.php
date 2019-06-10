@@ -29,6 +29,12 @@ class AppServiceProvider extends ServiceProvider
             }
         });
 
+        Blade::if('selectMultiple', function($campo, $comparacion){
+            if(in_array($comparacion, old($campo))){
+                echo "selected";
+            }
+        });
+
         Blade::if('showError', function($campo, $errors){
             if($errors->get($campo)){
                 foreach ($errors->get($campo) as $error){
