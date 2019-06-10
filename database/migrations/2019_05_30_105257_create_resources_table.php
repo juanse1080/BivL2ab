@@ -23,6 +23,11 @@ class CreateResourcesTable extends Migration
             $table->string('code');
             $table->text('abstract');
             $table->string('pdf');
+            $table->unsignedInteger('fk_project');
+            $table->foreign('fk_project')
+                ->references('pk_project')->on('projects')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->timestamps();
         });
 

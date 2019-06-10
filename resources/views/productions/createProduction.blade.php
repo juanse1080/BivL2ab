@@ -1,6 +1,11 @@
 @extends('navbar.navbar')
 @section('content')
 @section('titulo','Create Product')
+
+@foreach ($errors->all() as $error)
+    {{$error}}
+@endforeach
+
 <div class="container">
     <form enctype="multipart/form-data" action="/productions" method="POST">
         {{ csrf_field() }}
@@ -41,10 +46,24 @@
                         <div class="form-group mb-2">
                             <label for="external"><strong><small style="color : #616161">External production:</small></strong></label>
                             <div class="@is_valid('photo', $errors) @endis_valid">
-                                <input name="external" type="checkbox" id="external">
+                                <input name="external" type="checkbox" id="external" value='true'>
                             </div>
                         </div>
                     </div> 
+                </div>
+                <div class="row">
+                    <div class="col-12 col-sm-12 mb-3">
+                        <div class="form-group mb-2">
+                            <label for="fk_project"><strong><small style="color : #616161">Project:</small></strong></label>
+                            <select id="fk_project" name="fk_project" class="selectpicker form-control @is_valid('fk_project', $errors) @endis_valid" data-live-search="true" required>
+                                <option value="" selected disabled>Select</option>
+                                @foreach ($projects as $project)
+                                    <option value="{{$project->pk_project}}">{{$project->title}}</option>
+                                @endforeach
+                            </select>
+                            <small class="invalid-feedback">@showError('project', $errors) @endshowError</small>
+                        </div>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col-12 col-sm-12 mb-3">
@@ -88,9 +107,9 @@
                 <div class="row">
                     <div class="col-6">
                         <div class="form-group mb-2">
-                            <label for="title"><strong><small style="color : #616161">Title:</small></strong></label>
-                            <input type="text" class="form-control @is_valid('title', $errors) @endis_valid" name="title" id="title" value="{{old('title')}}"  required>
-                            <small class="invalid-feedback">@showError('title', $errors) @endshowError</small>
+                            <label for="code"><strong><small style="color : #616161">Link to code:</small></strong></label>
+                            <input type="text" class="form-control @is_valid('code', $errors) @endis_valid" name="code" id="code" value="{{old('code')}}"  required>
+                            <small class="invalid-feedback">@showError('code', $errors) @endshowError</small>
                         </div>
                     </div>
                     <div class="col-6">

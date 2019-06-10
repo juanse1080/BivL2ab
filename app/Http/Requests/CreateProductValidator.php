@@ -27,8 +27,11 @@ class CreateProductValidator extends FormRequest
             'title' => 'required|string',
             'type' => 'required|in:Conference,Paper,Journal',
             'photo' => 'required|image|mimes:jpeg,bmp,png,jpg',
+            'code' => 'required|string',
+            'pdf' => 'required|mimes:pdf',
             'sublines' => 'required',
             'usrs' => 'required',
+            'fk_project' => 'required',
             'abstract' => 'required|string',
         ];
     }
