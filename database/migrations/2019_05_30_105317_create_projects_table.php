@@ -25,6 +25,7 @@ class CreateProjectsTable extends Migration
         Schema::create('project_usr', function (Blueprint $table) {
             $table->unsignedInteger('pk_project');
             $table->unsignedInteger('pk_usr');
+            $table->primary(['pk_project', 'pk_usr']);
             $table->foreign('pk_project')
                 ->references('pk_project')->on('projects')
                 ->onDelete('cascade')
