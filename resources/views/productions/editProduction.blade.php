@@ -39,7 +39,7 @@
                         <div class="form-group mb-2">
                             <label for="photo"><strong><small style="color : #616161">Photo:</small></strong></label>
                             <div class="custom-file form-control form-control-sm @is_valid('photo', $errors) @endis_valid">
-                                <input type="file" class="custom-file-input" name="photo" id="photo" required>
+                                <input type="file" class="custom-file-input" name="photo" id="photo">
                             </div>
                             <small class="invalid-feedback">@showError('photo', $errors) @endshowError</small>
                         </div>
@@ -118,7 +118,7 @@
                         <div class="form-group mb-2">
                             <label for="type"><strong><small style="color : #616161">PDF:</small></strong></label>
                             <div class="custom-file form-control form-control-sm @is_valid('pdf', $errors) @endis_valid">
-                                <input type="file" class="custom-file-input" name="pdf" id="pdf" required>
+                                <input type="file" class="custom-file-input" name="pdf" id="pdf">
                             </div>
                             <small class="invalid-feedback">@showError('pdf', $errors) @endshowError</small>
                         </div>

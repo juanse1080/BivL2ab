@@ -144,14 +144,38 @@
                         </div>
                     @endif
                 @endif
-                
+            </div>
+            <span class="mb-2 mt-2 text-muted">Projects: </span>
+            <div id="owl-demo" class="owl-carousel d-none d-sm-none d-md-none d-lg-none d-xl-block">
+                @foreach($usr->projects as $project)
+                    <a class="item">
+                        <div class="card ml-3" >
+                            <img class="lazyOwl card-botton" data-src="{{asset($project->photo)}}" alt="Lazy Owl Image">
+                            <div class="card-body">
+                                {{$project->title}}
+                            </div>
+                        </div>
+                    </a>
+                @endforeach
+            </div>
+            <div id="owl-demo2" class="owl-carousel d-block d-sm-block d-md-block d-lg-block d-xl-none">
+                @foreach($usr->projects as $project)
+                    <a class="item">
+                        <div class="card ml-3" >
+                            <img class="lazyOwl card-botton" data-src="{{asset($project->photo)}}" alt="Lazy Owl Image">
+                            <div class="card-body">
+                                {{$project->title}}
+                            </div>
+                        </div>
+                    </a>
+                @endforeach
             </div>
             <span class="mb-2 mt-2 text-muted">Productions: </span>
             <div id="owl-demo" class="owl-carousel d-none d-sm-none d-md-none d-lg-none d-xl-block">
                 @foreach($usr->productions as $production)
                     <a class="item">
                         <div class="card ml-3" >
-                            <img class="lazyOwl card-botton" data-src="{{$production->photo}}" alt="Lazy Owl Image">
+                            <img class="lazyOwl card-botton" data-src="{{asset($production->photo)}}" alt="Lazy Owl Image">
                             <div class="card-body">
                                 {{$production->title}}
                             </div>
@@ -163,7 +187,7 @@
                 @foreach($usr->productions as $production)
                     <a class="item">
                         <div class="card ml-3" >
-                            <img class="lazyOwl card-botton" data-src="{{$production->photo}}" alt="Lazy Owl Image">
+                            <img class="lazyOwl card-botton" data-src="{{asset($production->photo)}}" alt="Lazy Owl Image">
                             <div class="card-body">
                                 {{$production->title}}
                             </div>

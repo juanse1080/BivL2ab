@@ -18,7 +18,7 @@ class Usr extends Authenticatable
     }
 
     public function projects(){
-        return $this->belongsToMany('App\Project', 'project_usr', 'pk_project',	'pk_usr');
+        return $this->belongsToMany('App\Project', 'project_usr', 'pk_usr', 'pk_project');
     }
 
     public function productions(){

@@ -80,19 +80,47 @@
                     @endif
                 @endif
             </div>
-            <span class="mb-2 mt-2 text-muted">Productions: </span>
-            {{-- <div class="card">
-                <ul class="list-group list-group-flush">
-                    @foreach ($production->productions as $production)
-                        <li class="list-group-item">
-                            <a href="{{route('productions.show', $production->pk_production)}}">
-                                {{$production->title}}
-                            </a>
-                        </li>
-                    @endforeach
-                </ul>
-            </div> --}}
+            <span class="mb-2 mt-2 text-muted">Datasets: </span>
+            <div id="owl-demo" class="owl-carousel d-none d-sm-none d-md-none d-lg-none d-xl-block">
+                @foreach($production->datasets as $dataset)
+                    <a class="item">
+                        <div class="card ml-3" >
+                            <img class="lazyOwl card-botton" style="max-height:400px;object-fit:scale-down" data-src="{{asset($dataset->photo)}}" alt="Lazy Owl Image">
+                            <div class="card-body">
+                                {{$dataset->name}}
+                            </div>
+                        </div>
+                    </a>
+                @endforeach
+            </div>
+            <div id="owl-demo2" class="owl-carousel d-block d-sm-block d-md-block d-lg-block d-xl-none">
+                @foreach($production->datasets as $dataset)
+                    <a class="item">
+                        <div class="card ml-3" >
+                            <img class="lazyOwl card-botton" style="max-height:400px;object-fit:scale-down" data-src="{{asset($dataset->photo)}}" alt="Lazy Owl Image">
+                            <div class="card-body">
+                                {{$dataset->name}}
+                            </div>
+                        </div>
+                    </a>
+                @endforeach
+            </div>
         </div>
     </div>
+    <script>
+        $(document).ready(function() {
+            $("#owl-demo").owlCarousel({
+                items : 2,
+                lazyLoad : true,
+                navigation : true
+            });
+            $("#owl-demo2").owlCarousel({
+                items : 1,
+                lazyLoad : true,
+                navigation : true,
+                singleItem: true,
+            }); 
+        });
+    </script>
 </div>
 @endsection
