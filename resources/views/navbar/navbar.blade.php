@@ -22,7 +22,6 @@
         <script type="text/javascript" src="{{ asset('js/popper.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
         <script src="{{asset('js/owl.carousel.js')}}"></script>
-        <!-- <script type="text/javascript" src="{{ asset('js/ajax.js') }}"></script> -->
         <meta id="csrf_token" name="csrf-token" content="{{ csrf_token() }}">
     </head>
     <body style="background:#f0f0f0c7">
@@ -33,7 +32,7 @@
             @if (Auth::check())
                 @include('menus.admin')
             @else
-                {{-- @include('menus.admin') --}}
+                @include('navbar.frontpage')
             @endif
 
             {{-- Mensajes de error --}}
