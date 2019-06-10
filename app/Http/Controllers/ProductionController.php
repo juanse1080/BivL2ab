@@ -55,7 +55,7 @@ class ProductionController extends Controller
         }
         if ($production->save()) {
             foreach($request->usrs as $usr){
-                $production->usrs()->attach([$usr]);
+                $production->users()->attach([$usr]);
             }
             foreach($request->sublines as $subline){
                 $production->sublines()->attach([$subline]);
@@ -75,6 +75,48 @@ class ProductionController extends Controller
 
     // Update production
     public function update(Request $request, $pk_production) {
-        dd($request->all());
+        $production = Production::find($pk_production)->fill($request->all());
+        if($request->external == 'true') {
+            $production->external = true;
+        }
+        if($request->hasFile('photo')) {
+            $name = strtolower(str_replace(' ', '_', $request->title)).'_'.$production->pk_production;
+            $production->photo = UtilsController::subirArchivo($request, $name, 'photo', 'productions');
+        }
+        if($request->hasFile('pdf')) {
+            $name = strtolower(str_replace(' ', '_', $request->title)).'_'.$production->pk_production;
+            $production->pdf = UtilsController::subirArchivo($request, $name, 'pdf', 'productions');
+        }
+        if ($production->save()) {
+            // Users
+            foreach ($production->users()->get() as $reg) {
+                $production->users()->detach([$reg->pk_usr]);
+            }
+            foreach($request->usrs as $usr){
+                $production->users()->attach([$usr]);
+            }
+
+            // Sublines
+            foreach ($production->sublines()->get() as $reg) {
+                $production->sublines()->detach([$reg->pk_subline]);
+            }
+            foreach($request->sublines as $subline){
+                $production->sublines()->attach([$subline]);
+            }
+
+            // datasets
+            if(!empty($request->datasets)) {
+                foreach ($production->datasets()->get() as $reg) {
+                    $production->datasets()->detach([$reg->pk_dataset]);
+                }
+                foreach($request->datasets as $datasets){
+                    $production->datasets()->attach([$datasets]);
+                }
+            }
+            $mensaje = 'Production updated';
+            return redirect(route('productions.show', $production->pk_production))->with('true', $mensaje);
+        } else {
+            return back()->with('validated', 'Something went wrong. Try again.');
+        }
     }
 }
