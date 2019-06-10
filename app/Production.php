@@ -10,10 +10,6 @@ class Production extends Model
     protected $table = 'productions';
     protected $fillable = ['pk_production','type', 'title', 'photo', 'abstract', 'pdf', 'code', 'ext_author', 'fk_project'];
 
-    public function projects(){
-        return $this->belongsToMany('App\Project');
-    }
-
     public function datasets(){
         return $this->belongsToMany('App\Dataset', "production_dataset", "pk_production", "pk_dataset");
     }
@@ -24,5 +20,10 @@ class Production extends Model
 
     public function sublines(){
         return $this->belongsToMany('App\SubLine', 'production_sublines', 'pk_production', 'pk_subline');
+    }
+
+    public function project()
+    {
+        return $this->belongsTo('App\Project', 'fk_project');
     }
 }

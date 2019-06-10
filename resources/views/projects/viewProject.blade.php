@@ -8,10 +8,11 @@
     }
 </style>
 <div class="container">
+    <h5 class="modal-title text-muted mb-3 text-center" id="exampleModalLabel">Project: {{$project->title}}</h5>
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 mb-3">
             <div class="card mb-2">
-                <img src="{{asset($project->photo)}}" class="card-img-top" alt="{{$project->name}}">
+                <img src="{{asset($project->photo)}}" class="card-img-top" alt="{{$project->title}}">
             </div>
             <span class="mb-2 mt-2 text-muted">Summary: </span>
             <div class="card">

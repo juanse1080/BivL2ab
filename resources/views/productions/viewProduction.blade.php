@@ -8,10 +8,11 @@
     }
 </style>
 <div class="container">
+    <h5 class="modal-title text-muted mb-3 text-center" id="exampleModalLabel">Production: {{$production->title}}</h5>
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 mb-3">
             <div class="card mb-2">
-                <img src="{{asset($production->photo)}}" class="card-img-top" alt="{{$production->name}}">
+                <img src="{{asset($production->photo)}}" class="card-img-top" alt="{{$production->title}}">
             </div>
             <span class="mb-2 mt-2 text-muted">Abstract: </span>
             <div class="card">
@@ -25,6 +26,14 @@
                         <span>
                             <span class="mr-2">Title:</span>
                             {{ucwords($production->title)}}
+                        </span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <span>
+                            <span class="mr-2">Project:</span>
+                            <a href="{{route('projects.show', $production->project->pk_project)}}" style="cursor:pointer">{{$production->project->title}}</a>
                         </span>
                     </div>
                 </div>
@@ -81,7 +90,7 @@
                 @endif
             </div>
             <span class="mb-2 mt-2 text-muted">Datasets: </span>
-            <div id="owl-demo" class="owl-carousel d-none d-sm-none d-md-none d-lg-none d-xl-block">
+            <div id="owl-demo" class="owl-carousel d-none d-sm-none d-md-none d-lg-none d-xl-block" onclick="location.href='{{route('datasets.index')}}'">
                 @foreach($production->datasets as $dataset)
                     <a class="item">
                         <div class="card ml-3" >
@@ -93,7 +102,7 @@
                     </a>
                 @endforeach
             </div>
-            <div id="owl-demo2" class="owl-carousel d-block d-sm-block d-md-block d-lg-block d-xl-none">
+            <div id="owl-demo2" class="owl-carousel d-block d-sm-block d-md-block d-lg-block d-xl-none" onclick="location.href='{{route('datasets.index')}}'">
                 @foreach($production->datasets as $dataset)
                     <a class="item">
                         <div class="card ml-3" >

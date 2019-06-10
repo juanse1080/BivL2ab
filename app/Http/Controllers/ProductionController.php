@@ -38,7 +38,6 @@ class ProductionController extends Controller
             'badge-light',
             'badge-dark',
         ];
-
         return view('productions.viewProduction', ['production' => $production, 'pill' => $pill]);
     }
 
