@@ -9,6 +9,7 @@ use App\Project;
 use App\Usr;
 use App\Line;
 use App\Http\Requests\StoreProject;
+use App\Http\Requests\UpdateProject;
 
 class ProjectController extends Controller
 {
@@ -70,7 +71,7 @@ class ProjectController extends Controller
         return view('projects.editProject', ['project' => $project, 'users' => $users, 'lines' => $lines]);
     }
 
-    public function update(Request $request, $pk_project) {
+    public function update(UpdateProject $request, $pk_project) {
         $project = Project::find($pk_project);
         $project->fill($request->all());
         if($request->hasFile('photo')) {

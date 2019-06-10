@@ -32,7 +32,7 @@ class EducationSeeder extends Seeder
             'start' => '2009-09-01',
             'end' => '2007-02-01',
             'fk_usr' => '1',
-            'type' => 'Magister',
+            'type' => 'Master',
         ]);
 
         Education::create([

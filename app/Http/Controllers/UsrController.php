@@ -95,7 +95,7 @@ class UsrController extends Controller
     }
 
     public function createEducation() {
-        $usr = Usr::findOrFail(session('usr')['pk_usr']);
+        $usr = Usr::find(session('usr')['pk_usr']);
         return view("usrs.createEducation", compact('usr'));
     }
 
@@ -104,7 +104,6 @@ class UsrController extends Controller
     }
 
     public function updatePassword(PasswordValidator $request) {
-        $validated = $request->all();
         $usr = Usr::find(session('usr')['pk_usr']);
         if(Hash::check($request->oldpassword, $usr->password)){
             $usr->password = Hash::make($request->password);
@@ -123,6 +122,7 @@ class UsrController extends Controller
         $validated = $request->all();
         $education = (new Education)->fill($validated);
         $education->type = ucwords($education->type);
+        $education->fk_usr = session('usr')['pk_usr'];
         if ($education->save()) {
             $mensaje = 'Education has been added';
             return redirect(route('account.show', session('usr')['pk_usr']))->with('true', $mensaje);
