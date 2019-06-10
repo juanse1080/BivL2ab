@@ -16,22 +16,25 @@
       <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul class="navbar-nav mr-auto w-100 justify-content-end">
           <li class="nav-item pl-2 pr-2" style="border-radius:50rem!important;font-size:16px">
-            <a class="nav-link text-dark" href="">Home</a>
+            <a class="nav-link text-dark" href="/">Home</a>
           </li>
           <li class="nav-item pl-2 pr-2" style="border-radius:50rem!important;font-size:16px">
-            <a class="nav-link text-dark" href="">News</a>
+            <a class="nav-link text-dark" href="{{route('news.index')}}">News</a>
           </li>
           <li class="nav-item pl-2 pr-2" style="border-radius:50rem!important;font-size:16px">
-            <a class="nav-link text-dark" href="">People</a>
+            <a class="nav-link text-dark" href="{{route('account.index')}}">People</a>
           </li>
           <li class="nav-item pl-2 pr-2" style="border-radius:50rem!important;font-size:16px">
-            <a class="nav-link text-dark" href="">Lines</a>
+            <a class="nav-link text-dark" href="{{route('projects.index')}}">Projects</a>
           </li>
           <li class="nav-item pl-2 pr-2" style="border-radius:50rem!important;font-size:16px">
-            <a class="nav-link text-dark" href="">Productions</a>
+            <a class="nav-link text-dark" href="{{route('productions.index')}}">Productions</a>
           </li>
           <li class="nav-item pl-2 pr-2" style="border-radius:50rem!important;font-size:16px">
-            <a class="nav-link text-dark" href="">Contact</a>
+            <a class="nav-link text-dark" href="{{route('datasets.index')}}">Datasets</a>
+          </li>
+          <li class="nav-item pl-2 pr-2" style="border-radius:50rem!important;font-size:16px">
+            <a class="nav-link text-dark" href="{{route('courses.index')}}">Courses</a>
           </li>
         </ul>
       </div>
