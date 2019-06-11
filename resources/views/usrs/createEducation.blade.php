@@ -2,6 +2,10 @@
 @section('content')
 @section('titulo','Add Education')
 <div class="container">
+    @foreach ($errors->all() as $error)
+        {{$error}}
+    @endforeach
+
     <div class="timeline">
         <form action="{{route('storeEducation', $usr->pk_usr)}}" method="POST" id="form">
             {{ csrf_field() }}

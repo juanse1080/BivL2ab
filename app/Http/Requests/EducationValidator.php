@@ -27,7 +27,7 @@ class EducationValidator extends FormRequest
             'school' => 'required|string',
             'type' => 'required|in:Undergraduate,Master,Doctor,Postdoctor',
             'start' => 'required|date',
-            'end' => 'required|date|after:start',
+            'end' => 'nullable|date|after:start',
         ];
     }
 
@@ -38,7 +38,6 @@ class EducationValidator extends FormRequest
             'type.required'  => 'A type is required',
             'start.required'  => 'Start is required',
             'start.date'  => 'Start must be a date',
-            'end.required'  => 'End is required',
             'end.date'  => 'End must be a date'
         ];
     }

@@ -19,7 +19,7 @@ class CreateEducationTable extends Migration
             $table->text('title');
             $table->text('type');
             $table->date('start');
-            $table->date('end');
+            $table->date('end')->nullable();
             $table->unsignedInteger('fk_usr');
             $table->foreign('fk_usr')
                 ->references('pk_usr')->on('usrs')

@@ -31,8 +31,8 @@ class UsrSeeder extends Seeder
             'first_name' => 'Santiago',
             'last_name' => 'Gomez Hernández',
             'birthdate' => date("Y-m-d"),
-            'email' => 'santiago@gomez.com',
-            'password' => Hash::make('clave'),
+            'email' => 'santgohe@gmail.com',
+            'password' => Hash::make('billetedemil'),
             'role' => '0',
             'biography' => 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here, content here, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for lorem ipsum will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like',
         ]);
@@ -40,8 +40,8 @@ class UsrSeeder extends Seeder
             'first_name' => 'Juan Sebastian',
             'last_name' => 'Marcon Caballero',
             'birthdate' => date("Y-m-d"),
-            'email' => 'juan@marcon.com',
-            'password' => Hash::make('clave'),
+            'email' => 'juanmarcon1080@gmail.com',
+            'password' => Hash::make('sebastian1080'),
             'role' => '0',
             'biography' => 'Ornare magna sagittis netus pellentesque molestie gravida vivamus, diam nibh in natoque etiam mus nam eleifend, torquent et rutrum aptent laoreet justo. Lobortis condimentum cum pharetra iaculis nisl torquent vel integer sem, pellentesque ultrices urna orci nec donec cursus varius. Libero molestie dictumst litora auctor cum praesent facilisi ligula enim, arcu tristique ultrices quisque montes porttitor aliquam lobortis mus vehicula, vivamus gravida parturient leo quam neque viverra duis.',
         ]);
@@ -71,6 +71,15 @@ class UsrSeeder extends Seeder
             'password' => Hash::make('clave'),
             'role' => '1',
             'biography' => "Alejandra Moreno is currently an undergraduate candidate in Systems Engineering at the Universidad Industrial de Santander (Colombia). She's assosiated at Biomedical Imaging, Vision and Learning Laboratory group (BIVL2ab). Her research interest has been focused mainly on the classification of heart motion in MRI. ",
+        ]);
+        Usr::create([
+            'first_name' => 'Fabian Andres',
+            'last_name' => 'Leon Perez',
+            'birthdate' => "1996-10-01",
+            'email' => 'fabianandresleon96@gmail.com',
+            'password' => Hash::make('clave'),
+            'role' => '1',
+            'biography' => "Hello, my name is Fabian Andres Leon Perez. I'm a system engineering student at Universidad Industrial de Santander."
         ]);
         Usr::create([
             'first_name' => 'Miguel Alberto',
@@ -152,6 +161,33 @@ class UsrSeeder extends Seeder
             'password' => Hash::make('clave'),
             'role' => '2',
             'biography' => "Yessica is currently a undergraduate degree in Mathematics at Universidad Industrial de Santander (Colombia), where she's associated at Biomedical Imaging, Vision and Learning Laboratory (BIVL2ab). Her research interests are topological data analysis and computer vision.",
+        ]);
+        Usr::create([
+            'first_name' => 'Edgar Yesid',
+            'last_name' => 'Rangel Pieschacon',
+            'birthdate' => "1997-08-21",
+            'email' => 'jefelitman@gmail.com',
+            'password' => Hash::make('clave'),
+            'role' => '2',
+            'biography' => "I am a computer science student of Industrial University of Santander"
+        ]);
+        Usr::create([
+            'first_name' => 'Jefferson David',
+            'last_name' => 'Rodriguez Chivatá',
+            'birthdate' => "1994-09-22",
+            'email' => 'jefferson.rodriguez2@saber.uis.edu.co',
+            'password' => Hash::make('clave'),
+            'role' => '2',
+            'biography' => "I'm from Bucaramanga in Colombia. Passionate about artificial vision, technology, travel, football and cycling. Currently, I am a student of a Master in Computer Science and I work in Biomedical imaging, Vision and Learning Laboratory (BivL2ab) building models, based on deep learning, for the learning and recognition of gestures in video."
+        ]);
+        Usr::create([
+            'first_name' => 'Lina Marcela',
+            'last_name' => 'Ruiz García',
+            'birthdate' => "1998-01-10",
+            'email' => 'linamarug@hotmail.com',
+            'password' => Hash::make('clave'),
+            'role' => '2',
+            'biography' => "Lina Ruiz is a currently a candidate for undergraduate in Systems Engineering and Informatics at Universidad Industrial de Santander (Colombia). She is  passionate about computer vision, travel, and different sports.  She works at Biomedical Imaging, Vision and Learning Laboratory (BivL²ab)"
         ]);
         
     }

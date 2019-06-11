@@ -16,6 +16,8 @@ class Education extends Model
     }
 
     public function dateString($param){
-        return strftime("%B %d, %Y",strtotime($this->$param));
+        if($this->$param != null) {
+            return strftime("%B %d, %Y",strtotime($this->$param));
+        }
     }
 }
