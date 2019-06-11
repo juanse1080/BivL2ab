@@ -26,7 +26,7 @@
     <div class="card-deck">
         @foreach ($courses as $key => $course)
             <!--Card-->
-            <div class="card card-cascade mb-2" style="cursor:pointer" onclick="location.href='{{$course->url}}'">
+            <div class="card card-shadown card-cascade mb-2" style="cursor:pointer" onclick="location.href='{{$course->url}}'">
 
                 <!--Card image-->
                 <div class="view view-cascade">

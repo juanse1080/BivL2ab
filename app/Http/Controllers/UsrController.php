@@ -67,20 +67,24 @@ class UsrController extends Controller
 
     // delete usr
     public function destroy(Request $request, $pk_usr) {
-        $usr = Usr::findOrFail($pk_usr);
+        $usr = Usr::find($pk_usr);
         $mensaje = 'The usr' . $usr->first_name . ' has been succesfully deleted';
         $usr->delete();
         return redirect('/account')->with('true', $mensaje);
     }
 
     public function edit($pk_usr) {
-        $usr = Usr::findOrFail($pk_usr);
+        $usr = Usr::find($this->pk_user($pk_usr));
         return view("usrs.editUser", compact('usr'));
+    }
+
+    private function pk_user($pk_usr){
+        return (session('usr')['role'] == 0) ? $pk_usr : session('usr')['pk_usr'];
     }
 
     public function update(UpdateUserValidator $request, $pk_usr) {
         $validated = $request->all();
-        $usr = Usr::findOrFail($pk_usr)->fill($validated);
+        $usr = Usr::find($this->pk_user($pk_usr))->fill($validated);
         // dd($request->photo);
         if ($request->hasFile('photo')) {
             $name = strtolower(str_replace(' ', '_', $request->first_name)).'_'.$pk_usr;

@@ -26,7 +26,7 @@
     <div class="card-deck">
         @foreach ($productions as $key => $production)
             <!--Card-->
-            <div class="card card-cascade mb-2" style="cursor:pointer" onclick="location.href='{{route('productions.show', $production->pk_production)}}'">
+            <div class="card card-shadown card-cascade mb-2" style="cursor:pointer" onclick="location.href='{{route('productions.show', $production->pk_production)}}'">
 
                 <!--Card image-->
                 <div class="view view-cascade">

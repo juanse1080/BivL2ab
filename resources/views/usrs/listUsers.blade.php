@@ -10,7 +10,7 @@
                 <div class="row">
             @endif
                 <div class="col-md-6 mt-3">
-                    <div class="card" onclick="location.href='{{route('account.show', $usr->pk_usr)}}'">
+                    <div class="card card-shadown" onclick="location.href='{{route('account.show', $usr->pk_usr)}}'">
                         <div class="row no-gutters">
                             <div class="col-md-4">
                                 <img src="{{asset($usr->photo)}}" class="card-img" alt="{{$usr->first_name}}" style="max-height: 200px; object-fit: cover;;">

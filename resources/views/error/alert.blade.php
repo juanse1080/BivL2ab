@@ -12,7 +12,7 @@
         </div>
     </div>
     @php
-        session() -> forget('false')
+        session() -> forget('false');
     @endphp
 @elseif(session()->has('true'))
     <div class="container">
@@ -28,7 +28,7 @@
         </div>
     </div>
     @php
-        session() -> forget('true')
+        session() -> forget('true');
     @endphp
 @endif
 <script>

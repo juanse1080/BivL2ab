@@ -11,7 +11,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4">
-            <div class="list-group" id="list-tab" role="tablist">
+            <div class="list-group card-shadown" id="list-tab" role="tablist">
                 @foreach ($datasets as $key => $dataset)
                     <a class="list-group-item list-group-item-action @if ($key === 0)active @endif" id="list-{{$key}}-list" data-toggle="list" href="#list-{{$key}}" role="tab" aria-controls="{{$key}}">{{$dataset->name}}</a>
                 @endforeach
@@ -21,7 +21,7 @@
             <div class="tab-content" id="nav-tabContent">
                 @foreach ($datasets as $key => $dataset)
                     <div class="tab-pane fade @if ($key === 0)show active @endif" id="list-{{$key}}" role="tabpanel" aria-labelledby="list-{{$key}}-list">
-                        <div class="card">
+                        <div class="card card-shadown">
                             <div class="card-body">
                                 <div class="text-center">
                                     <img src="{{asset($dataset->photo)}}" class="Responsive image" alt="..." style="width:36%; height:250px;">

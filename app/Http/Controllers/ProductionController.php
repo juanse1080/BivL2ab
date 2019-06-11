@@ -12,6 +12,7 @@ use App\Line;
 use App\Dataset;
 use App\Project;
 use App\Http\Requests\CreateProductValidator;
+use App\Http\Requests\UpdateProductValidator;
 
 class ProductionController extends Controller
 {
@@ -111,9 +112,11 @@ class ProductionController extends Controller
     }
 
     // Update production
-    public function update(Request $request, $pk_production) {
+    public function update(UpdateProductValidator $request, $pk_production) {
         $production = Production::find($pk_production)->fill($request->all());
         if($request->external == 'true') {
+            $production->external = true;
+        } else {
             $production->external = true;
         }
         if($request->hasFile('photo')) {

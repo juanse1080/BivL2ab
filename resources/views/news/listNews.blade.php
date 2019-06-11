@@ -27,7 +27,7 @@
     <div class="card-deck">
     @foreach ($news as $key => $new)
             <!--Card-->
-            <div class="card card-cascade" onclick="location.href='{{route('news.show', $new->pk_new)}}'">
+            <div class="card card-shadown card-cascade" onclick="location.href='{{route('news.show', $new->pk_new)}}'">
 
                 <!--Card image-->
                 <div class="view view-cascade">

@@ -11,16 +11,16 @@
     <h5 class="modal-title text-muted mb-3 text-center" id="exampleModalLabel">Production: {{$production->title}}</h5>
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 mb-3">
-            <div class="card mb-2">
+            <div class="card mb-2 card-shadown">
                 <img src="{{asset($production->photo)}}" class="card-img-top" alt="{{$production->title}}">
             </div>
             <span class="mb-2 mt-2 text-muted">Abstract: </span>
-            <div class="card">
+            <div class="card card-shadown">
                 <div class="card-body">{{$production->abstract}}</div>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-8">
-            <div class="accordion" id="accordionE">
+            <div class="accordion card-shadown" id="accordionE">
                 <div class="card">
                     <div class="card-header">
                         <span>

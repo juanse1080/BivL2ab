@@ -6,10 +6,10 @@
         padding: .5rem 0.7rem;
         background-color: #fff;
     }
-    #owl-demo .item{
+    .owl-demo .item{
         margin: 3px;
     }
-    #owl-demo .item img{
+    .owl-demo .item img{
         display: block;
         width: 100%;
         height: auto;
@@ -22,21 +22,37 @@
         width: 100%;
         height: auto;
     }
+    #owl-demo3 .item{
+        margin: 3px;
+    }
+    #owl-demo3 .item img{
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+    #owl-demo4 .item{
+        margin: 3px;
+    }
+    #owl-demo4 .item img{
+        display: block;
+        width: 100%;
+        height: auto;
+    }
 </style>
 <div class="container">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 mb-3">
-            <div class="card mb-2">
+            <div class="card card-shadown mb-2">
                 <img src="{{asset($usr->photo)}}" class="card-img-top" alt="{{$usr->first_name}}">
             </div>
             <span class="mb-2 mt-2 text-muted">Biography: </span>
-            <div class="card">
+            <div class="card card-shadown">
                 <div class="card-body">{{$usr->biography}}</div>
             </div>
             
         </div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-8">
-            <div class="accordion" id="accordionE">
+            <div class="accordion card-shadown" id="accordionE">
                 <div class="card">
                     <div class="card-header" style="cursor:pointer" id="headingOne"  data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                         <span>
@@ -149,7 +165,7 @@
             <div id="owl-demo" class="owl-carousel d-none d-sm-none d-md-none d-lg-none d-xl-block">
                 @foreach($usr->projects as $project)
                     <a class="item">
-                        <div class="card ml-3" >
+                        <div class="card ml-3" onclick="location.href='{{route('projects.show', $project->pk_project)}}'">
                             <img class="lazyOwl card-botton" data-src="{{asset($project->photo)}}" alt="Lazy Owl Image">
                             <div class="card-body">
                                 {{$project->title}}
@@ -161,7 +177,7 @@
             <div id="owl-demo2" class="owl-carousel d-block d-sm-block d-md-block d-lg-block d-xl-none">
                 @foreach($usr->projects as $project)
                     <a class="item">
-                        <div class="card ml-3" >
+                        <div class="card ml-3" onclick="location.href='{{route('projects.show', $project->pk_project)}}'">
                             <img class="lazyOwl card-botton" data-src="{{asset($project->photo)}}" alt="Lazy Owl Image">
                             <div class="card-body">
                                 {{$project->title}}
@@ -171,10 +187,10 @@
                 @endforeach
             </div>
             <span class="mb-2 mt-2 text-muted">Productions: </span>
-            <div id="owl-demo" class="owl-carousel d-none d-sm-none d-md-none d-lg-none d-xl-block">
+            <div id="owl-demo3" class="owl-carousel d-none d-sm-none d-md-none d-lg-none d-xl-block">
                 @foreach($usr->productions as $production)
                     <a class="item">
-                        <div class="card ml-3" >
+                        <div class="card ml-3" onclick="location.href='{{route('productions.show', $production->pk_production)}}'">
                             <img class="lazyOwl card-botton" data-src="{{asset($production->photo)}}" alt="Lazy Owl Image">
                             <div class="card-body">
                                 {{$production->title}}
@@ -183,10 +199,10 @@
                     </a>
                 @endforeach
             </div>
-            <div id="owl-demo2" class="owl-carousel d-block d-sm-block d-md-block d-lg-block d-xl-none">
+            <div id="owl-demo4" class="owl-carousel d-block d-sm-block d-md-block d-lg-block d-xl-none">
                 @foreach($usr->productions as $production)
                     <a class="item">
-                        <div class="card ml-3" >
+                        <div class="card ml-3" onclick="location.href='{{route('productions.show', $production->pk_production)}}'">
                             <img class="lazyOwl card-botton" data-src="{{asset($production->photo)}}" alt="Lazy Owl Image">
                             <div class="card-body">
                                 {{$production->title}}
@@ -205,6 +221,17 @@
                 navigation : true
             });
             $("#owl-demo2").owlCarousel({
+                items : 1,
+                lazyLoad : true,
+                navigation : true,
+                singleItem: true,
+            }); 
+            $("#owl-demo3").owlCarousel({
+                items : 2,
+                lazyLoad : true,
+                navigation : true
+            });
+            $("#owl-demo4").owlCarousel({
                 items : 1,
                 lazyLoad : true,
                 navigation : true,

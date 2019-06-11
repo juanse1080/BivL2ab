@@ -8,19 +8,19 @@
     }
 </style>
 <div class="container">
-    <h5 class="modal-title text-muted mb-3 text-center" id="exampleModalLabel">Project: {{$project->title}}</h5>
+    <h5 class="modal-title text-muted mb-3" id="exampleModalLabel">Project: {{$project->title}}</h5>
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 mb-3">
-            <div class="card mb-2">
+            <div class="card card-shadown mb-2">
                 <img src="{{asset($project->photo)}}" class="card-img-top" alt="{{$project->title}}">
             </div>
             <span class="mb-2 mt-2 text-muted">Summary: </span>
-            <div class="card">
+            <div class="card card-shadown">
                 <div class="card-body">{{$project->summary}}</div>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-8">
-            <div class="accordion" id="accordionE">
+            <div class="accordion card-shadown" id="accordionE">
                 <div class="card">
                     <div class="card-header">
                         <span>
@@ -82,7 +82,7 @@
                 @endif
             </div>
             <span class="mb-2 mt-2 text-muted">Productions: </span>
-            <div class="card">
+            <div class="card card-shadown">
                 <ul class="list-group list-group-flush">
                     @foreach ($project->productions as $production)
                         <li class="list-group-item">
