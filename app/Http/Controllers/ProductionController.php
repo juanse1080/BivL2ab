@@ -70,6 +70,9 @@ class ProductionController extends Controller
     // Edit production
     public function edit($pk_production) {
         $production = Production::find($pk_production);
+        if(!$production->users->contains(session('usr')['pk_usr']) && session('usr')['role'] != 0){
+            return back();
+        } 
         $lines = Line::orderBy('name')->get();
         $users = Usr::orderBy('first_name', 'asc')->get();
         $datasets = Dataset::orderBy('name', 'asc')->get();
@@ -113,7 +116,11 @@ class ProductionController extends Controller
 
     // Update production
     public function update(UpdateProductValidator $request, $pk_production) {
-        $production = Production::find($pk_production)->fill($request->all());
+        $production = Production::find($pk_production);
+        if(!$production->users->contains(session('usr')['pk_usr']) && session('usr')['role'] != 0){
+            return back();
+        }
+        -$production>fill($request->all());
         if($request->external == 'true') {
             $production->external = true;
         } else {
