@@ -81,16 +81,24 @@
                     @endif
                 @endif
             </div>
-            <span class="mb-2 mt-2 text-muted">Productions: </span>
+            <span class="mb-3 mt-3 text-muted">Productions: </span>
             <div class="card card-shadown">
                 <ul class="list-group list-group-flush">
-                    @foreach ($project->productions as $production)
-                        <li class="list-group-item">
-                            <a href="{{route('productions.show', $production->pk_production)}}">
-                                {{$production->title}}
-                            </a>
-                        </li>
-                    @endforeach
+                    @if ($project->productions()->count() == 0)
+                        <div class="card card-shadown">
+                            <div class="card-body">
+                                Doesn't have products
+                            </div>
+                        </div>
+                    @else
+                        @foreach ($project->productions as $production)
+                            <li class="list-group-item">
+                                <a href="{{route('productions.show', $production->pk_production)}}">
+                                    {{$production->title}}
+                                </a>
+                            </li>
+                        @endforeach
+                    @endif
                 </ul>
             </div>
         </div>

@@ -93,31 +93,39 @@
                     @endif
                 @endif
             </div>
-            <span class="mb-2 mt-2 text-muted">Datasets: </span>
-            <div id="owl-demo" class="owl-carousel d-none d-sm-none d-md-none d-lg-none d-xl-block" onclick="location.href='{{route('datasets.index')}}'">
-                @foreach($production->datasets as $dataset)
-                    <a class="item">
-                        <div class="card ml-3" >
-                            <img class="lazyOwl card-botton" style="max-height:400px;object-fit:scale-down" data-src="{{asset($dataset->photo)}}" alt="Lazy Owl Image">
-                            <div class="card-body">
-                                {{$dataset->name}}
+            <span class="mb-3 mt-3 text-muted">Datasets: </span>
+            @if ($production->datasets()->count() == 0)
+                <div class="card card-shadown">
+                    <div class="card-body">
+                        Doesn't have datasets
+                    </div>
+                </div>
+            @else
+                <div id="owl-demo" class="owl-carousel d-none d-sm-none d-md-none d-lg-none d-xl-block" onclick="location.href='{{route('datasets.index')}}'">
+                    @foreach($production->datasets as $dataset)
+                        <a class="item">
+                            <div class="card ml-3" >
+                                <img class="lazyOwl card-botton" style="max-height:400px;object-fit:scale-down" data-src="{{asset($dataset->photo)}}" alt="Lazy Owl Image">
+                                <div class="card-body">
+                                    {{$dataset->name}}
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                @endforeach
-            </div>
-            <div id="owl-demo2" class="owl-carousel d-block d-sm-block d-md-block d-lg-block d-xl-none" onclick="location.href='{{route('datasets.index')}}'">
-                @foreach($production->datasets as $dataset)
-                    <a class="item">
-                        <div class="card ml-3" >
-                            <img class="lazyOwl card-botton" style="max-height:400px;object-fit:scale-down" data-src="{{asset($dataset->photo)}}" alt="Lazy Owl Image">
-                            <div class="card-body">
-                                {{$dataset->name}}
+                        </a>
+                    @endforeach
+                </div>
+                <div id="owl-demo2" class="owl-carousel d-block d-sm-block d-md-block d-lg-block d-xl-none" onclick="location.href='{{route('datasets.index')}}'">
+                    @foreach($production->datasets as $dataset)
+                        <a class="item">
+                            <div class="card ml-3" >
+                                <img class="lazyOwl card-botton" style="max-height:400px;object-fit:scale-down" data-src="{{asset($dataset->photo)}}" alt="Lazy Owl Image">
+                                <div class="card-body">
+                                    {{$dataset->name}}
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                @endforeach
-            </div>
+                        </a>
+                    @endforeach
+                </div>
+            @endif
         </div>
     </div>
     <script>
