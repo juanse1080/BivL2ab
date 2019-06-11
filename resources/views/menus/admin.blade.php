@@ -6,9 +6,7 @@
         <!-- Sidebar  -->
         <nav id="sidebar" class="active" >
             <div class="sidebar-header"  style="cursor: pointer;">
-                <img src="" alt="">
-                <h3 style="color: white;">BivL²ab <i class="fas fa-flask" style="color: Dodgerblue;"></i></h3>
-                <strong style="color: Dodgerblue;" ><i class="fas fa-flask"></i></strong>
+                <img class="img-fulid" src="{{asset('img/logo.svg')}}" style="max-height:50px;max-width:60px">
             </div>
 
             <ul class="list-unstyled components">

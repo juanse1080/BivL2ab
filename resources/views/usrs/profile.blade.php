@@ -142,19 +142,20 @@
                                         <i class="fas fa-edit"></i>
                                         Edit
                                     </a>
-                                    {{-- <a href="{{route('account.edit', $usr->pk_usr)}}" class="badge badge-pill badge-danger">Delete</a> --}}
-                                    <a class="badge badge-pill badge-danger text-white" onclick="$('#usr{{$usr->pk_usr}}').submit()">
-                                        <i class="fas fa-trash"></i>
-                                        Delete
-                                    </a>
-                                    <a class="badge badge-pill badge-success text-white" href="{{route('createEducation')}}">
+                                    <a class="badge badge-pill badge-success text-white" href="{{route('createEducation', $usr->pk_usr)}}">
                                         <i class="fas fa-plus"></i>
                                         Add education
                                     </a>
-                                    <form action="{{route('account.destroy', $usr->pk_usr)}}" id="usr{{$usr->pk_usr}}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                    </form>
+                                    @if (session('usr')['role'] == '0')
+                                        <a class="badge badge-pill badge-danger text-white" onclick="$('#usr{{$usr->pk_usr}}').submit()">
+                                            <i class="fas fa-trash"></i>
+                                            Delete
+                                        </a>
+                                        <form action="{{route('account.destroy', $usr->pk_usr)}}" id="usr{{$usr->pk_usr}}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                        </form>
+                                    @endif
                                 </span>
                             </div>
                         </div>

@@ -74,18 +74,18 @@ class UsrController extends Controller
     }
 
     public function edit($pk_usr) {
-        $usr = Usr::find($this->pk_user($pk_usr));
+        if(session('usr')['role'] != 0 && session('usr')['pk_usr'] != $pk_usr){
+            return back();
+        }
+        $usr = Usr::find($pk_usr);
         return view("usrs.editUser", compact('usr'));
     }
 
-    private function pk_user($pk_usr){
-        return (session('usr')['role'] == 0) ? $pk_usr : session('usr')['pk_usr'];
-    }
-
     public function update(UpdateUserValidator $request, $pk_usr) {
-        $validated = $request->all();
-        $usr = Usr::find($this->pk_user($pk_usr))->fill($validated);
-        // dd($request->photo);
+        if(session('usr')['role'] != 0 && session('usr')['pk_usr'] != $pk_usr){
+            return back();
+        }
+        $usr = Usr::find($pk_usr)->fill($request->all());
         if ($request->hasFile('photo')) {
             $name = strtolower(str_replace(' ', '_', $request->first_name)).'_'.$pk_usr;
             $usr->photo = UtilsController::subirArchivo($request, $name, 'photo', 'usrs');
@@ -99,8 +99,11 @@ class UsrController extends Controller
         return redirect()->route('account.update', $pk_usr)->with('success','The user has been succesfully updated');
     }
 
-    public function createEducation() {
-        $usr = Usr::find(session('usr')['pk_usr']);
+    public function createEducation($pk_usr) {
+        if(session('usr')['role'] != 0 && session('usr')['pk_usr'] != $pk_usr){
+            return back();
+        }
+        $usr = Usr::find($pk_usr);
         return view("usrs.createEducation", compact('usr'));
     }
 
@@ -123,14 +126,16 @@ class UsrController extends Controller
         }
     }
 
-    public function storeEducation(EducationValidator $request) {
-        $validated = $request->all();
-        $education = (new Education)->fill($validated);
+    public function storeEducation(EducationValidator $request, $pk_usr) {
+        if(session('usr')['role'] != 0 && session('usr')['pk_usr'] != $pk_usr){
+            return back();
+        }
+        $education = (new Education)->fill($request->all());
         $education->type = ucwords($education->type);
-        $education->fk_usr = session('usr')['pk_usr'];
+        $education->fk_usr = $pk_usr;
         if ($education->save()) {
             $mensaje = 'Education has been added';
-            return redirect(route('account.show', session('usr')['pk_usr']))->with('true', $mensaje);
+            return redirect(route('account.show', $pk_usr))->with('true', $mensaje);
         } else {
             return back()->with('validated', 'Something went wrong. Try again.');
         }

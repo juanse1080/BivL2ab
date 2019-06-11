@@ -78,8 +78,10 @@ class ProjectController extends Controller
 
     // Show project
     public function edit($pk_project) {
-        
         $project = Project::find($pk_project);
+        if(!$project->users->contains(session('usr')['pk_usr']) && session('usr')['role'] != 0){
+            return back();
+        } 
         $users = Usr::orderBy('first_name', 'asc')->get();
         $lines = Line::orderBy('name')->get();
         return view('projects.editProject', ['project' => $project, 'users' => $users, 'lines' => $lines]);
@@ -87,6 +89,9 @@ class ProjectController extends Controller
 
     public function update(UpdateProject $request, $pk_project) {
         $project = Project::find($pk_project);
+        if(!$project->users->contains(session('usr')['pk_usr']) && session('usr')['role'] != 0){
+            return back();
+        } 
         $project->fill($request->all());
         if($request->hasFile('photo')) {
             $name = strtolower(str_replace(' ', '_', $request->title)).'_'.$project->pk_project;
@@ -111,7 +116,7 @@ class ProjectController extends Controller
     }
 
     public function destroy(Request $request, $pk_project) {
-        $project = Project::findOrFail($pk_project);
+        $project = Project::find($pk_project);
         $mensaje = 'The project' . $project->title . ' has been succesfully deleted';
         $project->delete();
         return redirect('/account')->with('true', $mensaje);

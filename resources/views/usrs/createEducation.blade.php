@@ -11,14 +11,14 @@
                     <div class="form-group mb-2">
                         <label for="school"><strong><small style="color : #616161">School:</small></strong></label>
                         <input type="text" name="school" id="school" class="form-control" value="{{old('school')}}">
-                        <small class="invalid-feedback">@showError('usrs', $errors) @endshowError</small>
+                        <small class="invalid-feedback">@showError('school', $errors) @endshowError</small>
                     </div>
                 </div>
                 <div class="col-sm-6 mb-3">
                     <div class="form-group mb-2">
                         <label for="title"><strong><small style="color : #616161">Title:</small></strong></label>
                         <input type="text" name="title" id="title" class="form-control" value="{{old('title')}}">
-                        <small class="invalid-feedback">@showError('usrs', $errors) @endshowError</small>
+                        <small class="invalid-feedback">@showError('title', $errors) @endshowError</small>
                     </div>
                 </div>
             </div>
@@ -28,26 +28,26 @@
                         <label for="type"><strong><small style="color : #616161">Type:</small></strong></label>
                         <select name="type" id="type" required class="selectpicker form-control">
                             <option value="" disabled selected>Select</option>
-                            <option value="Undergraduate">Undergraduate</option>
-                            <option value="Master">Master</option>
-                            <option value="Doctor">Doctor</option>
-                            <option value="Postdoctor">Postdoctor</option>
+                            <option @select('type', 'Undergraduate') @endselect value="Undergraduate">Undergraduate</option>
+                            <option @select('type', 'Master') @endselect value="Master">Master</option>
+                            <option @select('type', 'Doctor') @endselect value="Doctor">Doctor</option>
+                            <option @select('type', 'Postdoctor') @endselect value="Postdoctor">Postdoctor</option>
                         </select>
-                        <small class="invalid-feedback">@showError('usrs', $errors) @endshowError</small>
+                        <small class="invalid-feedback">@showError('type', $errors) @endshowError</small>
                     </div>
                 </div>
                 <div class="col-sm-4 mb-3">
                     <div class="form-group mb-2">
                         <label for="start"><strong><small style="color : #616161">From:</small></strong></label>
-                        <input type="date" class="form-control" name="start" id="start" value="{{old('start')}}" required>
+                        <input type="date" class="form-control @is_valid('start', $errors) @endis_valid" name="start" id="start" value="{{old('start')}}" required>
                         <small class="invalid-feedback">@showError('usrs', $errors) @endshowError</small>
                     </div>
                 </div>
                 <div class="col-sm-4 mb-3">
                     <div class="form-group mb-2">
                         <label for="end"><strong><small style="color : #616161">To:</small></strong></label>
-                        <input type="date" class="form-control" name="end" id="end" value="{{old('end')}}">
-                        <small class="invalid-feedback">@showError('usrs', $errors) @endshowError</small>
+                        <input type="date" class="form-control @is_valid('end', $errors) @endis_valid" name="end" id="end" value="{{old('end')}}">
+                        <small class="invalid-feedback">@showError('end', $errors) @endshowError</small>
                     </div>
                 </div>
             </div>
