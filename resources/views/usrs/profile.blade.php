@@ -111,9 +111,14 @@
                     <div class="card-header" style="cursor:pointer" id="headingThree"  data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                         <span>
                             <span class="mr-2">Education:</span>
-                            @foreach($usr->group('education') as $key => $education)
-                                <span class="badge badge-pill {{$pill[$key%7]}}">{{$education}}</span>
-                            @endforeach
+                            @if (empty($usr->group('education')))
+                                Doesn't have education
+                            @else
+                                @foreach($usr->group('education') as $key => $education)
+                                    <span class="badge badge-pill {{$pill[$key%7]}}">{{$education}}</span>
+                                @endforeach
+                            @endif
+                            
                         </span>
                     </div>
                     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
@@ -162,56 +167,72 @@
                     @endif
                 @endif
             </div>
-            <span class="mb-2 mt-2 text-muted">Projects: </span>
-            <div id="owl-demo" class="owl-carousel d-none d-sm-none d-md-none d-lg-none d-xl-block">
-                @foreach($usr->projects as $project)
-                    <a class="item">
-                        <div class="card ml-3" onclick="location.href='{{route('projects.show', $project->pk_project)}}'">
-                            <img class="lazyOwl card-botton" data-src="{{asset($project->photo)}}" alt="Lazy Owl Image">
-                            <div class="card-body">
-                                {{$project->title}}
+            <span class="mt-3 mb-3 text-muted">Projects: </span>
+            @if ($usr->projects()->count() == 0)
+                <div class="card card-shadown">
+                    <div class="card-body">
+                        Doesn't have projects
+                    </div>
+                </div>
+            @else
+                <div id="owl-demo" class="owl-carousel d-none d-sm-none d-md-none d-lg-none d-xl-block">
+                    @foreach($usr->projects as $project)
+                        <a class="item">
+                            <div class="card card-shadown ml-3" onclick="location.href='{{route('projects.show', $project->pk_project)}}'">
+                                <img class="lazyOwl card-botton" data-src="{{asset($project->photo)}}" alt="Lazy Owl Image">
+                                <div class="card-body">
+                                    {{$project->title}}
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                @endforeach
-            </div>
-            <div id="owl-demo2" class="owl-carousel d-block d-sm-block d-md-block d-lg-block d-xl-none">
-                @foreach($usr->projects as $project)
-                    <a class="item">
-                        <div class="card ml-3" onclick="location.href='{{route('projects.show', $project->pk_project)}}'">
-                            <img class="lazyOwl card-botton" data-src="{{asset($project->photo)}}" alt="Lazy Owl Image">
-                            <div class="card-body">
-                                {{$project->title}}
+                        </a>
+                    @endforeach 
+                </div>
+                <div id="owl-demo2" class="owl-carousel d-block d-sm-block d-md-block d-lg-block d-xl-none">
+                    @foreach($usr->projects as $project)
+                        <a class="item">
+                            <div class="card card-shadown ml-3" onclick="location.href='{{route('projects.show', $project->pk_project)}}'">
+                                <img class="lazyOwl card-botton" data-src="{{asset($project->photo)}}" alt="Lazy Owl Image">
+                                <div class="card-body">
+                                    {{$project->title}}
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                @endforeach
-            </div>
-            <span class="mb-2 mt-2 text-muted">Productions: </span>
-            <div id="owl-demo3" class="owl-carousel d-none d-sm-none d-md-none d-lg-none d-xl-block">
-                @foreach($usr->productions as $production)
-                    <a class="item">
-                        <div class="card ml-3" onclick="location.href='{{route('productions.show', $production->pk_production)}}'">
-                            <img class="lazyOwl card-botton" data-src="{{asset($production->photo)}}" alt="Lazy Owl Image">
-                            <div class="card-body">
-                                {{$production->title}}
+                        </a>
+                    @endforeach
+                </div>
+            @endif
+            <span class="mb-3 mt-3 text-muted">Productions: </span>
+            @if ($usr->productions()->count() == 0)
+                <div class="card card-shadown">
+                    <div class="card-body">
+                        Doesn't have productions
+                    </div>
+                </div>
+            @else
+                <div id="owl-demo3" class="owl-carousel d-none d-sm-none d-md-none d-lg-none d-xl-block">
+                    @foreach($usr->productions as $production)
+                        <a class="item">
+                            <div class="card card-shadown ml-3" onclick="location.href='{{route('productions.show', $production->pk_production)}}'">
+                                <img class="lazyOwl card-botton" data-src="{{asset($production->photo)}}" alt="Lazy Owl Image">
+                                <div class="card-body">
+                                    {{$production->title}}
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                @endforeach
-            </div>
-            <div id="owl-demo4" class="owl-carousel d-block d-sm-block d-md-block d-lg-block d-xl-none">
-                @foreach($usr->productions as $production)
-                    <a class="item">
-                        <div class="card ml-3" onclick="location.href='{{route('productions.show', $production->pk_production)}}'">
-                            <img class="lazyOwl card-botton" data-src="{{asset($production->photo)}}" alt="Lazy Owl Image">
-                            <div class="card-body">
-                                {{$production->title}}
+                        </a>
+                    @endforeach
+                </div>
+                <div id="owl-demo4" class="owl-carousel d-block d-sm-block d-md-block d-lg-block d-xl-none">
+                    @foreach($usr->productions as $production)
+                        <a class="item">
+                            <div class="card card-shadown ml-3" onclick="location.href='{{route('productions.show', $production->pk_production)}}'">
+                                <img class="lazyOwl card-botton" data-src="{{asset($production->photo)}}" alt="Lazy Owl Image">
+                                <div class="card-body">
+                                    {{$production->title}}
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                @endforeach
-            </div>
+                        </a>
+                    @endforeach
+                </div>
+            @endif
         </div>
     </div>
     <script>
