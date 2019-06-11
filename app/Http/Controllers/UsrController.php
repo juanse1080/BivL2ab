@@ -21,8 +21,14 @@ class UsrController extends Controller
         $this->middleware('admin:0')->except(['show', 'index', 'edit', 'update', 'createEducation', 'storeEducation', 'changePassword', 'updatePassword']);
     }
     public function index() {
+        $order = [
+            'Postdoctor',
+            'Doctor',
+            'Master',
+            'Undergraduate',
+        ];
         $usrs = Usr::educationGroup();
-        return view('usrs.listUsers', compact('usrs'));
+        return view('usrs.listUsers', ['usrs' => $usrs, 'order' => $order]);
     }
 
     // Create form for User
