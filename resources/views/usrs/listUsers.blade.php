@@ -3,9 +3,9 @@
 @section('titulo','Users')
 
 <div class="container">
-    @foreach ($usrs as $education => $item)
+    @foreach ($order as $item => $education)
         <h5 class="text-muted mt-3">{{ucwords($education)}}:</h5>
-        @foreach ($item as $key => $usr)
+        @foreach ($usrs[$education] as $key => $usr)
             @if (($key+1) % 2 != 0)
                 <div class="row">
             @endif
@@ -23,7 +23,7 @@
                         </div>
                     </div>
                 </div>
-            @if (($key+1) % 2 == 0 || ($key+1) == count($item))
+            @if (($key+1) % 2 == 0 || ($key+1) == count($usrs[$education])) 
                 </div>
             @endif
         @endforeach
