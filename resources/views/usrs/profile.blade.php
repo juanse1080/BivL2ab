@@ -13,33 +13,7 @@
         display: block;
         width: 100%;
         height: auto;
-        object-fit: cover;
-    }
-    #owl-demo2 .item{
-        margin: 3px;
-    }
-    #owl-demo2 .item img{
-        display: block;
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-    }
-    #owl-demo3 .item{
-        margin: 3px;
-    }
-    #owl-demo3 .item img{
-        display: block;
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-    }
-    #owl-demo4 .item{
-        margin: 3px;
-    }
-    #owl-demo4 .item img{
-        display: block;
-        width: 100%;
-        height: auto;
+        max-height: 200px;
         object-fit: cover;
     }
 </style>
@@ -179,7 +153,7 @@
                     </div>
                 </div>
             @else
-                <div id="owl-demo" class="owl-carousel d-none d-sm-none d-md-none d-lg-none d-xl-block">
+                <div id="owl-demo" class="owl-demo owl-carousel d-none d-sm-none d-md-none d-lg-none d-xl-block">
                     @foreach($usr->projects as $project)
                         <a class="item">
                             <div class="card card-shadown ml-3" onclick="location.href='{{route('projects.show', $project->pk_project)}}'">
@@ -191,7 +165,7 @@
                         </a>
                     @endforeach 
                 </div>
-                <div id="owl-demo2" class="owl-carousel d-block d-sm-block d-md-block d-lg-block d-xl-none">
+                <div id="owl-demo2" class="owl-demo owl-carousel d-block d-sm-block d-md-block d-lg-block d-xl-none">
                     @foreach($usr->projects as $project)
                         <a class="item">
                             <div class="card card-shadown ml-3" onclick="location.href='{{route('projects.show', $project->pk_project)}}'">
@@ -212,7 +186,7 @@
                     </div>
                 </div>
             @else
-                <div id="owl-demo3" class="owl-carousel d-none d-sm-none d-md-none d-lg-none d-xl-block">
+                <div id="owl-demo3" class="owl-demo owl-carousel d-none d-sm-none d-md-none d-lg-none d-xl-block">
                     @foreach($usr->productions as $production)
                         <a class="item">
                             <div class="card card-shadown ml-3" onclick="location.href='{{route('productions.show', $production->pk_production)}}'">
@@ -224,7 +198,7 @@
                         </a>
                     @endforeach
                 </div>
-                <div id="owl-demo4" class="owl-carousel d-block d-sm-block d-md-block d-lg-block d-xl-none">
+                <div id="owl-demo4" class="owl-demo owl-carousel d-block d-sm-block d-md-block d-lg-block d-xl-none">
                     @foreach($usr->productions as $production)
                         <a class="item">
                             <div class="card card-shadown ml-3" onclick="location.href='{{route('productions.show', $production->pk_production)}}'">

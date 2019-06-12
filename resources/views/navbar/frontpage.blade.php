@@ -18,8 +18,8 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul class="navbar-nav mr-auto w-100 justify-content-end">
-          <li class="nav-item pl-2 pr-2 @if (Request::path()=='') co @endif" style="border-radius:50rem!important;font-size:16px">
-            <a class="nav-link text-dark">Home</a>
+          <li class="nav-item pl-2 pr-2 @if (Request::path()=='/') co @endif" style="border-radius:50rem!important;font-size:16px">
+            <a class="nav-link text-dark" href="/">Home</a>
           </li>
           <li class="nav-item pl-2 pr-2 @if (Request::path()=='news')) co @endif" style="border-radius:50rem!important;font-size:16px">
             <a class="nav-link text-dark " href="{{route('news.index')}}">News</a>
