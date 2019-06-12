@@ -13,6 +13,7 @@
         display: block;
         width: 100%;
         height: auto;
+        object-fit: cover;
     }
     #owl-demo2 .item{
         margin: 3px;
@@ -21,6 +22,7 @@
         display: block;
         width: 100%;
         height: auto;
+        object-fit: cover;
     }
     #owl-demo3 .item{
         margin: 3px;
@@ -29,6 +31,7 @@
         display: block;
         width: 100%;
         height: auto;
+        object-fit: cover;
     }
     #owl-demo4 .item{
         margin: 3px;
@@ -37,6 +40,7 @@
         display: block;
         width: 100%;
         height: auto;
+        object-fit: cover;
     }
 </style>
 <div class="container">

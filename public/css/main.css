@@ -404,7 +404,7 @@ button:focus {
    3. Hero Area
    ========================================================================== */
 #hero-area {
-  background: url(../img/hero-area.jpg) fixed no-repeat;
+  background: url(../img/NN_Isométrico.png) fixed no-repeat;
   background-size: cover;
   color: #fff;
   overflow: hidden;
@@ -970,7 +970,7 @@ button:focus {
 11. Testimonial Section Style
  ========================================================================== */
 #testimonial {
-  background: url(../img/testimonial-bg.jpg) fixed no-repeat;
+  background: url(../img/1.png) fixed no-repeat;
   background-size: cover;
   color: #fff;
   overflow: hidden;
@@ -979,7 +979,7 @@ button:focus {
 }
 
 #productions {
-  background: url(../img/testimonial-bg.jpg) fixed no-repeat;
+  background: url(../img/1.png) fixed no-repeat;
   background-size: cover;
   color: #fff;
   overflow: hidden;

@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="author" content="Grayrids">
     <meta id="csrf_token" name="csrf-token" content="{{ csrf_token() }}">
-    <title>Biv2Lab</title>
+    <title>BivL2ab</title>
 
     <!-- Bootstrap CSS -->
     <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
@@ -23,6 +23,21 @@
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/main.css">    
     <link rel="stylesheet" href="css/responsive.css">
+    <style>
+      .card:hover{
+        transform: scale(1.05);
+      }
+      .card{
+        transition: transform .2s;
+      }
+      .testimonial-item:hover{
+        transform: scale(1.05);
+      }
+      .testimonial-item{
+        padding: 15px;
+        transition: transform .2s;
+      }
+    </style>
 
   </head>
   <body>
@@ -203,7 +218,12 @@
               @endforeach
             </div>
           </div>
-        </div>        
+        </div>   
+        <div class="row justify-content-center mt-3">
+          <a href="{{route('news.index')}}" class="btn btn-common">
+            show more
+          </a>
+        </div>     
       </div>
     </div>
 
@@ -211,7 +231,7 @@
 
     <!-- testimonial Section Start -->
     <div id="testimonial" class="section" data-stellar-background-ratio="0.1">
-      <div class="container">
+      <div class="container wow zoomIn" data-wow-duration="1000ms" data-wow-delay="100ms">
         <div class="section-header">          
           <h2 class="section-title text-white">Our Team</h2>
           <hr class="lines">
@@ -235,13 +255,18 @@
               @endforeach
             </div>
           </div>
-        </div>        
+        </div> 
+        <div class="row justify-content-center mt-3">
+            <a href="{{route('account.index')}}" class="btn btn-common">
+              show more
+            </a>
+        </div>
       </div>
     </div>
     <!-- testimonial Section Start -->
 
     <div id="research" class="section" data-stellar-background-ratio="0.1">
-      <div class="container">
+      <div class="container wow zoomIn" data-wow-duration="1000ms" data-wow-delay="100ms">
         <div class="section-header">          
           <h2 class="section-title">Lines of research</h2>
           <hr class="lines">
@@ -250,9 +275,9 @@
         <div class="row justify-content-md-center">
           <div class="col-md-12">
             <div id="accordion">
-              <div class="card">
-                <div class="card-header" id="headingOne">
-                  <span data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="font">
+              <div class="">
+                <div class="card-header" id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  <span style="font">
                     Imaging and Inverse Problems
                   </span>
                 </div>
@@ -267,9 +292,9 @@
                   </div>
                 </div>
               </div>
-              <div class="card">
-                <div class="card-header" id="headingTwo">
-                    <span data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              <div class="">
+                <div class="card-header" id="headingTwo" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    <span>
                     Motion Understanding
                     </span>
                 </div>
@@ -283,11 +308,11 @@
                   </div>
                 </div>
               </div>
-              <div class="card">
-                <div class="card-header" id="headingThree">
-                  <span data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                  Learning and Image representation
-                </span>
+              <div class="">
+                <div class="card-header" id="headingThree" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  <span>
+                    Learning and Image representation
+                  </span>
                 </div>
                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                   <div class="card-body">
@@ -306,7 +331,7 @@
     </div>
 
     <div id="productions" class="section" data-stellar-background-ratio="0.1">
-      <div class="container">
+      <div class="container wow zoomIn" data-wow-duration="1000ms" data-wow-delay="100ms">
         <div class="section-header">          
           <h2 class="section-title text-white">Productions</h2>
           <hr class="lines">
@@ -315,7 +340,7 @@
           <div class="col-md-12">
             <div class="touch-slider owl-carousel text-dark">
               @foreach($productions as $production)
-                <div class="card m-2 border-0">
+                <div class="card m-2 border-0" onclick="location.href='{{route('productions.show', $production->pk_production)}}'">
                   <img class="card-img-top" src="{{asset($production->photo)}}" alt="Card image cap">
                   <div class="card-body">
                     <h6 class="card-title" style="font-size: 18px;font-weight: 700;">{{$production->title}}</h6>
@@ -325,7 +350,12 @@
               @endforeach
             </div>
           </div>
-        </div>        
+        </div>
+        <div class="row justify-content-center mt-3">
+            <a href="{{route('productions.index')}}" class="btn btn-common">
+              show more
+            </a>
+        </div>       
       </div>
     </div>
 
