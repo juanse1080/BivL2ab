@@ -1,10 +1,10 @@
 @extends('navbar.navbar')
 @section('content')
-@section('titulo','Create user')
+@section('titulo','Edit user')
 <div class="container">
     <h5 class="text-muted mb-3">Edit User:</h5>
     <div class="text-center mb-5">
-        <img src="{{asset($usr->photo)}}" class="Responsive image" style="width:24%; height:250px;">
+        <img src="{{asset($usr->photo)}}" class="img-thumbnail" style="width:24%; height:250px;">
     </div>
     <form enctype="multipart/form-data" method="POST" action="{{route('account.update', $usr->pk_usr)}}">
         @csrf

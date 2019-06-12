@@ -121,6 +121,12 @@
                             <div class="card-header" style="cursor:pointer">
                                 <span>
                                     <span class="mr-2">Actions:</span>
+                                    @if (session('usr')['pk_usr'] == $usr->pk_usr)
+                                        <a class="badge badge-pill badge-danger text-white" href="{{route('changePassword')}}">
+                                            <i class="fas fa-key"></i>
+                                            Change Password
+                                        </a>
+                                    @endif
                                     <a href="{{route('account.edit', $usr->pk_usr)}}" class="badge badge-pill badge-primary">
                                         <i class="fas fa-edit"></i>
                                         Edit
