@@ -371,7 +371,7 @@
                   <div class="text-white mb-3 pl-4">
                     <h6 style="">Lola Bautista Rozo</h6>
                     Assistant professor<br>
-                    Email: lxbautis <at> uis dot edu dot co<br>
+                    Email: lxbautis@uis.edu.co<br>
                     Phone: (+57) 6 344000<br>
                     Escuela de Ingeniería de Sistemas e Informática<br>
                     Universidad Industrial de Santander<br></at>
@@ -381,7 +381,7 @@
                   <div class="text-white pl-4">
                     <h6 style="">Fabio Martínez Carrillo</h6>
                     Assistant professor<br>
-                    Email: famarcar <at> uis dot edu dot co<br>
+                    Email: famarcar@uis.edu.co<br>
                     Phone: (+57) 6 344000 - ext 2110<br>
                     Escuela de Ingeniería de Sistemas e Informática<br>
                     Universidad Industrial de Santander<br></at>
