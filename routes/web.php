@@ -33,3 +33,4 @@ Route::resource('/lines', 'LineController');
 Route::resource('/projects', 'ProjectController');
 Route::resource('/productions', 'ProductionController');
 Route::resource('/news', 'NewController');
+Route::resource('/glaucoma', 'GlaucomaController');
