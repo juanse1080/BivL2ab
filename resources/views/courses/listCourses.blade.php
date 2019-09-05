@@ -14,46 +14,77 @@
 @section('content')
 @section('titulo','Courses')
 
-
-<?php 
-    $card_deck = '</div><div class="card-deck">';
-    function edit_button($id) {
-        return '<a href='.route("courses.edit", $id).' role="button" class="btn btn-success">Edit</a>';
-    } 
-?>
-
 <div class="container">
-    <div class="card-deck">
-        @foreach ($courses as $key => $course)
-            <!--Card-->
-            <div class="card card-shadown card-cascade mb-2" style="cursor:pointer" onclick="location.href='{{$course->url}}'">
-
-                <!--Card image-->
-                <div class="view view-cascade">
-                    <img src="{{asset($course->photo)}}" class="card-img-top" alt="">
-                    <a>
-                        <div class="mask rgba-white-slight"></div>
-                    </a>
+    @foreach ($courses as $key => $course)
+        <div class="card card-shadown card-cascade mb-2">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img src="{{asset($course->photo)}}" class="card-img" alt="{{$course->name}}" style="height: 100vh;max-height: 200px;object-fit: cover;height: auto;">
+                    <div class="card-img-overlay" style="left: -15px;top: -15px;">
+                        <span class="badge badge-pill badge-light">
+                            <i class="fas fa-clock"></i>
+                            {{ $course->time }} hours
+                        </span>
+                    </div>
+                    <div class="card-img-overlay" style="left: calc(100% - 53px); top: -15px;">
+                        
+                    </div>
                 </div>
-                <!--/.Card image-->
-            
-                <!--Card content-->
-                <div class="card-body card-body-cascade">
-                    <!--Title-->
-                    <h4 class="card-title text-center"><strong>{{$course->name}}</strong></h4>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <div class="row justify-content-between mr-1 ml-1">
+                            <h5 class="card-title">
+                                <a href="{{$course->url}}" class="btn-link">{{$course->name}}</a>
+                            </h5>
+                            <div class="text-muted">
+                                {{$course->type}} course
+                            </div>
+                        </div>
+                        @if(strlen($course->description) > 295)
+                            <p align="justify" class="card-text">
+                                {{substr($course->description,0,220)}}<span id="dots{{$course->pk_course}}">...</span><span id="more{{$course->pk_course}}" style="display: none">{{substr($course->description,220)}}</span><span class="ml-2 btn-link read-more" style="font-size: smaller" pk="{{$course->pk_course}}">[+]</button>
+                            </p>
+                        @else
+                            <p align="justify" class="card-text">
+                                {{$course->description}}
+                            </p>
+                        @endif
+                        <div class="badge badge-pill badge-success" onclick="location.href='{{route('courses.edit', $course->pk_course)}}'">
+                            <button type="submit" class="btn-link text-white" >
+                                Edit
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </div>
+                        <form action="{{route('courses.destroy', $course->pk_course)}}" class="badge badge-pill badge-danger" method="POST">
+                            @method('DELETE')
+                            @csrf
+                            <button type="submit" class="btn-link text-white">
+                                Delete
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </form>
+                    </div>
                 </div>
-                <!--/.Card content-->
             </div>
-            <!--/.Card-->
-            @if ($key % 2 == 1)
-                {!! $card_deck !!}
-            @endif
-        @endforeach
-    </div>
-    <div class="d-flex">
-        <div class="mx-auto">
-            {{$courses->links()}}
         </div>
-    </div>
+    @endforeach
 </div>
+<script>
+    $('.read-more').click(function(){
+        id = $(this).attr('pk');
+        var dots = $("#dots"+id);
+        var moreText = $("#more"+id);
+        var btnText = $(this);
+
+        if (dots.css('display') == "none") {
+            dots.css('display', 'inline');
+            btnText.html("[+]"); 
+            moreText.css('display', 'none');
+        } else {
+            dots.css('display', 'none');
+            btnText.html("[-]"); 
+            moreText.css('display', 'inline');
+        }
+    })
+</script>
 @endsection

@@ -4,7 +4,7 @@
 
 
 @foreach ($errors->all() as $error)
-    {{$error}}
+{{$error}}
 @endforeach
 
 <div class="container">
@@ -42,17 +42,39 @@
             </div>
         </div>
         <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="time">Duration:</label>
+                    <input type="number" class="form-control" value="{{$course->time}}" id="time" name="time" required>
+                    <small class="invalid-feedback">{{$errors->time}}</small>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="type">Type of course:</label>
+                    <select class="form-control custom-select" name="type"
+                        id="type" required>
+                        <option @if( $course->type == 'Attending' ) selected @endif value="Attending">Attending</option>
+                        <option @if( $course->type == 'Distance' ) selected @endif value="Distance">Distance</option>
+                    </select>
+                    <small class="invalid-feedback">{{$errors->type}}</small>
+                </div>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-12">
                 <div class="form-group">
                     <label for="description">Description:</label>
-                    <textarea required rows="15" name="description" class="form-control" placeholder="Course description here..">{{$course->description}}</textarea>
+                    <textarea required rows="15" name="description" class="form-control"
+                        placeholder="Course description here..">{{$course->description}}</textarea>
                     <small class="invalid-feedback">{{$errors->description}}</small>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-12">
-                <button type="submit" name="action" class="btn btn-md btn-success float-right" value="Create">Save</button>
+                <button type="submit" name="action" class="btn btn-md btn-success float-right"
+                    value="Create">Save</button>
             </div>
         </div>
 

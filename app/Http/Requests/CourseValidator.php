@@ -27,7 +27,9 @@ class CourseValidator extends FormRequest
             'name' => 'required|string',
             'description' => 'required',
             'url' => 'required|url',
-            'photo' => 'required|image|mimes:jpeg,bmp,png,jpg'
+            'type' => 'required|in:Attending,Distance',
+            'time' => 'required|numeric',
+            'photo' => 'image|mimes:jpeg,bmp,png,jpg'
         ];
     }
 
