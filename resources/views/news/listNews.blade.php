@@ -14,9 +14,9 @@
 @section('content')
 @section('titulo','BivL2ab News')
 
-@php
+<?php 
     $card_deck = '</div><div class="card-deck">';
-@php
+?>
 
 <div class="container">
     <div class="row mb-3">

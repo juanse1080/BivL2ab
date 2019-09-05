@@ -49,20 +49,22 @@
                                 {{$course->description}}
                             </p>
                         @endif
-                        <div class="badge badge-pill badge-success" onclick="location.href='{{route('courses.edit', $course->pk_course)}}'">
-                            <button type="submit" class="btn-link text-white" >
-                                Edit
-                                <i class="fas fa-edit"></i>
-                            </button>
-                        </div>
-                        <form action="{{route('courses.destroy', $course->pk_course)}}" class="badge badge-pill badge-danger" method="POST">
-                            @method('DELETE')
-                            @csrf
-                            <button type="submit" class="btn-link text-white">
-                                Delete
-                                <i class="fas fa-trash"></i>
-                            </button>
-                        </form>
+                        @if(session('role') !== null and !session('role'))
+                            <div class="badge badge-pill badge-success" onclick="location.href='{{route('courses.edit', $course->pk_course)}}'">
+                                <button type="submit" class="btn-link text-white" >
+                                    Edit
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                            </div>
+                            <form action="{{route('courses.destroy', $course->pk_course)}}" class="badge badge-pill badge-danger" method="POST">
+                                @method('DELETE')
+                                @csrf
+                                <button type="submit" class="btn-link text-white">
+                                    Delete
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </form>
+                        @endif
                     </div>
                 </div>
             </div>
