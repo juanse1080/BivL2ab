@@ -27,13 +27,19 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
         <meta id="csrf_token" name="csrf-token" content="{{ csrf_token() }}">
     </head>
-    <body style="background:#f0f0f0c7">
+    <body skndcsd="{{session('role')}}" style="background:#f0f0f0c7">
         <!-- precarga  de la pagina -->
         @include('precarga.precarga')
         <div id="ver">
             <!-- En esta parte va el menu con la directiva includee para que quede en el lugar -->
             @if (Auth::check())
-                @include('menus.admin')
+                @if(session('role') !== null and !session('role'))
+                    @include('menus.admin')
+                @elseif(session('role') !== null and session('role') == 1)
+                    @include('menus.publication')
+                @else
+                    @include('menus.mean')
+                @endif
             @else
                 @include('navbar.frontpage')
             @endif

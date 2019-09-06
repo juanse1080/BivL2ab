@@ -26,6 +26,7 @@ class UsrController extends Controller
             'Doctor',
             'Master',
             'Undergraduate',
+            'others'
         ];
         $usrs = Usr::educationGroup();
         return view('usrs.listUsers', ['usrs' => $usrs, 'order' => $order]);

@@ -26,12 +26,12 @@ class CourseController extends Controller
 
     // Save course
     public function store(CourseValidator $request) {
-        $validated = $request->all();
-        $course = (new Course)->fill($validated);
+        $course = (new Course)->fill($request->all());
         if($request->hasFile('photo')) {
             $name = strtolower(str_replace(' ', '_', $request->name));
             $course->photo = UtilsController::subirArchivo($request, $name, 'photo', 'courses');
         }
+        // dd($course);
         if ($course->save()) {
             return redirect('/courses')->with('true', 'The course' . $course->name . ' has been succesfully created');
         } else {
