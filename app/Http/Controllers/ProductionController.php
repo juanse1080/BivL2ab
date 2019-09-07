@@ -27,7 +27,7 @@ class ProductionController extends Controller
     }
 
     public function index() {
-        $productions = Production::orderBy('created_at', 'desc')->paginate(6);
+        $productions = Production::orderBy('abstract', 'asc')->get();
         $pill = [
             'badge-primary',
             'badge-secondary',
