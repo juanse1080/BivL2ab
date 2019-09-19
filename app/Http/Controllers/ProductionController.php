@@ -120,7 +120,8 @@ class ProductionController extends Controller
         if(!$production->users->contains(session('usr')['pk_usr']) && session('usr')['role'] != 0){
             return back();
         }
-        -$production>fill($request->all());
+        
+        $production->fill($request->all());
         if($request->external == 'true') {
             $production->external = true;
         } else {
