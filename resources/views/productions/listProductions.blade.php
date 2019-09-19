@@ -25,10 +25,25 @@
         <div class="card card-shadown card-cascade mb-2">
             <div class="row no-gutters">
                 <div class="col-md-3">
-                    <a href="{{route('productions.show', $production->pk_production)}}"><img src="{{asset($production->photo)}}" class="card-img" alt="{{$production->name}}" style="height: 50vh;max-height: 150px;"></a>
+                    <a href="{{route('productions.show', $production->pk_production)}}"><img src="{{asset($production->photo)}}" class="card-img" alt="{{$production->name}}" style="height: 100vh;max-height: 150px;"></a>
+                    <div class="card-img-overlay" style="left: -15px;top: -15px;">
+                        <span class="badge badge-pill badge-light">
+                            <i class="fas fa-clock"></i>
+                            {{ $production->type }}
+                        </span>
+                    </div>
+                    <div class="card-img-overlay" style="left: calc(100% - 53px); top: -15px;">
+                        
+                    </div>
                 </div>
                 <div class="col-md-9">
                     <div class="card-body">
+                        <div class="row mr-1 ml-1">
+                            <h5 class="card-title">
+                                <a href="{{$production->url}}" class="btn-link">{{$production->title}}</a>
+                            </h5>
+                        </div>
+                        <div class="mr-1 ml-1">
                         @if(strlen($production->abstract) > 350)
                             <p align="justify" class="card-text">
                                 {{substr($production->abstract,0,220)}}<span id="dots{{$production->pk_production}}">...</span><span id="more{{$production->pk_production}}" style="display: none">{{substr($production->abstract,220)}}</span><span class="ml-2 btn-link read-more" style="font-size: smaller" pk="{{$production->pk_production}}">[+]</button>
@@ -54,6 +69,7 @@
                                 </button>
                             </form>
                         @endif
+                        </div>
                     </div>
                 </div>
             </div>
