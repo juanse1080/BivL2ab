@@ -167,4 +167,11 @@ class ProductionController extends Controller
             return back()->with('validated', 'Something went wrong. Try again.');
         }
     }
+
+    public function destroy(Request $request, $pk_production) {
+        $production = Production::find($pk_production);
+        $mensaje = 'The production' . $production->name . ' has been succesfully deleted';
+        $production->delete();
+        return redirect('/productions')->with('true', $mensaje);
+    }
 }
