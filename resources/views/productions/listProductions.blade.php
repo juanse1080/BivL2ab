@@ -40,7 +40,7 @@
                     <div class="card-body">
                         <div class="row mr-1 ml-1">
                             <h5 class="card-title">
-                                <a href="{{$production->url}}" class="btn-link">{{$production->title}}</a>
+                                <a href="{{route('productions.show', $production->pk_production)}}" class="btn-link">{{$production->title}}</a>
                             </h5>
                         </div>
                         <div class="mr-1 ml-1">
