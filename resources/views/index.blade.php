@@ -105,7 +105,7 @@
                 <a class="nav-link page-scroll" href="#research">Lines</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link page-scroll" href="#productions">Productions</a>
+                <a class="nav-link page-scroll" href="{{route('productions.index')}}">Productions</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link page-scroll" href="#contact">Contact</a>
@@ -140,7 +140,7 @@
             <a class="nav-link page-scroll" href="#research">Lines</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link page-scroll" href="#productions">Productions</a>
+            <a class="nav-link page-scroll" href="{{route('productions.index')}}">Productions</a>
           </li>
           <li class="nav-item">
             <a class="nav-link page-scroll" href="#contact">Contact</a>
@@ -330,7 +330,7 @@
       </div>
     </div>
 
-    <div id="productions" class="section" data-stellar-background-ratio="0.1">
+    <!--  
       <div class="container wow zoomIn" data-wow-duration="1000ms" data-wow-delay="100ms">
         <div class="section-header">          
           <h2 class="section-title text-white">Productions</h2>
@@ -357,7 +357,7 @@
             </a>
         </div>       
       </div>
-    </div>
+    </div> -->
 
     <!-- Contact Section Start -->
     <section id="contact" class="section" data-stellar-background-ratio="-0.2">      

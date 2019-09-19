@@ -25,10 +25,9 @@
         <div class="card card-shadown card-cascade mb-2">
             <div class="row no-gutters">
                 <div class="col-md-3">
-                    <a href="{{route('productions.show', $production->pk_production)}}"><img src="{{asset($production->photo)}}" class="card-img" alt="{{$production->name}}" style="height: 100vh;max-height: 150px;"></a>
+                    <a href="{{route('productions.show', $production->pk_production)}}"><img src="{{asset($production->photo)}}" class="card-img" alt="{{$production->name}}" style="height: 100vh;max-height: 203px;"></a>
                     <div class="card-img-overlay" style="left: -15px;top: -15px;">
                         <span class="badge badge-pill badge-light">
-                            <i class="fas fa-clock"></i>
                             {{ $production->type }}
                         </span>
                     </div>
@@ -60,7 +59,7 @@
                                     <i class="fas fa-edit"></i>
                                 </button>
                             </div>
-                            <form action="{{route('productions.destroy', $production->pk_production)}}" class="badge badge-pill badge-danger" method="POST">
+                            <form action="{{route('productions.destroy', $production->pk_production)}}" class="badge badge-pill badge-danger" method="POST" style="margin-block-end: 0px;">
                                 @method('DELETE')
                                 @csrf
                                 <button type="submit" class="btn-link text-white">
