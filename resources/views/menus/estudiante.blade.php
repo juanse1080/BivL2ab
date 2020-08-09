@@ -1,5 +1,5 @@
 <!-- Menu principal para el estudiante -->
-<link rel="stylesheet" href="{{ asset('css/style4.css') }}">
+<link rel="stylesheet" href="{{ secure_asset('css/style4.css') }}">
    
     <div class="wrapper">
         <!-- Sidebar  -->
@@ -63,7 +63,7 @@
 
 {{-- <nav class="navbar navbar-expand-lg navbar-dark  lead" style="background-color: #1e88e5; margin-bottom:25px;">   
         <a class="navbar-brand" href="{{ url('/') }}">
-            <img src="{{asset('css/img/logo_min_1.png')}}"  height="30" alt="">
+            <img src="{{secure_asset('css/img/logo_min_1.png')}}"  height="30" alt="">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

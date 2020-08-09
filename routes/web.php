@@ -26,6 +26,13 @@ Route::put('/account/updatePassword', 'UsrController@updatePassword')->name('upd
 
 Route::get('/productions/downloadpdf/{pk_production}', 'ProductionController@downloadPDF')->name('downloadPDF');
 
+Route::get('/clear-cache', function() {
+    $exitCode = Artisan::call('config:clear');
+    $exitCode = Artisan::call('cache:clear');
+    $exitCode = Artisan::call('config:cache');
+    return 'DONE'; //Return anything
+});
+
 Route::resource('/account', 'UsrController');
 Route::resource('/courses', 'CourseController');
 Route::resource('/datasets', 'DatasetController');

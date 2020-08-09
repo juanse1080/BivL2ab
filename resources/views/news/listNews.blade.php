@@ -31,7 +31,7 @@
 
                 <!--Card image-->
                 <div class="view view-cascade">
-                    <img src="{{asset($new->photo)}}" class="card-img-top" alt="">
+                    <img src="{{secure_asset($new->photo)}}" class="card-img-top" alt="">
                     <a>
                         <div class="mask rgba-white-slight"></div>
                     </a>

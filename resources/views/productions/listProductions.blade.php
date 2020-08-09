@@ -25,7 +25,7 @@
         <div class="card card-shadown card-cascade mb-2">
             <div class="row no-gutters">
                 <div class="col-md-3">
-                    <a href="{{route('productions.show', $production->pk_production)}}"><img src="{{asset($production->photo)}}" class="card-img" alt="{{$production->name}}" style="height: 100vh;max-height: 203px;"></a>
+                    <a href="{{route('productions.show', $production->pk_production)}}"><img src="{{secure_asset($production->photo)}}" class="card-img" alt="{{$production->name}}" style="height: 100vh;max-height: 203px;"></a>
                     <div class="card-img-overlay" style="left: -15px;top: -15px;">
                         <span class="badge badge-pill badge-light">
                             {{ $production->type }}

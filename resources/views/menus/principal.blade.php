@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark pt-4 px-0" id="inicio">
     <a class="navbar-brand mr-5" href="#">
-      <img src="{{asset('img/app-promo/shards-logo-green.svg')}}" class="mr-2" alt="Shards - Agency Landing Page">
+      <img src="{{secure_asset('img/app-promo/shards-logo-green.svg')}}" class="mr-2" alt="Shards - Agency Landing Page">
       ColCIEF
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">

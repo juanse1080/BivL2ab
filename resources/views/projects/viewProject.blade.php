@@ -12,7 +12,7 @@
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 mb-3">
             <div class="card card-shadown mb-2">
-                <img src="{{asset($project->photo)}}" class="card-img-top" alt="{{$project->title}}">
+                <img src="{{secure_asset($project->photo)}}" class="card-img-top" alt="{{$project->title}}">
             </div>
             <span class="mb-2 mt-2 text-muted">Summary: </span>
             <div class="card card-shadown">

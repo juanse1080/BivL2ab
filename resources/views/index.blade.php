@@ -84,7 +84,7 @@
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
             <a href="{{route('root')}}" class="navbar-brand">
-              <img class="img-fulid" src="{{asset('img/logo.svg')}}" style="max-height:50px;max-width:60px">
+              <img class="img-fulid" src="{{secure_asset('img/logo.svg')}}" style="max-height:50px;max-width:60px">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
               <i class="lnr lnr-menu"></i>
@@ -195,38 +195,40 @@
     </section>
     <!-- End Video Promo Section -->
 
+    
     <!-- section news -->
-    <div id="news" class="section" data-stellar-background-ratio="0.1">
-      <div class="container">
-        <div class="section-header">          
-          <h2 class="section-title">News</h2>
-          <hr class="lines">
-          <!-- <p class="section-subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, dignissimos! <br> Lorem ipsum dolor sit amet, consectetur.</p> -->
-        </div>
-        <div class="row justify-content-md-center">
-          <div class="col-md-12">
-            <div class="touch-slider owl-carousel text-dark">
-              @foreach($news as $new)
-                <div class="card m-2 border-0">
-                  <img class="card-img-top" src="{{asset($new->photo)}}" alt="Card image cap">
-                  <div class="card-body">
-                    <h6 class="card-title" style="font-size: 18px;font-weight: 700;">{{$new->title}}</h6>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="{{route('news.show', $new->pk_new)}}" class="btn-rm ">Show <i class="lnr lnr-arrow-right"></i></a>
-                  </div>
-                </div>
-              @endforeach
-            </div>
+    @if (count($news) > 0)
+      <div id="news" class="section" data-stellar-background-ratio="0.1">
+        <div class="container">
+          <div class="section-header">          
+            <h2 class="section-title">News</h2>
+            <hr class="lines">
+            <!-- <p class="section-subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, dignissimos! <br> Lorem ipsum dolor sit amet, consectetur.</p> -->
           </div>
-        </div>   
-        <div class="row justify-content-center mt-3">
-          <a href="{{route('news.index')}}" class="btn btn-common">
-            show more
-          </a>
-        </div>     
+          <div class="row justify-content-md-center">
+            <div class="col-md-12">
+              <div class="touch-slider owl-carousel text-dark">            
+                @foreach($news as $new)
+                  <div class="card m-2 border-0">
+                    <img class="card-img-top" src="{{secure_asset($new->photo)}}" alt="Card image cap">
+                    <div class="card-body">
+                      <h6 class="card-title" style="font-size: 18px;font-weight: 700;">{{$new->title}}</h6>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="{{route('news.show', $new->pk_new)}}" class="btn-rm ">Show <i class="lnr lnr-arrow-right"></i></a>
+                    </div>
+                  </div>
+                @endforeach
+              </div>
+            </div>
+          </div>   
+          <div class="row justify-content-center mt-3">
+            <a href="{{route('news.index')}}" class="btn btn-common">
+              show more
+            </a>
+          </div>     
+        </div>
       </div>
-    </div>
-
+    @endif
               
 
     <!-- testimonial Section Start -->
@@ -242,7 +244,7 @@
               @foreach($usrs as $usr)
               <a href="{{route('account.show', $usr->pk_usr)}}" style="color: #fff;">
                 <div class="testimonial-item">
-                  <img src="{{asset($usr->photo)}}" alt="Client Testimonoal" />
+                  <img src="{{secure_asset($usr->photo)}}" alt="Client Testimonoal" />
                   <div class="testimonial-text">
                     <p>{{substr($usr->biography, 0, 200 )}}</p>
                     <h3>{{$usr->first_name}} {{$usr->last_name}}</h3>
@@ -341,7 +343,7 @@
             <div class="touch-slider owl-carousel text-dark">
               @foreach($productions as $production)
                 <div class="card m-2 border-0" onclick="location.href='{{route('productions.show', $production->pk_production)}}'">
-                  <img class="card-img-top" src="{{asset($production->photo)}}" alt="Card image cap">
+                  <img class="card-img-top" src="{{secure_asset($production->photo)}}" alt="Card image cap">
                   <div class="card-body">
                     <h6 class="card-title" style="font-size: 18px;font-weight: 700;">{{$production->title}}</h6>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>

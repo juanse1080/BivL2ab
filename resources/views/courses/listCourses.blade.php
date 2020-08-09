@@ -19,7 +19,7 @@
         <div class="card card-shadown card-cascade mb-2">
             <div class="row no-gutters">
                 <div class="col-md-4">
-                    <img src="{{asset($course->photo)}}" class="card-img" alt="{{$course->name}}" style="height: 100vh;max-height: 200px;object-fit: cover;height: auto;">
+                    <img src="{{secure_asset($course->photo)}}" class="card-img" alt="{{$course->name}}" style="height: 100vh;max-height: 200px;object-fit: cover;height: auto;">
                     <div class="card-img-overlay" style="left: -15px;top: -15px;">
                         <span class="badge badge-pill badge-light">
                             <i class="fas fa-clock"></i>

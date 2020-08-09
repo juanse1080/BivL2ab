@@ -10,7 +10,7 @@
 <div class="container">
     <h5 class="text-muted mb-3">Edit Course:</h5>
     <div class="text-center mb-5">
-        <img src="{{asset($course->photo)}}" class="Responsive image" style="width:36%; height:250px;">
+        <img src="{{secure_asset($course->photo)}}" class="Responsive image" style="width:36%; height:250px;">
     </div>
     <form enctype="multipart/form-data" method="POST" action="{{ route('courses.update',$course->pk_course) }}">
         @csrf

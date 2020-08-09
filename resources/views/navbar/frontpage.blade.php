@@ -7,14 +7,14 @@
     color: #fff !important; 
   }
 </style>
-<header class="mb-3">
+<header class="mb-5 card-shadown">
   <nav class="navbar navbar-expand-lg pt-0 pb-0" style="background: white;">
     <div class="container">
       <a href="{{route('root')}}" class="navbar-brand">
-        <img class="img-fulid" src="{{asset('img/blank.svg')}}" width="100" height="70">
+        <img class="img-fulid" src="{{secure_asset('img/blank.svg')}}" width="100" height="70">
       </a>
       <button class="navbar-toggler text-muted" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-          <i class="fas fa-sliders-h"></i>
+          <i class="fas fa-bars"></i>
       </button>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul class="navbar-nav mr-auto w-100 justify-content-end">

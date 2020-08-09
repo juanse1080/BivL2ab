@@ -9,7 +9,7 @@
     </div>
     <div class="row justify-content-center mb-5">
         <div class="col-12 text-center">
-            <img src="{{asset($new->photo)}}" style="max-height:400px;object-fit:scale-down" class="rounded" alt="{{$new->title}}">
+            <img src="{{secure_asset($new->photo)}}" style="max-height:400px;object-fit:scale-down" class="rounded" alt="{{$new->title}}">
         </div>
         
     </div>

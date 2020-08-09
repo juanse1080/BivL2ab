@@ -1,12 +1,12 @@
 
 <!-- Our Custom CSS -->
-    <link rel="stylesheet" href="{{ asset('css/style4.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('css/style4.css') }}">
 
     <div class="wrapper" >
         <!-- Sidebar  -->
         <nav id="sidebar" class="active" >
             <div class="sidebar-header"  style="cursor: pointer;">
-                <img class="img-fulid" src="{{asset('img/logo.svg')}}" style="max-height:50px;max-width:60px">
+                <img class="img-fulid" src="{{secure_asset('img/logo.svg')}}" style="max-height:50px;max-width:60px">
             </div>
 
             <ul class="list-unstyled components">
@@ -118,7 +118,7 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item active">
-                                <a class="nav-link mr-3" href="{{ url('/home') }}">{{ucwords(session('usr')['first_name'])}} {{ucwords(session('usr')['last_name'])}} <img class="rounded-circle w-100 pl-2" style="max-width:40px" src="{{asset(session('usr')['photo'])}}"></a>
+                                <a class="nav-link mr-3" href="{{ url('/home') }}">{{ucwords(session('usr')['first_name'])}} {{ucwords(session('usr')['last_name'])}} <img class="rounded-circle w-100 pl-2" style="max-width:40px" src="{{secure_asset(session('usr')['photo'])}}"></a>
                             </li>
                             <li class="nav-item active">
                                 <a class="nav-link mr-3" href="{{ route('account.edit', session('usr')['pk_usr']) }}">Edit profile</a>

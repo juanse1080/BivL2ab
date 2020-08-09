@@ -9,7 +9,7 @@
         <h5 class="modal-title mb-3" id="exampleModalLabel">Edit Project</h5>
         <div class="row justify-content-md-center">
             <div class="col-12 text-center">
-                <img src="{{asset($project->photo)}}" style="max-height:400px;object-fit:scale-down" class="thumbnail">
+                <img src="{{secure_asset($project->photo)}}" style="max-height:400px;object-fit:scale-down" class="thumbnail">
             </div>
         </div>
         <div class="row">

@@ -12,7 +12,7 @@
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 mb-3">
             <div class="card mb-2 card-shadown">
-                <img src="{{asset($production->photo)}}" class="card-img-top" alt="{{$production->title}}">
+                <img src="{{secure_asset($production->photo)}}" class="card-img-top" alt="{{$production->title}}">
             </div>
             <span class="mb-2 mt-2 text-muted">Abstract: </span>
             <div class="card card-shadown">
@@ -105,7 +105,7 @@
                     @foreach($production->datasets as $dataset)
                         <a class="item">
                             <div class="card ml-3" >
-                                <img class="lazyOwl card-botton" style="max-height:400px;object-fit:scale-down" data-src="{{asset($dataset->photo)}}" alt="Lazy Owl Image">
+                                <img class="lazyOwl card-botton" style="max-height:400px;object-fit:scale-down" data-src="{{secure_asset($dataset->photo)}}" alt="Lazy Owl Image">
                                 <div class="card-body">
                                     {{$dataset->name}}
                                 </div>
@@ -117,7 +117,7 @@
                     @foreach($production->datasets as $dataset)
                         <a class="item">
                             <div class="card ml-3" >
-                                <img class="lazyOwl card-botton" style="max-height:400px;object-fit:scale-down" data-src="{{asset($dataset->photo)}}" alt="Lazy Owl Image">
+                                <img class="lazyOwl card-botton" style="max-height:400px;object-fit:scale-down" data-src="{{secure_asset($dataset->photo)}}" alt="Lazy Owl Image">
                                 <div class="card-body">
                                     {{$dataset->name}}
                                 </div>
