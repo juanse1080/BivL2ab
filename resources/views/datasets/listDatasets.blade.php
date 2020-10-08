@@ -24,7 +24,7 @@
                         <div class="card card-shadown">
                             <div class="card-body">
                                 <div class="text-center">
-                                    <img src="{{secure_asset($dataset->photo)}}" class="Responsive image" alt="..." style="width:36%; height:250px;">
+                                    <img src="{{asset($dataset->photo)}}" class="Responsive image" alt="..." style="width:36%; height:250px;">
                                 </div>
                                 <hr>
                                 <div class="container">

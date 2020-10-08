@@ -4,7 +4,7 @@
 <div class="container">
     <h5 class="text-muted mb-3">Edit new:</h5>
     <div class="text-center mb-5">
-        <img src="{{secure_asset($new->photo)}}" class="Responsive image" style="width:36%; height:250px;">
+        <img src="{{asset($new->photo)}}" class="Responsive image" style="width:36%; height:250px;">
     </div>
     <form enctype="multipart/form-data" method="POST" action="{{ route('news.update', $new->pk_new) }}">
         @csrf

@@ -14,7 +14,7 @@
                         <div class="card card-shadown" onclick="location.href='{{route('account.show', $usr->pk_usr)}}'">
                             <div class="row no-gutters">
                                 <div class="col-md-4">
-                                    <img src="{{secure_asset($usr->photo)}}" class="card-img" alt="{{$usr->first_name}}" style="object-fit: cover;">
+                                    <img src="{{asset($usr->photo)}}" class="card-img" alt="{{$usr->first_name}}" style="object-fit: cover;">
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body">

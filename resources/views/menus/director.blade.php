@@ -1,5 +1,5 @@
 <!-- Menu principal para el estudiante -->
-<link rel="stylesheet" href="{{ secure_asset('css/style4.css') }}">
+<link rel="stylesheet" href="{{ asset('css/style4.css') }}">
 
     <div class="wrapper">
         <!-- Sidebar  -->

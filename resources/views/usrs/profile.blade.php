@@ -21,7 +21,7 @@
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 mb-3">
             <div class="card card-shadown mb-2">
-                <img src="{{secure_asset($usr->photo)}}" class="card-img-top" alt="{{$usr->first_name}}">
+                <img src="{{asset($usr->photo)}}" class="card-img-top" alt="{{$usr->first_name}}">
             </div>
             <span class="mb-2 mt-2 text-muted">Biography: </span>
             <div class="card card-shadown">
@@ -30,7 +30,7 @@
             
         </div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-8">
-            <div class="accordion card-shadown" id="accordionE">
+            <div class="accordion card-shadown mb-3" id="accordionE">
                 <div class="card">
                     <div class="card-header" style="cursor:pointer" id="headingOne"  data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                         <span>
@@ -151,7 +151,7 @@
                     @endif
                 @endif
             </div>
-            <span class="mt-3 mb-3 text-muted">Projects: </span>
+            <span class="text-muted">Projects: </span>
             @if ($usr->projects()->count() == 0)
                 <div class="card card-shadown">
                     <div class="card-body">
@@ -163,7 +163,7 @@
                     @foreach($usr->projects as $project)
                         <a class="item">
                             <div class="card card-shadown ml-3" onclick="location.href='{{route('projects.show', $project->pk_project)}}'">
-                                <img class="lazyOwl card-botton" data-src="{{secure_asset($project->photo)}}" alt="Lazy Owl Image">
+                                <img class="lazyOwl card-botton" data-src="{{asset($project->photo)}}" alt="Lazy Owl Image">
                                 <div class="card-body">
                                     {{$project->title}}
                                 </div>
@@ -175,7 +175,7 @@
                     @foreach($usr->projects as $project)
                         <a class="item">
                             <div class="card card-shadown ml-3" onclick="location.href='{{route('projects.show', $project->pk_project)}}'">
-                                <img class="lazyOwl card-botton" data-src="{{secure_asset($project->photo)}}" alt="Lazy Owl Image">
+                                <img class="lazyOwl card-botton" data-src="{{asset($project->photo)}}" alt="Lazy Owl Image">
                                 <div class="card-body">
                                     {{$project->title}}
                                 </div>
@@ -184,7 +184,7 @@
                     @endforeach
                 </div>
             @endif
-            <span class="mb-3 mt-3 text-muted">Productions: </span>
+            <span class="mt-3 text-muted">Productions: </span>
             @if ($usr->productions()->count() == 0)
                 <div class="card card-shadown">
                     <div class="card-body">
@@ -196,7 +196,7 @@
                     @foreach($usr->productions as $production)
                         <a class="item">
                             <div class="card card-shadown ml-3" onclick="location.href='{{route('productions.show', $production->pk_production)}}'">
-                                <img class="lazyOwl card-botton" data-src="{{secure_asset($production->photo)}}" alt="Lazy Owl Image">
+                                <img class="lazyOwl card-botton" data-src="{{asset($production->photo)}}" alt="Lazy Owl Image">
                                 <div class="card-body">
                                     {{$production->title}}
                                 </div>
@@ -208,7 +208,7 @@
                     @foreach($usr->productions as $production)
                         <a class="item">
                             <div class="card card-shadown ml-3" onclick="location.href='{{route('productions.show', $production->pk_production)}}'">
-                                <img class="lazyOwl card-botton" data-src="{{secure_asset($production->photo)}}" alt="Lazy Owl Image">
+                                <img class="lazyOwl card-botton" data-src="{{asset($production->photo)}}" alt="Lazy Owl Image">
                                 <div class="card-body">
                                     {{$production->title}}
                                 </div>
